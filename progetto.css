@@ -1,0 +1,87 @@
+.progetto-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Testo più stretto a sinistra, immagini più larghe a destra */
+    gap: 40px;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 50px;
+    display: flex;
+    align-items: flex-start;
+}
+
+/*.progetto-testo {
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+    font-size: 16px;
+    color: #333;
+    max-width: 350px;
+}*/
+
+.progetto-testo {
+    display: flex;
+    flex-direction: column; /* Mettiamo il testo sopra e i dettagli sotto */
+    align-items: flex-start;
+    max-width: 350px;
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+    font-size: 16px;
+    color: #333;
+}
+
+.progetto-descrizione {
+    text-align: justify;
+    margin-bottom: 20px; /* Spazio tra il testo e i dettagli */
+}
+
+.progetto-dettagli {
+    text-align: left;
+}
+
+
+.progetto-immagini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.planimetria {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.griglia-immagini {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.griglia-immagini img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Layout responsive */
+@media (max-width: 900px) {
+    .progetto-container {
+        display: flex;
+        flex-direction: column; /* Inverte l'ordine: prima le immagini, poi il testo */
+        align-items: center; /* Centra gli elementi */
+    }
+
+    .progetto-testo {
+        position: static;
+        text-align: center;
+        max-width: 600px; /* Imposta una larghezza massima ragionevole */
+        width: 100%;
+    }
+}

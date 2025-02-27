@@ -4,47 +4,115 @@
     box-sizing: border-box;
 }
 
-body, html {
-    height: 100%;
+/* Stile generale */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 80px;
+    background-color: #ffffff;
+    color: #333;
 }
 
 header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-.menu {
+.logo {
+    font-size: 18px;
+    text-transform: uppercase;
+    line-height: 1.3;
+    color: #6d1b1b;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
 
-.menu button {
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
+nav ul li {
+    display: inline;
 }
 
-.menu button:hover {
-    background-color: rgba(255, 255, 255, 0.8);
+
+nav ul li a {
+    text-decoration: none;
+    
+    color: #6d1b1b;
+    font-size: 14px;
+    font-weight: bold;
 }
 
-.title {
-    color: white;
-    font-size: 24px;
-    font-family: Arial, sans-serif;
-    position: absolute;
-    top: 80px;
-    left: 10px;
+nav ul li a:hover {
+    color: #333; /* Bordeaux */
+}
+
+
+.burger-menu {
+    display: none; /* Nascondi il bottone hamburger di default */
+}
+
+.line {
+    width: 25px;
+    height: 3px;
+    background-color: gray; /* Colore delle linee */
+    margin: 4px 0; /* Spazio tra le linee */
+    transition: 0.4s; /* Transizione dolce */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: gray;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 10px; /* Padding verticale per i link */
+    margin: 0 10px; /* Spazio orizzontale tra i link */
+}
+
+/* Media query per gestire il layout su dispositivi più piccoli */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 5px 20px; /* Mantieni padding orizzontale su schermi piccoli */
+    }
+
+    .navbar a {
+        display: inline; /* Mostra i link */
+        margin: 0 5px; /* Riduci il margine */
+    }
+
+    .burger-menu {
+        display: flex; /* Mostra il bottone hamburger */
+        flex-direction: column;
+        margin-left: 10px; /* Distanza dal bordo sinistro */
+    }
+}
+
+/* Stile per quando il menu è aperto */
+.burger-menu.open .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger-menu.open .line2 {
+    opacity: 0;
+}
+
+.burger-menu.open .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 .hero {
@@ -56,5 +124,27 @@ header {
 .hero img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Mantiene le proporzioni dell'immagine */
+}
+
+.image-section {
+    height: 100vh; /* Ogni sezione occupa l'intera altezza della finestra */
+    overflow: hidden;
+    position: relative; /* Per posizionare l'immagine */
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene le proporzioni dell'immagine */
+}
+
+.title {
+    color: white;
+    font-size: 36px;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    font-family: 'Roboto', sans-serif; /* Font Roboto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.06); /* Ombra del testo */
 }
