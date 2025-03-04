@@ -1,0 +1,57 @@
+
+.logo {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.name {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.6;
+}
+
+.bold {
+    font-weight: bold;
+    color: #6d1b1b; /* Marrone scuro */
+    font-size: 20px;
+}
+
+.separator {
+    width: 2px;
+    height: 40px;
+    background-color: #6d1b1b; /* Stessa tonalità */
+    margin: 0 10px;
+}
+
+.thin {
+    font-weight: normal;
+    color: #6d1b1b; /* Grigio scuro */
+    font-size: 16px;
+    position: relative;
+    top: 12px; /* Regola il valore per allinearlo come preferisci */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+
+nav ul li a {
+    text-decoration: none;
+    
+    color: #6d1b1b;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #333; /* Bordeaux */
+}
