@@ -17,6 +17,12 @@
     color: #333;
     max-width: 350px;
 }*/
+.slider-iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 400px; /* Adatta l'altezza in base alle immagini */
+    border: none;
+}
 
 .progetto-testo {
     display: flex;
