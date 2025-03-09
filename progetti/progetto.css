@@ -36,10 +36,27 @@
     color: #333;
 }
 
+
 .progetto-descrizione {
     text-align: justify;
     margin-bottom: 20px; /* Spazio tra il testo e i dettagli */
+
 }
+
+#titolo {
+    font-size: 32px !important; /* Cambia solo la grandezza del titolo */
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: #6d1b1b;
+
+}
+
+#descrizione {
+    font-size: 16px; /* Mantieni la grandezza normale per il testo */
+    line-height: 1.5;
+    color: #333;
+}
+
 
 .progetto-dettagli {
     text-align: left;

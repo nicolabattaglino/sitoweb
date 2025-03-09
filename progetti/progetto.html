@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="titolo-pagina">Dettaglio Progetto</title>
+    <link rel="stylesheet" href="../home/style.css">
+    <link rel="stylesheet" href="progetto.css">
+</head>
+<body>
+    <div class="hero">
+        <img id="immagine_hero" alt="Immagine Hero" class="hero-image">
+    </div>
+    <div class="spacer"></div>
+    
+    <main class="progetto-container">
+        <div class="progetto-testo">
+            <div class="progetto-descrizione">
+                <h1 id="titolo"></h1>
+                <p id="descrizione"></p>
+            </div>
+        
+            <div class="progetto-dettagli">
+                <p><strong>Luogo:</strong> <span id="luogo"></span></p>
+                <p><strong>Anno:</strong> <span id="anno"></span></p>
+                <p><strong>Commitente:</strong> <span id="commitente"></span></p>
+                <p><strong>Tipologia:</strong> <span id="tipologia"></span></p>
+                <p><strong>Superficie:</strong> <span id="superficie"></span></p>
+                <p><strong>Foto:</strong> <span id="foto_crediti"></span></p>
+            </div>
+        </div>
+        <div class="progetto-immagini">
+            <iframe src="../slider/index.html" class="slider-iframe" frameborder="0"></iframe>
+
+            <div class="griglia-immagini" id="griglia-immagini"></div>
+        </div>
+    </main>
+
+    <script src="../progetto.js"></script>
+    <script src="../header.js"></script>
+    <script src="../slider/slider.js"></script>
+</body>
+</html>
