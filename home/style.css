@@ -1,4 +1,4 @@
-@import url('header.css');
+@import url('../header/header.css');
 
 * {
     margin: 0;
