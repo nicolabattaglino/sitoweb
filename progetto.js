@@ -102,5 +102,3 @@ function inizializzaLightbox() {
 caricaProgetto();
 
 
-// Esegui la funzione principale
-caricaProgetto();
