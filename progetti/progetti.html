@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetti</title>
+    <link rel="stylesheet" href="../progetti/progetti.css">
+    <link rel="stylesheet" href="../home/style.css">
+</head>
+<body>
+    <h1 class="titolo-progetti">Progetti</h1>
+    <div class="griglia-progetti" id="griglia-progetti"></div>
+    
+    <script>
+        async function caricaProgetti() {
+            const response = await fetch("../data/progetti.json");
+            const progetti = await response.json();
+            const griglia = document.getElementById("griglia-progetti");
+            
+            // Numero di elementi totali (progetti + segnaposto "In arrivo")
+            const numTotale = 6;
+            let index = 0;
+            
+            progetti.forEach(progetto => {
+                if (index >= numTotale) return;
+                const card = document.createElement("div");
+                card.classList.add("progetto-card");
+                card.innerHTML = `
+                    <a href="progetto.html?p=${progetto.slug}">
+                        <img src="${progetto.immagine_hero}" alt="${progetto.titolo}">
+                        <div class="overlay">
+                            <span>${progetto.titolo}</span>
+                        </div>
+                    </a>
+                `;
+                griglia.appendChild(card);
+                index++;
+            });
+
+            // Aggiunta segnaposto "In arrivo" per completare la griglia
+            while (index < numTotale) {
+                const placeholder = document.createElement("div");
+                placeholder.classList.add("progetto-card", "placeholder");
+                placeholder.innerHTML = `<span>In arrivo</span>`;
+                griglia.appendChild(placeholder);
+                index++;
+            }
+        }
+        
+        document.addEventListener("DOMContentLoaded", caricaProgetti);
+    </script>
+
+    <script src="../header.js"></script>
+
+</body>
+</html>
