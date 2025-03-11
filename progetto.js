@@ -1,17 +1,11 @@
 async function caricaProgetto() {
-    // 1. Prende il parametro "p" dall'URL (es. ?p=casa-frejus)
     const urlParams = new URLSearchParams(window.location.search);
     const slug = urlParams.get("p");
-
-    // 2. Carica il file JSON con tutti i progetti
     const response = await fetch("../data/progetti.json");
     const progetti = await response.json();
-
-    // 3. Trova il progetto giusto
     const progetto = progetti.find(proj => proj.slug === slug);
 
     if (progetto) {
-        // 4. Riempie la pagina con i dati giusti
         document.title = progetto.titolo;
         document.getElementById("titolo").innerText = progetto.titolo;
         document.getElementById("descrizione").innerText = progetto.descrizione;
@@ -21,11 +15,8 @@ async function caricaProgetto() {
         document.getElementById("tipologia").innerText = progetto.tipologia;
         document.getElementById("superficie").innerText = progetto.superficie;
         document.getElementById("foto_crediti").innerText = progetto.foto_crediti;
-
-        // 5. Cambia l'immagine hero
         document.getElementById("immagine_hero").src = progetto.immagine_hero;
 
-        // 6. Crea la griglia di immagini
         const griglia = document.getElementById("griglia-immagini");
         progetto.immagini.forEach(imgSrc => {
             const img = document.createElement("img");
@@ -35,19 +26,81 @@ async function caricaProgetto() {
         });
 
         const sliderIframe = document.querySelector(".slider-iframe");
-
-        // Quando il progetto è caricato, invia lo slug allo slider
         if (sliderIframe) {
             sliderIframe.onload = function () {
                 sliderIframe.contentWindow.postMessage({ slug: progetto.slug }, "*");
             };
         }   
+
+        // **🔽 INIZIALIZZA LIGHTBOX SOLO DOPO AVER CREATO LE IMMAGINI 🔽**
+        inizializzaLightbox();
     } else {
-        // Se il progetto non esiste, mostra un messaggio di errore
         document.getElementById("titolo").innerText = "Progetto non trovato";
         document.getElementById("descrizione").innerText = "Il progetto richiesto non esiste.";
     }
 }
 
-// Chiama la funzione quando la pagina viene caricata
+// **NUOVA FUNZIONE PER INIZIALIZZARE LA LIGHTBOX**
+let indiceCorrente = 0;
+let immaginiProgetto = [];
+
+function inizializzaLightbox() {
+    const immagini = document.querySelectorAll('#griglia-immagini img');
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close");
+    const btnPrev = document.querySelector(".prev");  // Modificato per corrispondere all'HTML
+    const btnNext = document.querySelector(".next");  // Modificato per corrispondere all'HTML
+
+    if (immagini.length === 0) {
+        console.warn("⚠ Nessuna immagine trovata nella griglia!");
+        return;
+    }
+
+    immaginiProgetto = Array.from(immagini).map(img => img.src);
+
+    immagini.forEach((img, index) => {
+        img.addEventListener("click", function() {
+            lightbox.style.display = "flex";
+            lightboxImg.src = this.src;
+            indiceCorrente = index;
+        });
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener("click", function() {
+            lightbox.style.display = "none";
+        });
+    }
+
+    // Pulsanti avanti/indietro
+    if (btnNext) {
+        btnNext.addEventListener("click", function() {
+            indiceCorrente = (indiceCorrente + 1) % immaginiProgetto.length;
+            lightboxImg.src = immaginiProgetto[indiceCorrente];
+        });
+    }
+
+    if (btnPrev) {
+        btnPrev.addEventListener("click", function() {
+            indiceCorrente = (indiceCorrente - 1 + immaginiProgetto.length) % immaginiProgetto.length;
+            lightboxImg.src = immaginiProgetto[indiceCorrente];
+        });
+    }
+
+    // Chiudi lightbox cliccando fuori dall'immagine
+    lightbox.addEventListener("click", function(event) {
+        if (event.target === lightbox) {
+            lightbox.style.display = "none";
+        }
+    });
+
+    console.log("✅ Lightbox inizializzata con", immaginiProgetto.length, "immagini.");
+}
+
+// Esegui la funzione principale
+caricaProgetto();
+
+
+// Esegui la funzione principale
 caricaProgetto();
