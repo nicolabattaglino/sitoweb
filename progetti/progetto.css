@@ -2,11 +2,18 @@
     display: grid;
     grid-template-columns: 1fr 2fr; /* Testo più stretto a sinistra, immagini più larghe a destra */
     gap: 40px;
-    max-width: 1500px;
+    width: 100vw;  /* Occupa l'intera larghezza della finestra */
+    max-width: none;  /* Rimuove il limite di 1500px */
+    padding: 50px;  /* Mantiene un po' di margine interno */
+    box-sizing: border-box; /* Evita che padding crei scroll orizzontale */
     margin: 0 auto;
     padding: 50px;
     display: flex;
     align-items: flex-start;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 /*.progetto-testo {
