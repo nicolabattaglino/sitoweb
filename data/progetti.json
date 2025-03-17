@@ -18,5 +18,65 @@
       "../immagini/casa-sonnaz/divano.jpg",
       "../immagini/casa-sonnaz/tavolo.jpg"
     ]
+  },
+  {
+    "slug": "casa-sonnaz",
+    "titolo": "Casa De Sonnaz",
+    "descrizione": "Il progetto d'interni ha intimamente intrecciato aspetti funzionali e formali attraverso un disegno su misura che rivela linee semplici ma dal forte impatto. La narrativa che sostiene il progetto lavora sul rapporto tra disegno degli interni e vedute esterne, essendo il paesaggio fortemente connotato dalla presenza dei maestosi gasometri dell'Italgas, un patrimonio della Torino industriale visibile in maniera quasi assidua dalle finestre dell'appartamento. La metrica a rombi della struttura dei gasometri è stata semplificata in una composizione di triangoli e sviluppata lungo la parete cieca del soggiorno. Non si tratta di una scenografia fittizia, ma di effettive controventature che supportano gli scaffali e la grande porta a tutta altezza. Laspetto industriale è accentuato dalla scelta di lampade tubolari e dall'utilizzo di policarbonato traslucido a rivestimento della porta e delle colonne cucina.",
+    "luogo": "Torino",
+    "anno": "2023",
+    "commitente": "Privato",
+    "tipologia": "Residenziale",
+    "superficie": "90 mq",
+    "foto_crediti": "Nicola Battaglino",
+    "immagine_hero": "../immagini/casa-sonnaz/cucina2.jpg",
+    "immagini": [
+      "../immagini/casa-sonnaz/cucina.jpg",
+      "../immagini/casa-sonnaz/cucina1.jpg",
+      "../immagini/casa-sonnaz/cucina2.jpg",
+      "../immagini/casa-sonnaz/bagno.jpg",
+      "../immagini/casa-sonnaz/divano.jpg",
+      "../immagini/casa-sonnaz/tavolo.jpg"
+    ]
+  },
+  {
+    "slug": "casa-sonnaz",
+    "titolo": "Casa De Sonnaz",
+    "descrizione": "Il progetto d'interni ha intimamente intrecciato aspetti funzionali e formali attraverso un disegno su misura che rivela linee semplici ma dal forte impatto. La narrativa che sostiene il progetto lavora sul rapporto tra disegno degli interni e vedute esterne, essendo il paesaggio fortemente connotato dalla presenza dei maestosi gasometri dell'Italgas, un patrimonio della Torino industriale visibile in maniera quasi assidua dalle finestre dell'appartamento. La metrica a rombi della struttura dei gasometri è stata semplificata in una composizione di triangoli e sviluppata lungo la parete cieca del soggiorno. Non si tratta di una scenografia fittizia, ma di effettive controventature che supportano gli scaffali e la grande porta a tutta altezza. Laspetto industriale è accentuato dalla scelta di lampade tubolari e dall'utilizzo di policarbonato traslucido a rivestimento della porta e delle colonne cucina.",
+    "luogo": "Torino",
+    "anno": "2023",
+    "commitente": "Privato",
+    "tipologia": "Residenziale",
+    "superficie": "90 mq",
+    "foto_crediti": "Nicola Battaglino",
+    "immagine_hero": "../immagini/casa-sonnaz/bagno.jpg",
+    "immagini": [
+      "../immagini/casa-sonnaz/cucina.jpg",
+      "../immagini/casa-sonnaz/cucina1.jpg",
+      "../immagini/casa-sonnaz/cucina2.jpg",
+      "../immagini/casa-sonnaz/bagno.jpg",
+      "../immagini/casa-sonnaz/divano.jpg",
+      "../immagini/casa-sonnaz/tavolo.jpg"
+    ]
+  },
+  {
+    "slug": "casa-sonnaz",
+    "titolo": "Casa De Sonnaz",
+    "descrizione": "Il progetto d'interni ha intimamente intrecciato aspetti funzionali e formali attraverso un disegno su misura che rivela linee semplici ma dal forte impatto. La narrativa che sostiene il progetto lavora sul rapporto tra disegno degli interni e vedute esterne, essendo il paesaggio fortemente connotato dalla presenza dei maestosi gasometri dell'Italgas, un patrimonio della Torino industriale visibile in maniera quasi assidua dalle finestre dell'appartamento. La metrica a rombi della struttura dei gasometri è stata semplificata in una composizione di triangoli e sviluppata lungo la parete cieca del soggiorno. Non si tratta di una scenografia fittizia, ma di effettive controventature che supportano gli scaffali e la grande porta a tutta altezza. Laspetto industriale è accentuato dalla scelta di lampade tubolari e dall'utilizzo di policarbonato traslucido a rivestimento della porta e delle colonne cucina.",
+    "luogo": "Torino",
+    "anno": "2023",
+    "commitente": "Privato",
+    "tipologia": "Residenziale",
+    "superficie": "90 mq",
+    "foto_crediti": "Nicola Battaglino",
+    "immagine_hero": "../immagini/casa-sonnaz/cucina.jpg",
+    "immagini": [
+      "../immagini/casa-sonnaz/cucina.jpg",
+      "../immagini/casa-sonnaz/cucina1.jpg",
+      "../immagini/casa-sonnaz/cucina2.jpg",
+      "../immagini/casa-sonnaz/bagno.jpg",
+      "../immagini/casa-sonnaz/divano.jpg",
+      "../immagini/casa-sonnaz/tavolo.jpg"
+    ]
   }
 ]

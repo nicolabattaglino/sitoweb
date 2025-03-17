@@ -1,19 +1,18 @@
 .progetto-card {
     position: relative;
     overflow: hidden;
-    width: 100%;
-    max-width: 400px;  /* Limita la dimensione massima di ogni box */
-    height: 300px;  /* Altezza fissa per evitare che si espanda troppo */
-    background-color: #c3a299; /* Sfondo per i progetti in arrivo */
-    margin: auto;
+    background-color: #c3a299;
     border-radius: 10px;
-    overflow: hidden; /* Evita che l'immagine esca fuori dai bordi stondati */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .progetto-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Fa sì che l'immagine si adatti senza deformarsi */
+    object-fit: cover;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -21,12 +20,11 @@
     transform: scale(1.05);
 }
 
-
 .placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white; /* Testo bianco */
+    color: white;
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -37,7 +35,7 @@
     left: 0;
     width: 100%;
     height: 0;
-    background: rgba(115, 49, 61, 0.8); /* Bordeaux trasparente */
+    background: rgba(115, 49, 61, 0.8);
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
@@ -56,19 +54,47 @@
 
 #griglia-progetti {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 340px; /* Riduci l'altezza base */
     gap: 20px;
     padding: 40px;
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 0 auto;
+}
+
+/* Primo progetto meno alto */
+.progetto-card:nth-child(1) {
+    grid-column: span 3;
+    grid-row: span 1; /* Ridotto da 2 a 1 */
+}
+
+.progetto-card:nth-child(2),
+.progetto-card:nth-child(3) {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.progetto-card:nth-child(4) {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+
+.progetto-card:nth-child(5){
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.progetto-card:nth-child(6) {
+    grid-column: span 2;
+    grid-row: span 1;
 }
 
 .titolo-progetti {
     text-align: center;
-    color: #732F3D; /* Bordeaux */
-    font-size: 2rem; /* Regola la dimensione del testo se necessario */
+    color: #732F3D;
+    font-size: 2rem;
     font-weight: bold;
-    margin-top: 40px; /* Aumenta lo spazio sopra il titolo */
-    margin-bottom: 20px; /* Aggiunge spazio sotto il titolo */
-    padding-top: 20px; /* Ulteriore padding se serve */
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-top: 20px;
 }
