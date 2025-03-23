@@ -1,0 +1,278 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8e6e5 !important;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    padding: 0px 0px; /* Aggiunge un margine laterale iniziale */
+
+
+}
+
+.carousel {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 0px;
+    padding: 50px; /* Aggiunge un margine laterale iniziale */
+
+}
+
+
+
+.carousel::-webkit-scrollbar {
+    display: none; /* Nasconde la scrollbar su Chrome, Safari, Edge */
+}
+
+.carousel {
+    -ms-overflow-style: none;  /* Nasconde la scrollbar su Internet Explorer e Edge */
+    scrollbar-width: none;  /* Nasconde la scrollbar su Firefox */
+}
+
+.card {
+    position: relative;
+    flex: 0 0 auto;
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(115, 49, 61, 0.3);
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 15px; /* Aumentato per rendere più visibile il testo */
+    display: flex;
+    justify-content: flex-start; /* Sposta il contenuto in basso */
+    align-items: center;
+    flex-direction: column;
+    transition: height 0.3s ease-in-out, padding 0.3s ease-in-out, transform 0.3s ease-in-out;
+    height: 80px; /* Altezza iniziale più alta */
+    overflow: hidden;
+    padding-top: 20px; /* Imposta una distanza fissa dall'inizio */
+}
+
+.card:hover .overlay {
+    height: 150px; /* Si alza di più quando si passa sopra */
+    padding: 20px; /* Evita che il testo venga tagliato */
+}
+
+.overlay-text {
+    opacity: 1; /* Sempre visibile */
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+.plus {
+    width: 40px; /* Ridotto il diametro del cerchio */
+    height: 40px;
+    background-color: #eae5dc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    opacity: 0; /* Nasconde il "+" all'inizio */
+    transition: opacity 0.3s ease-in-out;
+    margin-top: 30px; /* Leggermente più vicino al testo */
+}
+
+.card:hover .plus {
+    opacity: 1;
+}
+
+/* Linee del "+" con estremi stondati */
+.plus::before,
+.plus::after {
+    content: "";
+    position: absolute;
+    background-color: #401d23; /* Colore del "+" */
+    border-radius: 4px; /* Arrotonda gli estremi */
+}
+
+/* Linea orizzontale */
+.plus::before {
+    width: 18px; /* Ridotta la lunghezza */
+    height: 4px; /* Ridotto lo spessore */
+}
+
+/* Linea verticale */
+.plus::after {
+    width: 4px; /* Ridotto lo spessore */
+    height: 18px; /* Ridotta la lunghezza */
+}
+
+
+
+/* Contenitore dei bottoni di navigazione */
+.nav-buttons {
+    position: absolute;
+    right: 5%; /* Sposta le frecce verso destra */
+    display: flex;
+    gap: 10px; /* Spazio tra le frecce */
+}
+
+/* Stile dei bottoni */
+.nav-buttons button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Stile della freccia sinistra */
+.prev {
+    background-color: #401d23; /* Colore chiaro */
+}
+
+/* Stile della freccia destra */
+.next {
+    background-color: #401d23; /* Colore scuro */
+}
+
+/* Stile dell'icona dentro i bottoni */
+.nav-buttons button i {
+    color: #EAE5DC; /* Colore della freccia */
+    font-size: 1.2rem;
+}
+.nav-buttons button.disabled {
+    opacity: 0.5; /* Freccia disattivata più chiara */
+    pointer-events: none; /* Impedisce il clic */
+}
+
+.cta-container {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #e8e6e5;
+    border-radius: 10px;
+}
+
+.cta-container p {
+    font-size: 1.1rem;
+    color: #401d23;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: white;
+    font-weight: bold;
+    color: #401d23;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background-color: #dfdbdc;
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f8f4f0;
+    padding: 40px; /* Aumenta il padding */
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    max-width: 1000px; /* Aumenta la larghezza massima */
+    width: 90%; /* Rende il popup più largo */
+    height: 80vh; /* Aumenta l'altezza al 80% della viewport */
+    overflow-y: auto; /* Aggiunge lo scroll se necessario */
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+
+}
+.popup-text {
+    text-align: left;
+}
+
+
+.popup-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+}
+
+
+
+.popup-content img {
+    width: 20%;  /* Rende l'immagine più stretta */
+    height: 600px; /* La rende più lunga */
+    object-fit: cover; /* Ritaglia l’immagine invece di ridimensionarla */
+    object-position: center; /* Centra il ritaglio (puoi usare 'top' o 'bottom') */
+    border-radius: 10px;
+}
+
+.popup-content p {
+    flex: 1; /* Il testo occupa tutto lo spazio disponibile */
+}
+
+
+
+.popup img {
+    width: 100%;
+    border-radius: 10px;
+    max-height: 400px; /* Imposta un'altezza massima per l'immagine */
+    object-fit: cover; /* Rende l'immagine adattabile */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px; /* Aumenta la grandezza della X */
+    cursor: pointer;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Sfondo scuro trasparente */
+    backdrop-filter: blur(2px); /* Sfocatura dello sfondo */
+    display: none; /* Nascosto di default */
+    z-index: 10;
+}
+.blurred #main-header,
+.blurred .container {
+    filter: blur(2px);
+    pointer-events: none; /* Evita che si possano cliccare elementi sfocati */
+}

@@ -1,0 +1,64 @@
+.servizi-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Popup */
+.popup {
+    position: fixed;
+    top: 65% !important; /* Aumenta questo valore per abbassarlo */
+    left: 50%;
+    width: 85% !important; /* Allarga orizzontalmente */
+    max-width: 1000px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(-50%); /* Mantiene solo il centraggio orizzontale */
+}
+
+.popup-content {
+    text-align: center;
+    position: relative;
+}
+
+.popup img {
+    width: 100%;
+    border-radius: 10px;
+    max-height: 400px; /* Imposta un'altezza massima per l'immagine */
+    object-fit: cover; /* Rende l'immagine adattabile */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px; /* Aumenta la grandezza della X */
+    cursor: pointer;
+}

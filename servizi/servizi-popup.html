@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servizi</title>
+    <link rel="stylesheet" href="../servizi/style.css">
+</head>
+<body>
+
+<section class="servizi-container">
+    <div class="card" onclick="openPopup('popup1')">
+        <img src="../immagini/casa-sonnaz/bagno.jpg" alt="Consulenza">
+        <div class="overlay">Consulenza personalizzata</div>
+    </div>
+    <div class="card" onclick="openPopup('popup2')">
+        <img src="../immagini/casa-sonnaz/bagno.jpg" alt="Layout">
+        <div class="overlay">Layout e concept interni</div>
+    </div>
+    <div class="card" onclick="openPopup('popup3')">
+        <img src="../immagini/casa-sonnaz/bagno.jpg" alt="Moodboards">
+        <div class="overlay">Interior design - moodboards</div>
+    </div>
+</section>
+
+<!-- Popup -->
+<div id="popup1" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup('popup1')">&times;</span>
+        <h2>Consulenza Iniziale</h2>
+        <p>Servizio per migliorare gli ambienti domestici.</p>
+        <img src="../immagini/casa-sonnaz/bagno.jpg" alt="Servizio 1">
+    </div>
+</div>
+
+<div id="popup2" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup('popup2')">&times;</span>
+        <h2>Layout e Concept</h2>
+        <p>Progettazione di interni su misura.</p>
+        <img src="../immagini/casa-sonnaz/bagno.jpg" alt="Servizio 2">
+    </div>
+</div>
+
+<div id="popup3" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup('popup3')">&times;</span>
+        <h2>Moodboards</h2>
+        <p>Selezione di materiali e colori.</p>
+        <img src="../immagini/casa-sonnaz/bagno.jpg" alt="Servizio 3">
+    </div>
+</div>
+
+<script src="../servizi/script.js"></script>
+
+</body>
+</html>

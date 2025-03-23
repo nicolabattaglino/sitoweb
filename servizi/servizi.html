@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servizi</title>
+    <link rel="stylesheet" href="../servizi/servizi.css">
+    <link rel="stylesheet" href="../home/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div id="popup-overlay" class="popup-overlay"></div>
+    <div class="container">
+        <div class="carousel">
+            <div class="card" onclick="openPopup('popup1')">
+                <img src="../immagini/servizi/foto1.jpg" alt="Consulenza personalizzata">
+                <div class="overlay">
+                    <span>Consulenza personalizzata</span>
+                    <div class="plus">+</div>
+                </div>
+            </div>
+            <div class="card" onclick="apriServizio('layout.html')">
+                <img src="../immagini/servizi/foto2.jpg" alt="Layout e concept interni">
+                <div class="overlay">
+                    <span>Layout e concept interni</span>
+                    <div class="plus">+</div>
+                </div>
+            </div>
+            <div class="card" onclick="apriServizio('moodboards.html')">
+                <img src="../immagini/servizi/foto3.jpg" alt="Interior design - moodboards">
+                <div class="overlay">
+                    <span>Interior design - moodboards</span>
+                    <div class="plus">+</div>
+                </div>
+            </div>
+            <div class="card" onclick="apriServizio('moodboards.html')">
+                <img src="../immagini/servizi/foto4.jpg" alt="Interior design - moodboards">
+                <div class="overlay">
+                    <span>Interior design - moodboards</span>
+                    <div class="plus">+</div>
+                </div>
+            </div>
+            <div class="card" onclick="apriServizio('moodboards.html')">
+                <img src="../immagini/servizi/foto5.jpg" alt="Interior design - moodboards">
+                <div class="overlay">
+                    <span>Interior design - moodboards</span>
+                    <div class="plus">+</div>
+                </div>
+            </div>
+            <div class="card" onclick="apriServizio('moodboards.html')">
+                <img src="../immagini/servizi/foto2.jpg" alt="Interior design - moodboards">
+                <div class="overlay">
+                    <span>Interior design - moodboards</span>
+                    <div class="plus">+</div>
+                </div>
+            </div>
+            <div class="card" onclick="apriServizio('moodboards.html')">
+                <img src="../immagini/casa-sonnaz/bagno.jpg" alt="Interior design - moodboards">
+                <div class="overlay">
+                    <span>Interior design - moodboards</span>
+                    <div class="plus">+</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="nav-buttons">
+        <button class="prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+    <div class="cta-container">
+        <p>Se non sei sicuro di quale può essere il servizio più adatto a te,<br> scrivici spiegando le tue esigenze e cercheremo insieme<br> la soluzione migliore per il tuo progetto.</p>
+        <button class="cta-button" onclick="location.href='../contatti.html'">Contattami</button>
+    </div>
+
+
+
+    <div id="popup1" class="popup">
+        <div class="popup-content">
+            <div class="popup-text">
+                <span class="close" onclick="closePopup('popup1')">&times;</span>
+                <h2>Consulenza Iniziale</h2>
+                <p>
+                <br><br>
+                Ogni progetto nasce da un primo incontro.
+                La consulenza personalizzata sarà il momento in cui avremo il piacere di conoscerci; tu avrai la possibilità di raccontare la tua storia, i tuoi desideri e le tue incertezze, ed io, al contempo, potrò presentarmi a te e spiegarti di cosa mi occupo e come lavoro.
+                È uno spazio dedicato principalmente a te, in cui, attraverso le tue parole, analizzeremo insieme le tue esigenze, la quotidianità che vivi e quella che sogni. Analizzeremo insieme gli spazi di cui hai bisgongo esplorando cosa desideri cambiare, cosa vorresti ritrovare e quale atmosfera immagini per la tua casa. 
+                In questo modo, potremo definire insieme come dare forma alle tue idee e capire che tipo percorso intraprendere insieme.<br>
+                La consulenza personalizzata è la soluzione giusta per te:<br><br>
+                - se possiedi un immobile e desideri capire come valorizzarlo al meglio, ottimizzando gli spazi e aumentando il suo valore<br>
+                - se hai delle idee ma senti il bisogno di un confronto professionale per orientarti e scegliere la soluzione più adatta alle tue esigenze<br>
+                - se stai valutando l’acquisto di una casa e vuoi comprenderne le potenzialità di layout.<br>
+                - se vuoi prendere decisioni serene e consapevoli, guidato da un parere professionale<br>
+                - se hai bisogno di una visione chiara prima di intraprendere un progetto importante, con indicazioni pratiche e realizzabili<br>
+                </p>
+            </div>
+            <img src="../immagini/servizi/alta.png" alt="Servizio 1">
+        </div>
+    </div>
+    <div id="popup2" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('popup2')">&times;</span>
+            <h2>Layout e Concept</h2>
+            <p>Progettazione di interni su misura.</p>
+            <img src="../immagini/casa-sonnaz/bagno.jpg" alt="Servizio 2">
+        </div>
+    </div>
+
+    <div id="popup3" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('popup3')">&times;</span>
+            <h2>Moodboards</h2>
+            <p>Selezione di materiali e colori.</p>
+            <img src="../immagini/casa-sonnaz/bagno.jpg" alt="Servizio 3">
+        </div>
+    </div>
+    <script>
+        function scrollLeft() {
+            document.querySelector('.carousel').scrollBy({ left: -300, behavior: 'smooth' });
+        }
+        function scrollRight() {
+            document.querySelector('.carousel').scrollBy({ left: 300, behavior: 'smooth' });
+        }
+        function apriServizio(url) {
+            window.location.href = url;
+        }
+    
+    </script>
+    <script src="../header.js"></script>
+    <script src="../servizi/script.js"></script>
+
+</body>
+</html>
