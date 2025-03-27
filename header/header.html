@@ -13,8 +13,22 @@
             <li><a href="../home">BENVENUTI</a></li>
             <li><a href="../progetti/progetti.html">PROGETTI</a></li>
             <li><a href="index.html#about">SU DI ME</a></li>
-            <li><a href="index.html#services">SERVIZI</a></li>
+            <li><a href="../servizi/servizi.html">SERVIZI</a></li>
             <li><a href="index.html#contact">CONTATTI</a></li>
         </ul>
-    </nav>  
+    </nav>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let path = window.location.pathname; // Ottiene il percorso URL della pagina attuale
+            let navLinks = document.querySelectorAll("nav ul li a"); // Trova tutti i link nel menu
+        
+            navLinks.forEach(link => {
+                let href = link.getAttribute("href").replace("..", ""); // Normalizza l'href
+            
+                if (path.includes(href)) {
+                    link.classList.add("active"); // Aggiunge la classe "active" al link corrispondente
+                }
+            });
+        });
+    </script>  
 </header>

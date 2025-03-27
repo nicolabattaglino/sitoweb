@@ -55,3 +55,32 @@ nav ul li a {
 nav ul li a:hover {
     color: #333; /* Bordeaux */
 }
+
+nav ul li a {
+    position: relative;
+    display: inline-block; /* Assicura che il link occupi solo la larghezza necessaria */
+    color: #6d1b1b; /* Colore del testo */
+}
+
+/* Crea un'animazione per la linea */
+nav ul li a.active::before {
+    content: ""; /* Aggiunge un elemento vuoto prima del link */
+    position: absolute;
+    bottom: 0; /* Posiziona la linea sotto il link */
+    left: 50%; /* Posiziona la linea inizialmente al centro */
+    transform: translateX(-50%); /* Centra la linea */
+    width: 0%; /* La linea inizialmente ha larghezza zero */
+    height: 1px; /* Spessore della linea */
+    background-color: #6d1b1b; /* Colore della linea */
+    animation: line-expand 0.4s ease forwards; /* Animazione */
+}
+
+/* L'animazione per espandere la linea */
+@keyframes line-expand {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%; /* La linea si espande al 100% della larghezza del link */
+    }
+}
