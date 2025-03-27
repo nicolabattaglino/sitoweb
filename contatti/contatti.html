@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti</title>
+    <link rel="stylesheet" href="../contatti/contatti.css">
+    <link rel="stylesheet" href="../home/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../header/header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.body.insertAdjacentHTML("afterbegin", data);
+                });
+        });
+    </script>
+    
+    <main class="contact-container">
+        <section class="contact-left">
+            <h1>Affidati a me</h1>
+            <div class="contact-image">
+                <img src="../immagini/persona.png" alt="Foto di Caterina Di Bernardo">
+            </div>
+        </section>
+
+        <section class="contact-content">
+            <div class="contact-text">
+                
+                <p>Credo che la qualità degli spazi in cui viviamo influenzi il nostro benessere. Ogni progetto nasce dal desiderio di creare ambienti funzionali, armoniosi e in sintonia con chi li abita.</p>
+                <p>Gran parte delle nostre giornate le passiamo a lavoro e a casa. Tu ti sei mai chiesto come ti senti quando rientri a casa? Gli spazi in cui vivi rispecchiano le tue esigenze?</p>
+                <p>Stai programmando una ristrutturazione e non sai come orientarti?</p>
+                <p>Hai bisogno di un semplice consiglio sulla tua casa, o sugli spazi in cui lavori, ma non sai a chi rivolgerti?</p>
+            </div>
+            <div class="contact-form">
+                <form action="mailto:dibernardocaterina@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <input type="text" name="nome" placeholder="Nome" required>
+                        <input type="text" name="cognome" placeholder="Cognome" required>
+                    </div>
+                    <textarea name="messaggio" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+                    <div class="checkbox-container">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="termini" required>
+                            Accetto i termini e condizioni
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Invia</button>
+                    </div>
+                </form>
+                <div class="contact-details">
+                    <p><i class="fas fa-envelope"></i> dibernardocaterina@gmail.com</p>
+                    <p><i class="fab fa-instagram"></i> @cate.dibernardo</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
