@@ -167,7 +167,7 @@ body {
 
 .cta-container {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 30px;
     padding: 20px;
     background-color: #e8e6e5;
     border-radius: 10px;
@@ -182,7 +182,7 @@ body {
 .cta-button {
     background-color: white;
     font-weight: bold;
-    color: #401d23;
+    color: #732F3D;
     border: none;
     padding: 12px 25px;
     font-size: 1rem;
@@ -204,7 +204,7 @@ body {
     transform: translate(-50%, -50%);
     background: #f8f4f0;
     padding: 40px; /* Aumenta il padding */
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     max-width: 1000px; /* Aumenta la larghezza massima */
     width: 90%; /* Rende il popup più largo */
@@ -217,6 +217,8 @@ body {
 }
 .popup-text {
     text-align: left;
+    font-size: 15px; /* oppure 40px */
+    color: #5e2631;
 }
 
 
@@ -225,7 +227,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
 }
 
@@ -242,6 +244,13 @@ body {
 .popup-content p {
     flex: 1; /* Il testo occupa tutto lo spazio disponibile */
 }
+.popup-content h2 {
+    font-size: 2rem; /* oppure 40px */
+    font-weight: bold; /* opzionale per rendere il testo più marcato */
+    align-self: flex-start; /* Allinea in alto a sinistra */
+    margin-top: -120px; /* Sposta verso l’alto, regola a piacere */
+    margin-left: 0;
+}
 
 
 
@@ -254,10 +263,26 @@ body {
 
 .close {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 15px;
-    font-size: 28px; /* Aumenta la grandezza della X */
+    width: 32px;
+    height: 32px;
+    background-color: #eae5dc;
+    color: #401d23;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.close:hover {
+    background-color: #dfdbdc;
+    transform: scale(1.1);
 }
 
 .popup-overlay {
@@ -275,4 +300,15 @@ body {
 .blurred .container {
     filter: blur(2px);
     pointer-events: none; /* Evita che si possano cliccare elementi sfocati */
+}
+
+
+@media (max-width: 768px) {
+
+    /* Riduci la dimensione del testo nel contenitore cta-container */
+.cta-container p {
+    font-size: 0.9rem; /* Riduci la dimensione del testo */
+    line-height: 1.4; /* Regola l'interlinea per una migliore leggibilità */
+}
+
 }

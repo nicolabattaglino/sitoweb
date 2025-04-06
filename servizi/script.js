@@ -1,34 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
     const popupOverlay = document.querySelector(".popup-overlay");
-    const popup = document.querySelector(".popup");
-    const closeButton = document.querySelector(".close");
 
-    function openPopup() {
-        // Chiude eventuali popup aperti prima di aprire uno nuovo
+    function openPopup(popupId) {
+        // Chiude eventuali popup aperti prima di aprirne uno nuovo
         closePopup();
+        const popup = document.querySelector(`#${popupId}`);
         popup.style.display = "flex"; 
+        popup.classList.add("show");  // Aggiungi la classe 'show' per stilizzare il pop-up
         popupOverlay.style.display = "block"; 
         document.body.classList.add("blurred");
-
     }
 
     function closePopup() {
-        popup.style.display = "none";
+        const popups = document.querySelectorAll(".popup");
+        popups.forEach(popup => {
+            popup.classList.remove("show");  // Rimuovi la classe 'show' per nascondere il pop-up
+            popup.style.display = "none";
+        });
         popupOverlay.style.display = "none";    
         document.body.classList.remove("blurred");
-
     }
 
-    closeButton.addEventListener("click", closePopup);
+    // Gestione della chiusura dei pop-up
+    const closeButtons = document.querySelectorAll(".close");
+    closeButtons.forEach(button => button.addEventListener("click", closePopup));
+    
     popupOverlay.addEventListener("click", closePopup);
 
-    // Esempio di apertura popup: Associa questo evento al tuo trigger
+    // Associa il click sulle card ai rispettivi pop-up
     document.querySelectorAll(".card").forEach(card => {
-        card.addEventListener("click", openPopup);
+        card.addEventListener("click", function () {
+            const popupId = card.getAttribute("onclick").match(/'([^']+)'/)[1]; // Estrae l'ID del popup dalla funzione onclick
+            openPopup(popupId);
+        });
     });
 });
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const carousel = document.querySelector(".carousel");
@@ -57,5 +63,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateButtons(); // Stato iniziale dei bottoni
 });
-
-
