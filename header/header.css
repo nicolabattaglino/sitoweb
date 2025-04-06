@@ -84,3 +84,69 @@ nav ul li a.active::before {
         width: 100%; /* La linea si espande al 100% della larghezza del link */
     }
 }
+
+
+
+/* Stile per il toggle a due linee */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 2px;
+    background: #6d1b1b;
+    border-radius: 2px;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: white;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    nav.show {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        padding: 25px;
+        border-top: 1px solid #eee;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .logo {
+        flex-grow: 1;
+    }
+}
