@@ -110,24 +110,58 @@ nav ul li a.active::before {
     border-radius: 2px;
 }
 
+<<<<<<< HEAD
 
 /* Responsive layout */
+=======
+>>>>>>> origin/nicola/website-devel
 @media (max-width: 768px) {
     header {
         display: flex;
+        flex-wrap: wrap; /* Permette di organizzare meglio gli elementi */
         justify-content: space-between;
         align-items: center;
-        padding: 15px;
+        padding: 10px; /* Riduce lo spazio interno */
+    }
+
+    .logo {
+        flex-grow: 1;
+        text-align: center; /* Centrare il logo */
+    }
+    .name {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Allinea il testo a sinistra */
+        line-height: 0.5;
+    }
+    
+
+    .name .bold {
+        font-size: 18px; /* Riduce la dimensione del nome */
+    }
+
+    .thin {
+        font-size: 14px; /* Riduce la dimensione del titolo "ARCHITETTO" */
+        position: relative;
+        top: 9px; /* Regola il valore per allinearlo come preferisci */
+    }
+
+    .separator {
+        height: 30px; /* Riduce l'altezza della barra divisoria */
+    }
+
+    .menu-toggle {
+        display: flex;
     }
 
     nav {
         display: none;
         position: absolute;
-        top: 80px;
+        top: 60px;
         right: 0;
-        background: white;
+        background: #fff;
         width: 100%;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 1000;
     }
 
@@ -143,16 +177,12 @@ nav ul li a.active::before {
     }
 
     nav ul li {
-        padding: 25px;
+        padding: 20px;
         border-top: 1px solid #eee;
         text-align: center;
     }
 
-    .menu-toggle {
-        display: flex;
-    }
-
-    .logo {
-        flex-grow: 1;
+    nav ul li a {
+        font-size: 14px; /* Riduce la dimensione dei link */
     }
 }
