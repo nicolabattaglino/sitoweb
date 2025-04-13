@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e8e6e5 !important;
+    background-color: #EEECE6 !important; /* Sostituisci con il colore desiderato */
     margin: 0;
     padding: 0;
 }
@@ -14,18 +14,42 @@ body {
 
 
 }
-
+.testo {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+  }
 .carousel {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     overflow-x: auto;
     scroll-behavior: smooth;
     padding-bottom: 0px;
-    padding: 50px; /* Aggiunge un margine laterale iniziale */
+    padding: 60px; /* Aggiunge un margine laterale iniziale */
+    padding-top: 80px;
 
 }
 
+.hero-servizi {
+    position: relative;
+    z-index: 1;
+    padding: 50px 20% 0px;
+    color: #6d1b1b;
+    text-align: center;
+    background-color: #EEECE6 !important; /* Sostituisci con il colore desiderato */
+    height: 70px; /* Imposta un'altezza fissa, ad esempio 200px */
 
+}
+
+.hero-servizi h1 {
+    font-size: 2.2rem;
+    margin: 0;
+    font-weight: lighter; /* Imposta il font a un peso più leggero */
+
+    color: #6d1b1b;
+
+}
 
 .carousel::-webkit-scrollbar {
     display: none; /* Nasconde la scrollbar su Chrome, Safari, Edge */
@@ -57,7 +81,7 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(115, 49, 61, 0.3);
+    background: rgba(143, 142, 124, 0.5);
     color: white;
     font-size: 1.2rem;
     text-align: center;
@@ -134,8 +158,8 @@ body {
 
 /* Stile dei bottoni */
 .nav-buttons button {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     border: none;
     display: flex;
@@ -159,6 +183,7 @@ body {
 .nav-buttons button i {
     color: #EAE5DC; /* Colore della freccia */
     font-size: 1.2rem;
+    
 }
 .nav-buttons button.disabled {
     opacity: 0.5; /* Freccia disattivata più chiara */
@@ -169,7 +194,7 @@ body {
     text-align: center;
     margin-top: 30px;
     padding: 20px;
-    background-color: #e8e6e5;
+    background-color: #EEECE6 !important; /* Sostituisci con il colore desiderato */
     border-radius: 10px;
 }
 
@@ -177,6 +202,8 @@ body {
     font-size: 1.1rem;
     color: #401d23;
     margin-bottom: 30px;
+    margin-top: -50px; /* Riduci il valore del margine per portarlo più su */
+
 }
 
 .cta-button {
