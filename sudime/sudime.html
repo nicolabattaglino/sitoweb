@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Su di me</title>
+  <link rel="stylesheet" href="../home/style.css">
+  <style>
+    body {
+      background-color: #EEECE6;
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      color: #000;
+    }
+
+    .intro-box {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto 2rem auto;
+      font-size: 1.2rem;
+      margin-top: 120px;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .photo-box {
+      flex: 1 1 300px;
+      margin-left: 100px;
+    }
+
+    .photo-box img {
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    .accordion-box {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-right: 100px;
+    }
+
+    .accordion-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem; /* più basso */
+      border-radius: 20px;
+      background: white;
+      font-weight: bold;
+      color: #561c1c;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .accordion-title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      flex: 1;
+    }
+
+    .accordion-item.expanded {
+      height: auto;
+      min-height: 100%;
+      flex-grow: 1;
+      align-items: flex-start;
+    }
+
+    .accordion-item.hidden {
+      display: none;
+    }
+
+    .plus {
+      width: 30px;
+      height: 30px;
+      background-color: #eae5dc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .plus::before,
+    .plus::after {
+      content: "";
+      position: absolute;
+      background-color: #401d23;
+      border-radius: 4px;
+    }
+
+    .plus::before {
+      width: 16px;
+      height: 3px;
+    }
+
+    .plus::after {
+      width: 3px;
+      height: 16px;
+    }
+
+    .plus.rotate::before {
+      transform: rotate(45deg);
+    }
+
+    .plus.rotate::after {
+      transform: rotate(45deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.3s ease;
+      margin-top: 1rem;
+      font-weight: normal;
+      color: #333;
+    }
+
+    .accordion-item.expanded .accordion-content {
+      max-height: 1000px;
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .photo-box,
+      .accordion-box {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro-box">
+    <strong>CIAO!</strong><br>
+    Benvenuto nel posto in cui puoi trovare l'aiuto che stavi cercando per la realizzazione della tua Casa dei sogni.  
+    Vorrei rubare qualche minuto del tuo prezioso tempo per presentarmi a te.
+  </div>
+
+  <div class="content-wrapper">
+    <div class="photo-box">
+      <img src="/immagini/cate.jpeg" alt="Foto di presentazione">
+    </div>
+    <div class="accordion-box">
+      
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <div class="accordion-title">LA MIA ESPERIENZA</div>
+          <div class="plus"></div>
+        </div>
+        <div class="accordion-content">
+          <p>Ho lavorato per oltre dieci anni nel settore dell’interior design, seguendo progetti su misura per clienti esigenti...</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <div class="accordion-title">AFFIDATI A ME PERCHÈ...</div>
+          <div class="plus"></div>
+        </div>
+        <div class="accordion-content">
+          <p>La mia attenzione al dettaglio e la capacità di interpretare i desideri del cliente mi permettono di trasformare ogni progetto in qualcosa di unico...</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <div class="accordion-title">LA MIA STORIA</div>
+          <div class="plus"></div>
+        </div>
+        <div class="accordion-content">
+          <p>Il mio percorso nasce da una profonda passione per il design e l'arte, che mi ha portato a studiare e specializzarmi nel settore...</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <div class="accordion-title">IL MIO METODO</div>
+          <div class="plus"></div>
+        </div>
+        <div class="accordion-content">
+          <p>Ogni progetto parte dall'ascolto: comprendo le esigenze del cliente, studio gli spazi e propongo soluzioni personalizzate e funzionali...</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../header.js"></script>
+  <script>
+    const accordionItems = document.querySelectorAll('.accordion-item');
+  
+    accordionItems.forEach((item, index) => {
+      const plus = item.querySelector('.plus');
+  
+      plus.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isExpanded = item.classList.contains('expanded');
+  
+        // Reset tutti gli elementi
+        accordionItems.forEach((other, i) => {
+          other.classList.remove('expanded', 'hidden');
+          other.querySelector('.plus').classList.remove('rotate');
+        });
+  
+        // Se non era già espanso, espandilo
+        if (!isExpanded) {
+          item.classList.add('expanded');
+          plus.classList.add('rotate');
+          accordionItems.forEach((other, i) => {
+            if (i !== index) other.classList.add('hidden');
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
