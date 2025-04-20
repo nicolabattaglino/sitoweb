@@ -11,29 +11,29 @@
       font-family: 'Helvetica Neue', sans-serif;
       margin: 0;
       padding: 2rem;
-      color: #000;
+      color: #561c1c;
     }
 
     .intro-box {
       background: white;
       border-radius: 20px;
       padding: 2rem;
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto 2rem auto;
       font-size: 1.2rem;
-      margin-top: 120px;
     }
 
     .content-wrapper {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem;
+      gap: 1rem;
+      margin-top: 110px;
     }
 
     .photo-box {
-      flex: 1 1 300px;
-      margin-left: 100px;
+      flex: 1 1 350px;
+      margin-left: 10px;
     }
 
     .photo-box img {
@@ -42,18 +42,20 @@
     }
 
     .accordion-box {
-      flex: 1 1 300px;
+      flex: 1 1 350px;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
-      margin-right: 100px;
+      gap: 1.5rem;
+      margin-right: 10px;
+      margin-left: 30px;
+
     }
 
     .accordion-item {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
-      padding: 0.6rem 1.2rem; /* più basso */
+      padding: 0.8rem 1rem; /* più basso */
       border-radius: 20px;
       background: white;
       font-weight: bold;
@@ -141,32 +143,71 @@
     }
 
     @media (max-width: 768px) {
-      .content-wrapper {
-        flex-direction: column;
-        align-items: center;
-      }
+  /* Reset globale di margini e padding */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-      .photo-box,
-      .accordion-box {
-        margin: 0;
-      }
-    }
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Spazio tra gli elementi */
+    margin-top: 100px; /* Riduci il margine top */
+  }
+
+  .photo-box,
+  .accordion-box {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Occupano tutta la larghezza disponibile */
+  }
+
+  /* Riduci margine sotto la foto */
+  .photo-box {
+    margin-bottom: 0px; /* Riduci margine sotto la foto */
+    flex: auto;
+  }
+
+  /* Regola lo spazio tra gli item dell'accordion */
+  .accordion-box {
+    margin-top: 10px; /* Riduci il margine sopra gli accordion */
+  }
+
+  .accordion-item {
+    gap: 0.8rem; /* Spazio tra le voci dell'accordion */
+    padding: 1rem; /* Riduci il padding per avere meno spazio all'interno */
+    width: 100%;
+  }
+
+  /* Regola margine e padding per intro box */
+  .intro-box {
+    margin-top: 10px; /* Aggiusta il margine sopra */
+    padding: 1.5rem; /* Riduci padding per avere meno spazio all'interno */
+    margin-bottom: 10px;
+  }
+}
   </style>
 </head>
 <body>
 
-  <div class="intro-box">
-    <strong>CIAO!</strong><br>
-    Benvenuto nel posto in cui puoi trovare l'aiuto che stavi cercando per la realizzazione della tua Casa dei sogni.  
-    Vorrei rubare qualche minuto del tuo prezioso tempo per presentarmi a te.
-  </div>
+
 
   <div class="content-wrapper">
-    <div class="photo-box">
-      <img src="/immagini/cate.jpeg" alt="Foto di presentazione">
+    <div class="intro-box">
+      <strong>CIAO!</strong><br>
+      Benvenuto nel posto in cui puoi trovare l'aiuto che stavi cercando per la realizzazione della tua Casa dei sogni.  
+      Vorrei rubare qualche minuto del tuo prezioso tempo per presentarmi a te.
     </div>
+    <div class="photo-box">
+
+      <img src="/immagini/cate.jpeg" alt="Foto di presentazione">
+
+    </div>
+    
     <div class="accordion-box">
-      
+
       <div class="accordion-item">
         <div class="accordion-header">
           <div class="accordion-title">LA MIA ESPERIENZA</div>
