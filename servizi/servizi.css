@@ -329,13 +329,16 @@ body {
     pointer-events: none; /* Evita che si possano cliccare elementi sfocati */
 }
 
-
 @media (max-width: 768px) {
+    /* Altri stili per la versione mobile */
+    
+    .cta-container p {
+        font-size: 0.9rem; /* Riduci la dimensione del testo */
+        line-height: 1.4; /* Regola l'interlinea per una migliore leggibilità */
+    }
 
-    /* Riduci la dimensione del testo nel contenitore cta-container */
-.cta-container p {
-    font-size: 0.9rem; /* Riduci la dimensione del testo */
-    line-height: 1.4; /* Regola l'interlinea per una migliore leggibilità */
-}
-
+    /* Modifica la posizione dei bottoni di navigazione */
+    .nav-buttons {
+        top: 570px;  /* Sposta i bottoni più su */
+    }
 }
