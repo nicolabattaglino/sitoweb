@@ -130,4 +130,11 @@ body {
         grid-row: span 2; 
         height: 450px; /* Altezza uniforme per tutte le card */
     }
+    .overlay {
+      transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      height: 0;
+      opacity: 0;
+      background: rgba(70, 67, 50, 0.5);
+    }
+      
 }

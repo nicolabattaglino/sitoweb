@@ -9,21 +9,23 @@
 </head>
 <body>
     <div class="griglia-progetti" id="griglia-progetti"></div>
-    
+
     <script>
         async function caricaProgetti() {
             const response = await fetch("../data/progetti.json");
             const progetti = await response.json();
             const griglia = document.getElementById("griglia-progetti");
-            
-            // Numero di elementi totali (progetti + segnaposto "In arrivo")
+
             const numTotale = 12;
             let index = 0;
-            
+
             progetti.forEach(progetto => {
                 if (index >= numTotale) return;
+
                 const card = document.createElement("div");
                 card.classList.add("progetto-card");
+                card.setAttribute("data-clicked", "false"); // inizializza
+
                 card.innerHTML = `
                     <a href="progetto.html?p=${progetto.slug}">
                         <img src="${progetto.immagine_hero}" alt="${progetto.titolo}">
@@ -36,7 +38,6 @@
                 index++;
             });
 
-            // Aggiunta segnaposto "In arrivo" per completare la griglia
             while (index < numTotale) {
                 const placeholder = document.createElement("div");
                 placeholder.classList.add("progetto-card", "placeholder");
@@ -45,12 +46,57 @@
                 index++;
             }
         }
-        
-        document.addEventListener("DOMContentLoaded", caricaProgetti);
+
+        function setupMobileClickOverlay() {
+            if (window.innerWidth > 768) return; // Solo per mobile
+
+            document.querySelectorAll(".progetto-card").forEach(card => {
+                const link = card.querySelector("a");
+                const overlay = card.querySelector(".overlay");
+                if (!overlay || !link) return;
+
+                let timeout = null;
+
+                card.addEventListener("click", (e) => {
+                    e.preventDefault();
+
+                    if (card.dataset.clicked === "false") {
+                        overlay.style.height = "50%";
+                        overlay.style.opacity = "1";
+                        card.dataset.clicked = "true";
+
+                        timeout = setTimeout(() => {
+                            overlay.style.height = "0";
+                            overlay.style.opacity = "0";
+                            card.dataset.clicked = "false";
+                        }, 2000);
+                    } else {
+                        clearTimeout(timeout);
+                        window.location.href = link.href;
+                    }
+                });
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            await caricaProgetti();
+            setupMobileClickOverlay();
+        });
+
+        window.addEventListener("pageshow", () => {
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll(".overlay").forEach(overlay => {
+                    overlay.style.height = "0";
+                    overlay.style.opacity = "0";
+                });
+
+                document.querySelectorAll(".progetto-card").forEach(card => {
+                    card.dataset.clicked = "false";
+                });
+            }
+        });
     </script>
 
     <script src="../header.js"></script>
-
-    
 </body>
 </html>

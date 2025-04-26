@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr; /* Testo più stretto a sinistra, immagini più larghe a destra */
     gap: 40px;
-    width: 100vw;  /* Occupa l'intera larghezza della finestra */
+    width: 100%; /* al posto di 100vw */
     max-width: none;  /* Rimuove il limite di 1500px */
     padding: 50px;  /* Mantiene un po' di margine interno */
     box-sizing: border-box; /* Evita che padding crei scroll orizzontale */
@@ -26,7 +26,6 @@ body {
 }*/
 .slider-iframe {
     width: 100%;
-    max-width: 600px;
     height: 400px; /* Adatta l'altezza in base alle immagini */
     border: none;
 }
@@ -151,6 +150,9 @@ body {
         display: flex;
         flex-direction: column; /* Inverte l'ordine: prima le immagini, poi il testo */
         align-items: center; /* Centra gli elementi */
+        margin-top: -10vh;   /* o -15vh, regola a piacere */
+
+        
     }
 
     .progetto-testo {
@@ -159,6 +161,14 @@ body {
         max-width: 600px; /* Imposta una larghezza massima ragionevole */
         width: 100%;
     }
+    .slider-iframe {
+        width: 100%;
+        max-width: auto;
+        height: 400px; /* Adatta l'altezza in base alle immagini */
+        border: none;
+        
+    }
+
 }
 
 
