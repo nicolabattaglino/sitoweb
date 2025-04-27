@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #EEECE6 !important; /* Sostituisci con il colore desiderato */
+    background-color: #EEECE6 !important; /* Colore di sfondo */
     margin: 0;
     padding: 0;
 }
@@ -10,25 +10,24 @@ body {
     width: 100%;
     margin: auto;
     overflow: hidden;
-    padding: 0px 0px; /* Aggiunge un margine laterale iniziale */
-
-
+    padding: 0px 0px;
 }
+
 .testo {
     text-align: center;
     margin-top: 20px;
     font-size: 16px;
     color: #333;
-  }
+}
+
 .carousel {
     display: flex;
     gap: 20px;
     overflow-x: auto;
     scroll-behavior: smooth;
     padding-bottom: 0px;
-    padding: 60px; /* Aggiunge un margine laterale iniziale */
+    padding: 60px;
     padding-top: 80px;
-
 }
 
 .hero-servizi {
@@ -37,27 +36,24 @@ body {
     padding: 50px 20% 0px;
     color: #6d1b1b;
     text-align: center;
-    background-color: #EEECE6 !important; /* Sostituisci con il colore desiderato */
-    height: 70px; /* Imposta un'altezza fissa, ad esempio 200px */
-
+    background-color: #EEECE6 !important;
+    height: 70px;
 }
 
 .hero-servizi h1 {
     font-size: 2.2rem;
     margin: 0;
-    font-weight: lighter; /* Imposta il font a un peso più leggero */
-
+    font-weight: lighter;
     color: #6d1b1b;
-
 }
 
 .carousel::-webkit-scrollbar {
-    display: none; /* Nasconde la scrollbar su Chrome, Safari, Edge */
+    display: none;
 }
 
 .carousel {
-    -ms-overflow-style: none;  /* Nasconde la scrollbar su Internet Explorer e Edge */
-    scrollbar-width: none;  /* Nasconde la scrollbar su Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .card {
@@ -85,30 +81,29 @@ body {
     color: white;
     font-size: 1.2rem;
     text-align: center;
-    padding: 15px; /* Aumentato per rendere più visibile il testo */
+    padding: 15px;
     display: flex;
-    justify-content: flex-start; /* Sposta il contenuto in basso */
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     transition: height 0.3s ease-in-out, padding 0.3s ease-in-out, transform 0.3s ease-in-out;
-    height: 80px; /* Altezza iniziale più alta */
+    height: 80px;
     overflow: hidden;
-    padding-top: 20px; /* Imposta una distanza fissa dall'inizio */
+    padding-top: 20px;
 }
 
 .card:hover .overlay {
-    height: 150px; /* Si alza di più quando si passa sopra */
-    padding: 20px; /* Evita che il testo venga tagliato */
+    height: 150px;
+    padding: 20px;
 }
 
 .overlay-text {
-    opacity: 1; /* Sempre visibile */
+    opacity: 1;
     transition: opacity 0.3s ease-in-out;
 }
 
-
 .plus {
-    width: 40px; /* Ridotto il diametro del cerchio */
+    width: 40px;
     height: 40px;
     background-color: #eae5dc;
     border-radius: 50%;
@@ -116,47 +111,40 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    opacity: 0; /* Nasconde il "+" all'inizio */
+    opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    margin-top: 30px; /* Leggermente più vicino al testo */
+    margin-top: 30px;
 }
 
 .card:hover .plus {
     opacity: 1;
 }
 
-/* Linee del "+" con estremi stondati */
 .plus::before,
 .plus::after {
     content: "";
     position: absolute;
-    background-color: #401d23; /* Colore del "+" */
-    border-radius: 4px; /* Arrotonda gli estremi */
+    background-color: #401d23;
+    border-radius: 4px;
 }
 
-/* Linea orizzontale */
 .plus::before {
-    width: 18px; /* Ridotta la lunghezza */
-    height: 4px; /* Ridotto lo spessore */
+    width: 18px;
+    height: 4px;
 }
 
-/* Linea verticale */
 .plus::after {
-    width: 4px; /* Ridotto lo spessore */
-    height: 18px; /* Ridotta la lunghezza */
+    width: 4px;
+    height: 18px;
 }
 
-
-
-/* Contenitore dei bottoni di navigazione */
 .nav-buttons {
     position: absolute;
-    right: 5%; /* Sposta le frecce verso destra */
+    right: 5%;
     display: flex;
-    gap: 10px; /* Spazio tra le frecce */
+    gap: 10px;
 }
 
-/* Stile dei bottoni */
 .nav-buttons button {
     width: 35px;
     height: 35px;
@@ -169,32 +157,29 @@ body {
     transition: background-color 0.3s ease-in-out;
 }
 
-/* Stile della freccia sinistra */
 .prev {
-    background-color: #401d23; /* Colore chiaro */
+    background-color: #401d23;
 }
 
-/* Stile della freccia destra */
 .next {
-    background-color: #401d23; /* Colore scuro */
+    background-color: #401d23;
 }
 
-/* Stile dell'icona dentro i bottoni */
 .nav-buttons button i {
-    color: #EAE5DC; /* Colore della freccia */
+    color: #EAE5DC;
     font-size: 1.2rem;
-    
 }
+
 .nav-buttons button.disabled {
-    opacity: 0.5; /* Freccia disattivata più chiara */
-    pointer-events: none; /* Impedisce il clic */
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .cta-container {
     text-align: center;
     margin-top: 30px;
     padding: 20px;
-    background-color: #EEECE6 !important; /* Sostituisci con il colore desiderato */
+    background-color: #EEECE6 !important;
     border-radius: 10px;
 }
 
@@ -202,8 +187,7 @@ body {
     font-size: 1.1rem;
     color: #401d23;
     margin-bottom: 30px;
-    margin-top: -50px; /* Riduci il valore del margine per portarlo più su */
-
+    margin-top: -50px;
 }
 
 .cta-button {
@@ -228,88 +212,96 @@ body {
     position: fixed;
     top: 55%;
     left: 50%;
+    padding: 0px 0px;
     transform: translate(-50%, -50%);
     background: #f8f4f0;
-    padding: 40px; /* Aumenta il padding */
     border-radius: 20px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-    max-width: 1000px; /* Aumenta la larghezza massima */
-    width: 90%; /* Rende il popup più largo */
-    height: 80vh; /* Aumenta l'altezza al 80% della viewport */
-    overflow-y: auto; /* Aggiunge lo scroll se necessario */
+    max-width: 1000px;
+    width: 90%;
+    height: 80vh;
     z-index: 1000;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column; /* Organizza tutto in colonna */
+    overflow: hidden; /* Nasconde gli overflow per mantenere i bordi arrotondati */
+
 
 }
-.popup-text {
-    text-align: left;
-    font-size: 15px; /* oppure 40px */
-    color: #5e2631;
-}
 
-
-.popup-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    align-items: center;
-}
-
-
-
-.popup-content img {
-    width: 20%;  /* Rende l'immagine più stretta */
-    height: 600px; /* La rende più lunga */
-    object-fit: cover; /* Ritaglia l’immagine invece di ridimensionarla */
-    object-position: center; /* Centra il ritaglio (puoi usare 'top' o 'bottom') */
-    border-radius: 10px;
-}
-
-.popup-content p {
-    flex: 1; /* Il testo occupa tutto lo spazio disponibile */
-}
-.popup-content h2 {
-    font-size: 2rem; /* oppure 40px */
-    font-weight: bold; /* opzionale per rendere il testo più marcato */
-    align-self: flex-start; /* Allinea in alto a sinistra */
-    margin-top: -120px; /* Sposta verso l’alto, regola a piacere */
-    margin-left: 0;
-}
-
-
-
-.popup img {
+.popup-header {
+    background-color: #8f8e7c;
+    color: white;
+    padding: 25px 40px; /* Più padding per aumentare l'altezza */
     width: 100%;
-    border-radius: 10px;
-    max-height: 400px; /* Imposta un'altezza massima per l'immagine */
-    object-fit: cover; /* Rende l'immagine adattabile */
+    margin: 0;
+    padding: 0 40px; /* Solo padding laterale */
+
+    position: relative; /* Per posizionare il pulsante di chiusura */
+    height: 120px; /* Altezza fissa */
+    border-radius: 20px 20px 0 0; /* Arrotonda solo gli angoli superiori */
 }
 
+.popup-header h2 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: normal;
+    width: 100%; /* Occupa tutto lo spazio disponibile */
+    padding-top: 40px;
+}
+
+/* Sostituisci lo stile esistente del .close con questo: */
 .close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 32px;
-    height: 32px;
+    width: 35px;
+    height: 35px;
     background-color: #eae5dc;
-    color: #401d23;
-    font-size: 25px;
-    font-weight: bold;
     border-radius: 50%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    transition: all 0.3s ease;
+    z-index: 11;
+}
+
+.close::before,
+.close::after {
+    content: "";
+    position: absolute;
+    background-color: #401d23;
+    border-radius: 4px;
+    width: 16px;
+    height: 3px;
+    transition: all 0.3s ease;
+}
+
+.close::before {
+    transform: rotate(45deg);
+}
+
+.close::after {
+    transform: rotate(-45deg);
 }
 
 .close:hover {
     background-color: #dfdbdc;
     transform: scale(1.1);
+}
+
+.close:hover::before,
+.close:hover::after {
+    background-color: #732F3D;
+}
+
+.popup-text {
+    font-size: 1rem;
+    color: #5e2631;
+    margin-top: 20px;
+    line-height: 1.6;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .popup-overlay {
@@ -318,27 +310,25 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Sfondo scuro trasparente */
-    backdrop-filter: blur(2px); /* Sfocatura dello sfondo */
-    display: none; /* Nascosto di default */
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    display: none;
     z-index: 10;
 }
+
 .blurred #main-header,
 .blurred .container {
     filter: blur(2px);
-    pointer-events: none; /* Evita che si possano cliccare elementi sfocati */
+    pointer-events: none;
 }
 
 @media (max-width: 768px) {
-    /* Altri stili per la versione mobile */
-    
     .cta-container p {
-        font-size: 0.9rem; /* Riduci la dimensione del testo */
-        line-height: 1.4; /* Regola l'interlinea per una migliore leggibilità */
+        font-size: 0.9rem;
+        line-height: 1.4;
     }
 
-    /* Modifica la posizione dei bottoni di navigazione */
     .nav-buttons {
-        top: 570px;  /* Sposta i bottoni più su */
+        top: 570px;
     }
 }
