@@ -7,52 +7,107 @@
     <link rel="stylesheet" href="../contatti/contatti.css">
     <link rel="stylesheet" href="../home/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 </head>
 <body>
 
-    
-    <main class="contact-container">
-        <section class="contact-left">
-            <div class="contact-image">
-                <img src="../immagini/persona.png" alt="Foto di Caterina Di Bernardo">
-            </div>
-        </section>
+<main class="contact-container">
+    <section class="contact-left">
+        <div class="contact-image">
+            <img src="../immagini/persona.jpg" alt="Foto di Caterina Di Bernardo">
+        </div>
+        <div class="contact-details">
+            <p>
+                <i class="fas fa-envelope"></i> 
+                <a href="mailto:dibernardocaterina@gmail.com" style="color: inherit; text-decoration: none;">
+                    dibernardocaterina@gmail.com
+                </a>
+            </p>
+            <p>
+                <i class="fab fa-instagram"></i> @cate.dibernardo
+            </p>
+        </div>
+    </section>
 
-        <section class="contact-content">
-            <div class="contact-text">
-                
-                <p>Credo che la qualità degli spazi in cui viviamo influenzi il nostro benessere. Ogni progetto nasce dal desiderio di creare ambienti funzionali, armoniosi e in sintonia con chi li abita.</p>
-                <p>Gran parte delle nostre giornate le passiamo a lavoro e a casa. Tu ti sei mai chiesto come ti senti quando rientri a casa? Gli spazi in cui vivi rispecchiano le tue esigenze?</p>
-                <p>Stai programmando una ristrutturazione e non sai come orientarti?</p>
-                <p>Hai bisogno di un semplice consiglio sulla tua casa, o sugli spazi in cui lavori, ma non sai a chi rivolgerti?</p>
-            </div>
-            <div class="contact-form">
-                <form action="mailto:dibernardocaterina@gmail.com" method="post" enctype="text/plain">
-                    <div class="form-group">
-                        <input type="text" name="nome" placeholder="Nome" required>
-                        <input type="text" name="cognome" placeholder="Cognome" required>
-                    </div>
-                    <textarea name="messaggio" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
-                    <div class="checkbox-container">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="termini" required>
-                            Accetto i termini e condizioni
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit">Invia</button>
-                    </div>
-                </form>
-                <div class="contact-details">
-                    <p><i class="fas fa-envelope"></i> dibernardocaterina@gmail.com</p>
-                    <p><i class="fab fa-instagram"></i> @cate.dibernardo</p>
+    <section class="contact-content">
+        <div class="contact-text">
+            <div class="popup-text">
+                <div style="font-family: sans-serif; color: #3c3c3c; line-height: 1.6;">
+                    <h2 class="popup-heading">Perché contattarmi?</h2>
+                    <ul style="margin-left: 1rem; padding-left: 1rem;">
+                        <li><strong>Credo che la qualità degli spazi</strong> in cui viviamo influenzi il nostro benessere.</li>
+                        <li><strong>Ogni progetto</strong> nasce dal desiderio di creare ambienti funzionali, armoniosi e in sintonia con chi li abita.</li>
+                        <li>Gran parte delle nostre giornate le passiamo a lavoro e a casa. <strong>Ti sei mai chiesto</strong> come ti senti quando rientri a casa?</li>
+                        <li>Stai programmando una <strong>ristrutturazione</strong> e non sai come orientarti?</li>
+                        <li>Hai bisogno di un semplice <strong>consiglio</strong> sulla tua casa o sugli spazi in cui lavori, ma non sai a chi rivolgerti?</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+        <div class="contact-form">
+            <form id="contact-form">
+                <div class="form-group">
+                    <input type="text" name="nome" placeholder="Nome" required>
+                    <input type="text" name="cognome" placeholder="Cognome" required>
+                </div>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="messaggio" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+                <div class="checkbox-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="termini" required>
+                        Accetto i termini e condizioni
+                    </label>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Invia</button>
+                </div>
+            </form>
 
-    <script src="../header.js"></script>
+            <!-- Messaggio di conferma -->
+            <div id="form-message" style="display:none; margin-top: 1em; color: green;">
+                Il tuo messaggio è stato inviato con successo!
+            </div>
+
+            <div id="terms-and-conditions" style="font-size: 14px; color: #4A2C2A; margin-top: 20px;">
+                <p>Accettando i termini e condizioni, confermi di aver letto e compreso le seguenti informazioni:</p>
+                <ul style="margin-left: 1rem; padding-left: 1rem;">
+                    <li>I dati forniti saranno utilizzati esclusivamente per rispondere alla tua richiesta e non saranno condivisi con terze parti.</li>
+                    <li>Se necessario, potremmo contattarti per ulteriori dettagli relativi alla tua richiesta.</li>
+                    <li>Accetti di rispettare le normative vigenti in materia di privacy e protezione dei dati personali.</li>
+                </ul>
+                <p>Per ulteriori dettagli, consulta la nostra <a href="../contatti/privacy/privacy.html" style="color: #6b4f3f; text-decoration: underline;">Informativa sulla Privacy</a>.</p>
+            </div>
+
+            
+        </div>
+    </section>
+</main>
+
+<script>
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const message = document.getElementById("form-message");
+
+        fetch("https://formspree.io/f/xnndpkor", {
+            method: "POST",
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                form.reset();
+                message.style.display = "block";
+            } else {
+                alert("Errore durante l'invio. Riprova.");
+            }
+        }).catch(error => {
+            alert("Errore di rete.");
+            console.error(error);
+        });
+    });
+</script>
+
+<script src="../header.js"></script>
 
 </body>
 </html>

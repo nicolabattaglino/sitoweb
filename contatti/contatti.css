@@ -1,5 +1,5 @@
 body {
-    background-color: #e8e6e5 !important;
+    background-color: #EEECE6 !important; /* Colore di sfondo */
     font-family: 'Arial', sans-serif;
     color: #4A2C2A;
     margin: 0;
@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: row; /* Due colonne: foto a sinistra e contenuto a destra */
     gap: 20px;
-    max-width: 900px;
+    max-width: 1100px;
     width: 100%;
     padding-top: 40px; /* Padding in alto per la container */
 }
@@ -25,13 +25,13 @@ body {
     align-items: left;
     gap: 60px; /* Distanza tra il titolo e la foto */
     width: 30%; /* La colonna di sinistra occupa il 30% della larghezza */
+    padding-top: 50px; /* Aggiunge distanza dal margine superiore */
 }
 
 .contact-left h1 {
     font-size: 24px;
     font-weight: bold;
     color: #4A2C2A;
-    margin-top: 0;
 }
 
 .contact-image img {
@@ -45,13 +45,12 @@ body {
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    padding-top: 40px; /* Padding in alto per il contenuto */
-    margin-top: 50px; /* Sposta la colonna di destra un po' più in basso */
+    padding-top: 20px; /* Padding in alto per il contenuto */
 
 }
 
 .contact-text {
-    max-width: 500px;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -70,6 +69,8 @@ body {
     width: 100%;
     margin-top: 20px;
     box-shadow: none;
+    max-width: 800px;
+
 }
 
 .form-group {
@@ -78,7 +79,8 @@ body {
     width: 100%;
 }
 
-input, textarea {
+input {
+    resize: vertical; /* Permette il ridimensionamento solo in verticale */
     width: 100%;
     padding: 10px;
     border: none;
@@ -88,6 +90,24 @@ input, textarea {
     color: #4A2C2A;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px; /* Distanza tra i campi */
+    max-width: 900px;
+
+}
+
+textarea {
+    resize: vertical; /* Permette il ridimensionamento solo in verticale */
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: white;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #4A2C2A;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Distanza tra i campi */
+    max-width: 900px;
+    min-height: 50px;
+
 }
 
 input:focus, textarea:focus {
@@ -112,12 +132,12 @@ input:focus, textarea:focus {
 .checkbox-container input[type="checkbox"]:checked::before {
     content: '';
     position: absolute;
-    top: 3px;   /* Aggiusta la posizione del quadratino all'interno */
-    left: 3px;  /* Aggiusta la posizione del quadratino all'interno */
-    width: 8px;  /* Aumenta la larghezza del quadratino interno */
-    height: 8px; /* Aumenta l'altezza del quadratino interno */
-    background-color: #4A2C2A;
-    border-radius: 2px;
+    top: 2px;   /* Riduci lo spazio dall'alto */
+    left: 2px;  /* Riduci lo spazio dai lati */
+    width: 16px;  /* Aumenta la larghezza del quadratino interno */
+    height: 16px; /* Aumenta l'altezza del quadratino interno */
+    background-color: #4A2C2A; /* Colore marrone */
+    border-radius: 2px; /* Mantieni gli angoli leggermente arrotondati */
 }
 
 .checkbox-label {
@@ -145,10 +165,19 @@ button:hover {
 
 /* Dettagli di contatto */
 .contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
+    margin-top: 20px; /* Spazio tra l'immagine e i dettagli */
+    font-size: 14px;
+    color: #4A2C2A;
+    text-align: left; /* Centra il testo sotto l'immagine */
+}
+
+.contact-details p {
+    margin: 5px 0; /* Spazio tra le righe */
+}
+
+.contact-details a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .contact-details i {
@@ -163,4 +192,81 @@ button:hover {
     border-radius: 50%;  /* Bordo arrotondato */
     padding: 3px;  /* Distanza tra il bordo e l'icona */
     color: #4A2C2A;  /* Colore del bordo e dell'icona */
+}
+
+.popup-heading {
+    font-size: 25px;
+    color: #6b4f3f;
+    margin-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+#terms-and-conditions {
+    font-size: 14px;
+    color: #4A2C2A;
+    margin-top: 20px;
+}
+
+#terms-and-conditions ul {
+    margin-left: 1rem;
+    padding-left: 1rem;
+}
+
+#terms-and-conditions a {
+    color: #6b4f3f;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column; /* Dispone tutto in colonna */
+        align-items: center; /* Centra gli elementi */
+        gap: 20px; /* Spazio tra gli elementi */
+    }
+
+    .contact-left {
+        width: 100%; /* La colonna di sinistra occupa tutta la larghezza */
+        align-items: center; /* Centra il contenuto */
+        padding-top: 20px; /* Riduci il padding superiore */
+    }
+
+    .contact-image img {
+        width: 200px; /* Aumenta la dimensione della foto nella versione mobile */
+        height: auto;
+    }
+
+    .contact-details {
+        text-align: center; /* Centra il testo sotto l'immagine */
+    }
+
+    .contact-content {
+        width: 100%; /* La colonna di destra occupa tutta la larghezza */
+        padding-top: 0; /* Rimuovi il padding superiore */
+    }
+
+    .contact-text {
+        margin-left: 0; /* Rimuovi il margine sinistro */
+        text-align: center; /* Centra il testo */
+        padding: 0 20px; /* Aggiungi padding a destra e sinistra */
+    }
+
+    .contact-form {
+        width: 100%; /* Il form occupa tutta la larghezza */
+        max-width: 100%; /* Rimuovi il limite massimo di larghezza */
+    }
+
+    textarea {
+        resize: vertical; /* Permette il ridimensionamento solo in verticale */
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: white;
+        border-radius: 10px;
+        font-size: 16px;
+        color: #4A2C2A;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px; /* Distanza tra i campi */
+        max-width: 900px;
+        min-height: 150px; /* Aumenta l'altezza minima del campo */
+    }
 }
