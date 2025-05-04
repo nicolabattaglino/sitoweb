@@ -1,3 +1,9 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 body {
     background-color: #EEECE6 !important; /* Colore di sfondo */
     font-family: 'Arial', sans-serif;
