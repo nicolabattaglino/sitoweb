@@ -10,10 +10,14 @@
     padding: 50px;
     display: flex;
     align-items: flex-start;
+    background-color: #EEECE6 !important; /* Colore di sfondo */
+
 }
 
 body {
     overflow-x: hidden;
+    background-color: #EEECE6 !important; /* Colore di sfondo */
+
 }
 
 /*.progetto-testo {
@@ -139,7 +143,7 @@ body {
 /* Contenuto principale */
 .progetto-container {
     position: relative;
-    background: white; /* Sfondo bianco che copre l'immagine */
+    background-color: #EEECE6 !important; /* Colore di sfondo */
     padding: 50px;
     z-index: 1;
 }
