@@ -226,11 +226,17 @@ body {
 
 
 }
-
+.popup-body {
+    padding: 0px 40px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+}
 .popup-header {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* centra verticalmente */
     background-color: #8f8e7c;
     color: white;
-    padding: 25px 40px; /* Più padding per aumentare l'altezza */
     width: 100%;
     margin: 0;
     padding: 0 40px; /* Solo padding laterale */
@@ -245,7 +251,6 @@ body {
     font-size: 2.5rem;
     font-weight: normal;
     width: 100%; /* Occupa tutto lo spazio disponibile */
-    padding-top: 40px;
 }
 
 /* Sostituisci lo stile esistente del .close con questo: */
@@ -297,7 +302,7 @@ body {
 
 .popup-text {
     font-size: 1rem;
-    color: #5e2631;
+    color: #737373;
     margin-top: 20px;
     line-height: 1.6;
     padding-left: 40px;
@@ -322,13 +327,55 @@ body {
     pointer-events: none;
 }
 
+.popup-heading {
+    font-size: 20px;
+    color: #6b4f3f;
+    margin-top: 1.5rem;
+  }
+  
+
 @media (max-width: 768px) {
     .cta-container p {
         font-size: 0.9rem;
         line-height: 1.4;
     }
 
+    .popup-header {
+        display: flex;
+        justify-content: center;
+        align-items: center; /* centra verticalmente */
+        height: 80px;
+        padding: 0 20px; /* padding solo laterale */
+    }
+
+    .popup-header h2 {
+        font-size: 1.2rem;
+        padding-top: 0; /* rimuovi padding-top */
+        margin: 0;
+    }
+    .popup-heading {
+        font-size: 16px;
+      }
     .nav-buttons {
         top: 570px;
     }
+    .popup-body {
+        overflow-y: auto;
+        flex: 1;
+        padding: 20px 20px; /* Riduci padding per schermi stretti */
+    }
+
+    .popup {
+        height: 80vh; /* Puoi anche aumentare leggermente l'altezza su mobile */
+    }
+
+    .popup-text {
+        font-size: 0.8rem;
+        color: #737373;
+        margin-top: 20px;
+        line-height: 1.6;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
 }
