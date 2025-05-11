@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Su di me</title>
   <link rel="stylesheet" href="../home/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     body {
       background-color: #EEECE6;
@@ -19,43 +20,80 @@
     .intro-box {
       background: white;
       border-radius: 20px;
-      padding: 2rem;
-      max-width: 1100px;
-      margin: 0 auto 2rem auto;
+      padding: 1.5rem; /* Spazio interno */
       font-size: 1.2rem;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+      position: relative; /* Necessario per far sbordare il "CIAO!" */
+      overflow: visible; /* Permette al "CIAO!" di sbordare */
+      display: flex;
+      align-items: center; /* Allinea verticalmente il contenuto */
+      max-height: 80px; /* Altezza massima */
+      margin-top: 0; /* Rimuove il margine sopra */
+    }
+
+    .intro-content {
+      display: flex;
+      align-items: center; /* Centra verticalmente il contenuto */
+      gap: 1rem; /* Spazio tra "CIAO!" e il testo */
+      height: 100%; /* Assicura che il contenitore occupi tutta l'altezza */
+      margin-top: 1rem; /* Aggiunge spazio sopra l'intero contenuto */
+    }
+
+    .ciao {
+      font-family: 'Great Vibes', cursive; /* Font decorativo */
+      font-size: 6rem; /* Dimensione grande */
+      font-style: italic; /* Corsivo */
+      color: #561c1c; /* Colore marrone scuro */
+      position: relative; /* Necessario per farlo sbordare */
+      top: -1rem; /* Fa sbordare il "CIAO!" verso l'alto */
+      margin: 0; /* Rimuove margini predefiniti */
+      font-weight: normal; /* Rimuove il bold */
+
+    }
+
+    .intro-text {
+      font-size: 1.1rem;
+      color: #561c1c;
+      line-height: 1.5; /* Migliora la leggibilità */
+      margin: 0; /* Rimuove margini verticali */
+      padding: 0; /* Rimuove padding */
+      margin-top: -10px;
     }
 
     .content-wrapper {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap; /* Dispone gli elementi in riga */
       justify-content: center;
-      gap: 1rem;
-      margin-top: 110px;
-
-      max-width: 1100px; /* <--- aggiunto */
-      margin-left: auto; /* <--- aggiunto */
-      margin-right: auto; /* <--- aggiunto */
-      padding: 0 1rem; /* <--- per evitare che il bordo tocchi il limite */
+      gap: 2rem; /* Spazio tra la foto e la colonna di destra */
+      max-width: 1100px;
+      margin: 150px auto;
+      padding: 1rem;
     }
 
     .photo-box {
-      flex: 1 1 350px;
-      margin-left: 10px;
+      flex: 1 1 40%; /* La foto occupa il 40% dello spazio */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .photo-box img {
-      width: 100%;
+      width: 90%;
       border-radius: 20px;
+      object-fit: cover; /* Mantiene le proporzioni */
+    }
+
+    .right-column {
+      flex: 1 1 60%; /* La colonna di destra occupa il 60% dello spazio */
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem; /* Spazio tra il rettangolo "CIAO!" e gli accordion */
     }
 
     .accordion-box {
-      flex: 1 1 350px;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      margin-right: 10px;
-      margin-left: 30px;
-
+      gap: 1.5rem; /* Spazio tra gli accordion */
     }
 
     .accordion-item {
@@ -149,6 +187,26 @@
       opacity: 1;
     }
 
+
+
+
+    @media (max-width: 1024px) {
+    .intro-content {
+        gap: 0.5rem; /* Riduci lo spazio tra "CIAO!" e il testo */
+    }
+
+    .ciao {
+        font-size: 5rem; /* Riduci la dimensione del "CIAO!" */
+    }
+
+    .intro-text {
+        font-size: 0.8rem; /* Riduci la dimensione del testo accanto */
+        margin: 0; /* Rimuove margini verticali */
+        padding: 0; /* Rimuove padding */
+    }
+}
+
+
     @media (max-width: 768px) {
   /* Reset globale di margini e padding */
   * {
@@ -156,7 +214,9 @@
     padding: 0;
     box-sizing: border-box;
   }
-
+  .intro-content {
+        gap: 0.8rem; /* Riduci lo spazio tra "CIAO!" e il testo */
+  }
   .content-wrapper {
     flex-direction: column;
     align-items: center;
@@ -192,69 +252,110 @@
   .intro-box {
     margin-top: 10px; /* Aggiusta il margine sopra */
     padding: 1.5rem; /* Riduci padding per avere meno spazio all'interno */
-    margin-bottom: 10px;
+
   }
+
+    .content-wrapper {
+        flex-direction: column; /* Dispone gli elementi in colonna */
+        align-items: center;
+        gap: 1.5rem; /* Spazio tra gli elementi */
+    }
+
+    .photo-box,
+    .right-column {
+        width: 100%; /* Gli elementi occupano tutta la larghezza */
+    }
+
+    .photo-box img {
+        width: 80%; /* Riduci la dimensione della foto */
+    }
+
+    .intro-text {
+      font-size: 0.8rem;
+      color: #561c1c;
+      line-height: 1.5; /* Migliora la leggibilità */
+      margin: 1rem 0 0 0; /* Aggiunge 1rem di spazio sopra il testo */
+      margin: 0; /* Rimuove margini verticali */
+      padding: 0; /* Rimuove padding */
+    }
 }
-  </style>
+
+    @media (max-width: 400px) {
+      .intro-content {
+        gap: 0.5rem; /* Riduci lo spazio tra "CIAO!" e il testo */
+      }
+
+      .ciao {
+        font-size: 4rem; /* Riduci la dimensione del "CIAO!" */
+      }
+
+      .intro-text {
+      font-size: 0.6rem;
+      color: #561c1c;
+      line-height: 1.5; /* Migliora la leggibilità */
+      margin: 0; /* Rimuove margini verticali */
+      padding: 0; /* Rimuove padding */
+    }
+
+    }
+
+</style>
 </head>
 <body>
 
 
 
   <div class="content-wrapper">
-    <div class="intro-box">
-      <strong>CIAO!</strong><br>
-      Benvenuto nel posto in cui puoi trovare l'aiuto che stavi cercando per la realizzazione della tua Casa dei sogni.  
-      Vorrei rubare qualche minuto del tuo prezioso tempo per presentarmi a te.
-    </div>
     <div class="photo-box">
-
-      <img src="/immagini/cate.jpeg" alt="Foto di presentazione">
-
+      <img src="/immagini/cate1.jpeg" alt="Foto di presentazione">
     </div>
-    
-    <div class="accordion-box">
-
-      <div class="accordion-item">
-        <div class="accordion-header">
-          <div class="accordion-title">LA MIA ESPERIENZA</div>
-          <div class="plus"></div>
-        </div>
-        <div class="accordion-content">
-          <p>Ho lavorato per oltre dieci anni nel settore dell’interior design, seguendo progetti su misura per clienti esigenti...</p>
+    <div class="right-column">
+      <div class="intro-box">
+        <div class="intro-content">
+          <strong class="ciao">Ciao!</strong>
+          <p class="intro-text">
+            Vorrei rubare qualche minuto del tuo prezioso tempo per presentarmi a te.
+          </p>
         </div>
       </div>
-
-      <div class="accordion-item">
-        <div class="accordion-header">
-          <div class="accordion-title">AFFIDATI A ME PERCHÈ...</div>
-          <div class="plus"></div>
+      <div class="accordion-box">
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">LA MIA ESPERIENZA</div>
+            <div class="plus"></div>
+          </div>
+          <div class="accordion-content">
+            <p>Ho lavorato per oltre dieci anni nel settore dell’interior design, seguendo progetti su misura per clienti esigenti...</p>
+          </div>
         </div>
-        <div class="accordion-content">
-          <p>La mia attenzione al dettaglio e la capacità di interpretare i desideri del cliente mi permettono di trasformare ogni progetto in qualcosa di unico...</p>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">AFFIDATI A ME PERCHÈ...</div>
+            <div class="plus"></div>
+          </div>
+          <div class="accordion-content">
+            <p>La mia attenzione al dettaglio e la capacità di interpretare i desideri del cliente mi permettono di trasformare ogni progetto in qualcosa di unico...</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">LA MIA STORIA</div>
+            <div class="plus"></div>
+          </div>
+          <div class="accordion-content">
+            <p>Il mio percorso nasce da una profonda passione per il design e l'arte, che mi ha portato a studiare e specializzarmi nel settore...</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">IL MIO METODO</div>
+            <div class="plus"></div>
+          </div>
+          <div class="accordion-content">
+            <p>Ogni progetto parte dall'ascolto: comprendo le esigenze del cliente, studio gli spazi e propongo soluzioni personalizzate e funzionali...</p>
+          </div>
         </div>
       </div>
-
-      <div class="accordion-item">
-        <div class="accordion-header">
-          <div class="accordion-title">LA MIA STORIA</div>
-          <div class="plus"></div>
-        </div>
-        <div class="accordion-content">
-          <p>Il mio percorso nasce da una profonda passione per il design e l'arte, che mi ha portato a studiare e specializzarmi nel settore...</p>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <div class="accordion-header">
-          <div class="accordion-title">IL MIO METODO</div>
-          <div class="plus"></div>
-        </div>
-        <div class="accordion-content">
-          <p>Ogni progetto parte dall'ascolto: comprendo le esigenze del cliente, studio gli spazi e propongo soluzioni personalizzate e funzionali...</p>
-        </div>
-      </div>
-
     </div>
   </div>
 
