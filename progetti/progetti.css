@@ -58,7 +58,7 @@
     grid-template-columns: repeat(7, 1fr);
     grid-auto-rows: 340px; /* Riduci l'altezza base */
     gap: 20px;
-    padding: 80px 60px 60px; /* Aggiungi più spazio in cima */
+    padding: 20px 60px 60px; /* Aggiungi più spazio in cima */
     max-width: 1800px;
     margin: 0 auto;
 }
@@ -98,7 +98,7 @@
 
 
 body {
-    background-color: #EEECE6 !important; /* Sostituisci con il colore desiderato */
+    background-color: #EEECE6 !important; /*Sostituisci con il colore desiderato */
 }
 
 @media (max-width: 768px) {
