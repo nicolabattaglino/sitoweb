@@ -1,7 +1,8 @@
 header {
-    background-color: white;
+    background-color: #EEECE6 !important;
     height: 100px;
-
+    box-shadow: none !important;
+    border-bottom: none;
   }
 
 .logo {
@@ -165,7 +166,7 @@ nav ul li a.active::before {
         right: 0;
         background: #fff;
         width: 100%;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: none;
         z-index: 1000;
     }
 
