@@ -63,10 +63,10 @@ function initComparisons() {
     // Creazione del markup dello slider
     sliderContainer.innerHTML = `
         <div class="img-comp-img">
-            <img src="${cartella}u.jpg" width="400" height="300" onload="initComparisons()">
+            <img src="${cartella}d.png" onload="initComparisons()">
         </div>
         <div class="img-comp-img img-comp-overlay">
-            <img src="${cartella}d.jpg" width="400" height="300">
+            <img src="${cartella}u.png">
         </div>
     `;
 }

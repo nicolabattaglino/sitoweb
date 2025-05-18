@@ -16,7 +16,7 @@
             const progetti = await response.json();
             const griglia = document.getElementById("griglia-progetti");
 
-            const numTotale = 12;
+            const numTotale = 6;
             let index = 0;
 
             progetti.forEach(progetto => {
@@ -28,7 +28,7 @@
 
                 card.innerHTML = `
                     <a href="progetto.html?p=${progetto.slug}">
-                        <img src="${progetto.immagine_hero}" alt="${progetto.titolo}">
+                        <img src="${progetto.immagine_hero_ext}" alt="${progetto.titolo}">
                         <div class="overlay">
                             <span>${progetto.titolo}</span>
                         </div>

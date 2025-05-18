@@ -2,35 +2,31 @@
 
 .img-comp-container {
   position: relative;
-  height: 200px; /*should be the same height as the images*/
-  width: 100%; /* Adatta alla colonna */
-  max-width: 400px; /* Dimensione massima */
+  height: 600px; /*should be the same height as the images*/
+  max-width: 600px; /* Dimensione massima */
   margin: 0 auto; /* Lo centra orizzontalmente */
+  overflow: hidden
 }
 
 .img-comp-img {
   position: absolute;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  align-items: center;    /* centra verticalmente */
+  justify-content: center;
+  overflow: hidden
 }
 
 .img-comp-img img {
   display: block;
-  vertical-align: middle;
+  width: 600px;
+  height: 600px;
+  object-fit: fill; /* Adatta l'immagine senza distorcerla */
+
 }
 
-.img-comp-slider {
-  position: absolute;
-  z-index: 9;
-  cursor: ew-resize;
-  /*set the appearance of the slider:*/
-  width: 40px;
-  height: 40px;
-  background-color: #2196F3;
-  opacity: 0.7;
-  border-radius: 50%;
-}
+
 .img-comp-slider {
   position: absolute;
   z-index: 9;
@@ -46,43 +42,13 @@
   color: white;
   font-size: 10px;
   font-weight: bold;
+  /* Centra il cerchio verticalmente rispetto al container */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .img-comp-slider::before {
   content: "◀  ▶";
-}
-
-* {box-sizing: border-box;}
-
-.img-comp-container {
-  position: relative;
-  height: 200px; /*should be the same height as the images*/
-}
-
-.img-comp-img {
-  position: absolute;
-  width: auto;
-  height: auto;
-  overflow:hidden;
-}
-
-.img-comp-img img {
-  display:block;
-  vertical-align:middle;
-}
-
-.img-comp-slider {
-  position: absolute;
-  z-index: 9;
-  cursor: ew-resize;
-  width: 40px;
-  height: 40px;
-  background-color: #6d1b1b;
-  opacity: 0.9;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .slider-content {
@@ -107,9 +73,30 @@
 }
 
 .arrow-left {
-  left: 5px;
+  left: 150px;   /* distanza dal bordo sinistro */
 }
 
 .arrow-right {
-  right: 5px;
+  right: 150px;  /* distanza dal bordo destro */
+}
+
+@media (max-width: 600px) {
+  .img-comp-container {
+    height: 300px;      /* Altezza ridotta per mobile */
+    max-width: 100vw;   /* Occupa tutta la larghezza disponibile */
+  }
+  .img-comp-img img {
+  display: block;
+  width: 300px;
+  height: 300px;
+  object-fit: fill; /* Adatta l'immagine senza distorcerla */
+
+}
+
+  .img-comp-slider {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
 }
