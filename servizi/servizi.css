@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Bodoni Moda', serif;
     background-color: #EEECE6 !important; /* Colore di sfondo */
     margin: 0;
     padding: 0;
@@ -27,7 +27,7 @@ body {
     scroll-behavior: smooth;
     padding-bottom: 0px;
     padding: 60px;
-    padding-top: 80px;
+    padding-top: 40px;
 }
 
 .hero-servizi {
@@ -193,8 +193,8 @@ body {
 .cta-button {
     background-color: white;
     font-weight: bold;
-    color: #732F3D;
-    border: none;
+    color: #432127;
+    border: 2px solid #401d23;
     padding: 12px 25px;
     font-size: 1rem;
     border-radius: 20px;
@@ -218,8 +218,8 @@ body {
     border-radius: 20px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     max-width: 1000px;
-    width: 90%;
-    height: 80vh;
+    width: 487.5px;
+    height: 650px;
     z-index: 1000;
     flex-direction: column; /* Organizza tutto in colonna */
     overflow: hidden; /* Nasconde gli overflow per mantenere i bordi arrotondati */
@@ -227,7 +227,8 @@ body {
 
 }
 .popup-body {
-    padding: 0px 40px;
+    padding: 0px 20px;
+
     margin-bottom: 20px;
     overflow-y: auto;
 }
@@ -235,22 +236,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; /* centra verticalmente */
-    background-color: #8f8e7c;
+    background: rgba(143, 142, 124, 0.7);
     color: white;
     width: 100%;
     margin: 0;
     padding: 0 40px; /* Solo padding laterale */
 
     position: relative; /* Per posizionare il pulsante di chiusura */
-    height: 120px; /* Altezza fissa */
+    height: 80px; /* Altezza fissa */
     border-radius: 20px 20px 0 0; /* Arrotonda solo gli angoli superiori */
 }
 
 .popup-header h2 {
     margin: 0;
-    font-size: 2.5rem;
-    font-weight: normal;
+    font-size: 1.8rem;
+    font-weight: 100 ;
     width: 100%; /* Occupa tutto lo spazio disponibile */
+    font-family: 'Bodoni 72', 'Bodoni', serif;
 }
 
 /* Sostituisci lo stile esistente del .close con questo: */
@@ -301,12 +303,22 @@ body {
 }
 
 .popup-text {
-    font-size: 1rem;
-    color: #737373;
-    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #401d23;
+    margin-top: 30px;
     line-height: 1.6;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Bodoni 72 Book', 'Bodoni', serif;
+
+}
+
+.popup-text p {
+    margin-bottom: 1.2em; /* Aumenta lo spazio tra i paragrafi */
+}
+
+.popup-text ul li {
+    margin: 0.6em; /* Aumenta lo spazio tra i punti */
 }
 
 .popup-overlay {
@@ -315,23 +327,23 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(2px);
     display: none;
     z-index: 10;
+    background: rgba(0, 0, 0, 0.3);
 }
+.blurred #main-header {
+    filter: blur(2px);
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.3) !important; /* Sostituisci con il colore che preferisci */
 
-.blurred #main-header,
+}
 .blurred .container {
     filter: blur(2px);
     pointer-events: none;
 }
 
-.popup-heading {
-    font-size: 20px;
-    color: #6b4f3f;
-    margin-top: 1.5rem;
-  }
+
   
 
 @media (max-width: 768px) {
@@ -371,7 +383,7 @@ body {
 
     .popup-text {
         font-size: 0.8rem;
-        color: #737373;
+        color: #401d23;
         margin-top: 20px;
         line-height: 1.6;
         padding-left: 30px;
