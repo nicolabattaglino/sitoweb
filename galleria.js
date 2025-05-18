@@ -48,6 +48,5 @@ document.addEventListener("DOMContentLoaded", function() {
         if (e.target === lightbox) closeLightbox();
     });
 
-    nextBtn.addEventListener("click", showNext);
-    prevBtn.addEventListener("click", showPrev);
-});
+nextBtn.addEventListener("click", showNext);
+prevBtn.addEventListener("click", showPrev);

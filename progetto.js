@@ -95,6 +95,24 @@ function inizializzaLightbox() {
         }
     });
 
+    // Navigazione con tastiera nella lightbox
+    document.addEventListener("keydown", function(e) {
+        // Controlla che la lightbox sia visibile
+        if (window.getComputedStyle(lightbox).display !== "none") {
+            if (e.key === "ArrowRight") {
+                indiceCorrente = (indiceCorrente + 1) % immaginiProgetto.length;
+                lightboxImg.src = immaginiProgetto[indiceCorrente];
+            }
+            if (e.key === "ArrowLeft") {
+                indiceCorrente = (indiceCorrente - 1 + immaginiProgetto.length) % immaginiProgetto.length;
+                lightboxImg.src = immaginiProgetto[indiceCorrente];
+            }
+            if (e.key === "Escape") {
+                lightbox.style.display = "none";
+            }
+        }
+    });
+
     console.log("✅ Lightbox inizializzata con", immaginiProgetto.length, "immagini.");
 }
 
