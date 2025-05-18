@@ -161,7 +161,7 @@ input:focus, textarea:focus {
     border: 2px solid #4A2C2A;
     color: #4A2C2A;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
 }
