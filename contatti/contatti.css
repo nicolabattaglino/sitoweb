@@ -35,8 +35,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: left;
-    gap: 60px; /* Distanza tra il titolo e la foto */
-    width: 30%; /* La colonna di sinistra occupa il 30% della larghezza */
+    gap: 10px; /* Distanza tra il titolo e la foto */
+    width: 38%; /* La colonna di sinistra occupa il 30% della larghezza */
     padding-top: 50px; /* Aggiunge distanza dal margine superiore */
 }
 
@@ -47,8 +47,12 @@ body {
 }
 
 .contact-image img {
-    width: 250px;
+    width: 100%;
+    max-width: 500px;
+    min-height: 410px;   /* Aumenta l'altezza minima */
     height: auto;
+    display: block;
+    object-fit: cover;   /* Mantiene il ritaglio proporzionato */
 }
 
 .contact-content {
@@ -174,7 +178,6 @@ button:hover {
 
 /* Dettagli di contatto */
 .contact-details {
-    margin-top: 20px; /* Spazio tra l'immagine e i dettagli */
     font-size: 14px;
     color: #4A2C2A;
     text-align: left; /* Centra il testo sotto l'immagine */
@@ -210,15 +213,22 @@ button:hover {
 }
 
 #terms-and-conditions {
-    font-size: 10px;
+    font-size: 9px;
     color: #401d23;
+    text-align: center;   
     margin-top: 20px;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
+
 #terms-and-conditions ul {
-    margin-left: 1rem;
+    display: inline-block;
+    margin: 0 auto;        /* Centra la lista */
     padding-left: 1rem;
 }
+
 
 #terms-and-conditions a {
     text-decoration: underline;
