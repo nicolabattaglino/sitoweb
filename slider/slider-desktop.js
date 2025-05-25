@@ -62,12 +62,15 @@ function initComparisons() {
 
     // Creazione del markup dello slider
     sliderContainer.innerHTML = `
+      <div class="img-comp-container" id="slider-container">
+
         <div class="img-comp-img">
             <img src="${cartella}d.png" onload="initComparisons()">
         </div>
         <div class="img-comp-img img-comp-overlay">
             <img src="${cartella}u.png">
         </div>
+      </div>
     `;
 }
 // Aspetta il messaggio dalla pagina principale

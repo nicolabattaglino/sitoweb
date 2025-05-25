@@ -213,3 +213,7 @@ body {
     cursor: pointer;
     padding: 10px;
 }
+
+body, h1, h2, h3, h4, h5, h6, p, a, .progetto-testo, .progetto-descrizione, .progetto-dettagli, .progetto-container, .planimetria, .griglia-immagini, .hero, .hero-image, .lightbox, .lightbox-content {
+    font-family: 'Bodoni 72', serif !important;
+}

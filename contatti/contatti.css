@@ -4,9 +4,13 @@ html, body {
     height: 100%;
 }
 
+html, body, h1, h2, h3, h4, h5, h6, p, a, label, input, textarea, button, .contact-container, .contact-left, .contact-content, .contact-text, .contact-details, .popup-heading, #terms-and-conditions, .text-body {
+    font-family: 'Bodoni 72', serif !important;
+}
+
 body {
     background-color: #EEECE6 !important; /* Colore di sfondo */
-    font-family: 'Arial', sans-serif;
+    font-family: 'Bodoni 72', serif !important;
     color: #4A2C2A;
     margin: 0;
     padding: 0;

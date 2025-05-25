@@ -1,12 +1,18 @@
+body, header, nav, .logo, .name, .bold, .thin, .separator, nav ul, nav ul li, nav ul li a {
+    font-family: 'Bodoni 72', serif !important;
+    letter-spacing: 0.03em; /* oppure 0.05em, prova il valore che preferisci */ 
+}
+
 header {
     background-color: #EEECE6 !important;
     height: 100px;
     box-shadow: none !important;
     border-bottom: none;
+    font-family: 'Bodoni 72', sans-serif;
   }
 
 .logo {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Bodoni 72', sans-serif;
     display: flex;
     align-items: center;
     gap: 4px;
@@ -20,23 +26,24 @@ header {
 
 .bold {
     font-weight: bold;
-    color: #6d1b1b; /* Marrone scuro */
+    color: #55111e; /* Marrone scuro */
     font-size: 16px;
 }
 
 .separator {
     width: 2px;
     height: 32px;
-    background-color: #6d1b1b; /* Stessa tonalità */
+    background-color: #55111e; /* Stessa tonalità */
     margin: 0 10px;
 }
 
 .thin {
     font-weight: normal;
-    color: #6d1b1b; /* Grigio scuro */
+    color: #55111e; /* Grigio scuro */
     font-size: 14px;
     position: relative;
     top: 10px; /* Regola il valore per allinearlo come preferisci */
+    letter-spacing: 0.03em; /* oppure 0.05em, prova il valore che preferisci */
 }
 
 nav ul {
@@ -53,8 +60,9 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #6d1b1b;
+    color: #55111e;
     font-size: 14px;
+    letter-spacing: 0.03em; /* oppure 0.05em, prova il valore che preferisci */
 }
 
 nav ul li a:hover {
@@ -64,7 +72,7 @@ nav ul li a:hover {
 nav ul li a {
     position: relative;
     display: inline-block; /* Assicura che il link occupi solo la larghezza necessaria */
-    color: #6d1b1b; /* Colore del testo */
+    color: #55111e; /* Colore del testo */
 }
 
 /* Crea un'animazione per la linea */
@@ -106,7 +114,7 @@ nav ul li a.active::before {
 .menu-toggle span {
     display: block;
     height: 2px;
-    background: #6d1b1b;
+    background: #55111e;
     border-radius: 2px;
 }
 
@@ -137,13 +145,13 @@ nav ul li a.active::before {
     .name .bold {
         font-size: 12px; /* Riduci la dimensione del nome */
         font-weight: bold;
-        color: #6d1b1b; /* Marrone scuro */
+        color: #55111e; /* Marrone scuro */
     }
 
     .thin {
         font-size: 10px; /* Riduci la dimensione del titolo "ARCHITETTO" */
         font-weight: normal;
-        color: #6d1b1b; /* Marrone scuro */
+        color: #55111e; /* Marrone scuro */
         position: relative;
         top: 9px; /* Regola l'allineamento verticale */
     }
@@ -151,7 +159,7 @@ nav ul li a.active::before {
     .separator {
         width: 1px; /* Riduci la larghezza della barra divisoria */
         height: 29px; /* Riduci l'altezza della barra divisoria */
-        background-color: #6d1b1b; /* Stessa tonalità */
+        background-color: #55111e; /* Stessa tonalità */
         margin: 0 5px; /* Riduci lo spazio laterale */
     }
 
