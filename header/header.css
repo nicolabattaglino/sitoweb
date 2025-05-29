@@ -172,7 +172,7 @@ nav ul li a.active::before {
         position: absolute;
         top: 100px;
         right: 0;
-        background: #fff;
+        background: #EEECE6;
         width: 100%;
         box-shadow: none;
         z-index: 1000;

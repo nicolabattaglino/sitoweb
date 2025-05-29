@@ -406,49 +406,85 @@ body {
 }
 
 @media (max-width: 768px) {
-    .cta-container p {
-        font-size: 0.9rem;
-        line-height: 1.4;
+    .popup {
+        height: 85vh; /* Occupa quasi tutto lo schermo */
+        width: 90%;
+        max-width: 90%;
+        flex-direction: column;
+        overflow: hidden; /* Non scrolla l'intero popup */
+        padding-bottom: 10px; /* Aggiungi un padding in basso per evitare che il testo tocchi il bordo */
     }
 
     .popup-header {
         display: flex;
         justify-content: center;
-        align-items: center; /* centra verticalmente */
-        height: 80px;
-        padding: 0 20px; /* padding solo laterale */
+        align-items: center;
+        height: 50px;
+        padding: 0 30px;
     }
 
     .popup-header h2 {
         font-size: 1.2rem;
-        padding-top: 0; /* rimuovi padding-top */
-        margin: 0;
         font-weight: bold;
+        margin: 0;
     }
-    .popup-heading {
-        font-size: 16px;
-      }
-    .nav-buttons {
-        top: 570px;
+
+    .popup-flex {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        position: relative;
     }
+
+    .popup-testo-sx {
+        width: 100%;
+        height: auto;
+        padding: 1.5rem;
+        position: relative;
+        overflow-y: visible;
+    }
+
+    .popup-foto-dx {
+        display: none;
+    }
+
+    .popup-foto-dx img {
+        display: none !important;
+    }
+
     .popup-body {
         overflow-y: auto;
         flex: 1;
-        padding: 20px 20px; /* Riduci padding per schermi stretti */
-    }
-
-    .popup {
-        height: 80vh; /* Puoi anche aumentare leggermente l'altezza su mobile */
+        padding: 0;
     }
 
     .popup-text {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         color: #401d23;
-        margin-top: 20px;
         line-height: 1.6;
-        padding-left: 30px;
-        padding-right: 30px;
+        margin-top: 10px;
+        padding: 0 20px;
     }
+
+    .cta-container p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .popup-heading {
+        font-size: 16px;
+    }
+
+    .nav-buttons {
+        top: 535px;
+    }
+
+    .close {
+        top: 10px;
+        right: 30px;
+    }
+
 
 }
 
