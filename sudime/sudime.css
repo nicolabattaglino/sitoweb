@@ -1,0 +1,238 @@
+body {
+  background-color: #EEECE6;
+  margin: 0;
+  padding: 0;
+  color: #561c1c;
+  height: 100%;
+  font-family: 'Bodoni 72', serif !important;
+  font-weight: lighter !important;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2vw;
+  height: calc(90vh - 30px);
+  box-sizing: border-box;
+  padding-top: 120px;
+}
+
+.card {
+  position: relative;
+  flex: 1 1 30%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #EEECE6;
+  transition: background-color 0.7s ease-in-out;
+  cursor: pointer;
+}
+
+.card:nth-child(1) {
+  flex: 1 1 30%;
+}
+.card:nth-child(2) {
+  flex: 1 1 20%;
+}
+.card:nth-child(3) {
+  flex: 1 1 50%;
+}
+
+/* Contenitore interno da far salire */
+.card-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 2;
+  transition: transform 0.7s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.card.expanded .card-content {
+  transform: translateY(-105%);
+}
+
+/* Titolo dentro la card */
+.card h3 {
+  color: white !important;
+  font-family: 'Bodoni 72', serif !important;
+  font-weight: lighter !important;
+  font-size: 1.5rem;
+  text-align: center;
+  background: rgba(143, 142, 124, 0.5);
+  width: 100%;
+  margin: 0;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 25px;
+  box-sizing: border-box;
+  transition: height 0.3s ease-in-out, padding 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 3;
+}
+
+.card:hover h3 {
+  height: 180px;
+}
+
+.card.expanded h3 {
+  opacity: 0;
+}
+
+/* Simbolo + */
+.plus {
+  width: 40px;
+  height: 40px;
+  background-color: #eae5dc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.card:hover .plus {
+  opacity: 1;
+}
+
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  background-color: #401d23;
+  border-radius: 4px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.plus::before {
+  width: 18px;
+  height: 4px;
+}
+
+.plus::after {
+  width: 4px;
+  height: 18px;
+}
+
+.card.expanded .plus {
+  opacity: 0;
+}
+
+/* Testo centrale che appare */
+.expanded-text {
+  position: absolute;
+  top: 20px; /* o quanto vuoi dal bordo superiore */
+  left: 20px; /* o quanto vuoi dal bordo sinistro */
+  color: #561c1c;
+  font-size: 1rem;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1;
+  max-width: 90%;
+  pointer-events: none;
+  transform: none; /* rimuove la trasformazione */
+}
+
+.card.expanded .expanded-text {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    padding-top: 100px;
+    gap: 40px; /* più spazio tra le card su mobile */
+  }
+
+  .card {
+    flex: none;
+    width: 90%;
+    height: auto;
+    min-height: 60vh;
+    margin: 0 auto;
+  }
+
+  .card-content {
+    justify-content: flex-end;
+  }
+}
+.close {
+  width: 40px;
+  height: 40px;
+  background-color: #eae5dc;
+  border-radius: 50%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.close::before,
+.close::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #401d23;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+}
+
+.close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.card.expanded .close {
+  display: flex;
+}
+
+.underline {
+  position: absolute;
+  bottom: 0px; /* Distanza dal fondo */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 33%; /* Un terzo della larghezza */
+  height: 2px;
+  background-color: #561c1c; /* Colore della linea */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1;
+  border-radius: 3px; /* Arrotonda gli angoli della linea */
+}
+
+.card.expanded .underline {
+  opacity: 1;
+}

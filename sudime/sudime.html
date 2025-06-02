@@ -5,395 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Su di me</title>
   <link rel="stylesheet" href="../home/style.css">
+  <link rel="stylesheet" href="sudime.css">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background-color: #EEECE6;
-      font-family: 'Helvetica Neue', sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #561c1c;
-      height: 100%;
-
-    }
-
-    .intro-box {
-      background: white;
-      border-radius: 20px;
-      padding: 1.5rem; /* Spazio interno */
-      font-size: 1.2rem;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-      position: relative; /* Necessario per far sbordare il "CIAO!" */
-      overflow: visible; /* Permette al "CIAO!" di sbordare */
-      display: flex;
-      align-items: center; /* Allinea verticalmente il contenuto */
-      max-height: 80px; /* Altezza massima */
-      margin-top: 0; /* Rimuove il margine sopra */
-    }
-
-    .intro-content {
-      display: flex;
-      align-items: center; /* Centra verticalmente il contenuto */
-      gap: 1rem; /* Spazio tra "CIAO!" e il testo */
-      height: 100%; /* Assicura che il contenitore occupi tutta l'altezza */
-      margin-top: 1rem; /* Aggiunge spazio sopra l'intero contenuto */
-    }
-
-    .ciao {
-      font-family: 'Great Vibes', cursive; /* Font decorativo */
-      font-size: 6rem; /* Dimensione grande */
-      font-style: italic; /* Corsivo */
-      color: #561c1c; /* Colore marrone scuro */
-      position: relative; /* Necessario per farlo sbordare */
-      top: -1rem; /* Fa sbordare il "CIAO!" verso l'alto */
-      margin: 0; /* Rimuove margini predefiniti */
-      font-weight: normal; /* Rimuove il bold */
-
-    }
-
-    .intro-text {
-      font-size: 1.1rem;
-      color: #561c1c;
-      line-height: 1.5; /* Migliora la leggibilità */
-      margin: 0; /* Rimuove margini verticali */
-      padding: 0; /* Rimuove padding */
-      margin-top: -10px;
-    }
-
-    .content-wrapper {
-      display: flex;
-      flex-wrap: nowrap; /* Dispone gli elementi in riga */
-      justify-content: center;
-      gap: 2rem; /* Spazio tra la foto e la colonna di destra */
-      max-width: 1100px;
-      margin: 150px auto;
-      padding: 1rem;
-      align-items: flex-start; /* Allinea gli elementi in alto */
-      min-height: 500px; /* Imposta un'altezza minima */
-    }
-
-    .photo-box {
-      flex: 1 1 40%; /* La foto occupa il 40% dello spazio */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 500px; /* Imposta un'altezza minima */
-    }
-
-    .photo-box img {
-      width: 90%;
-      border-radius: 20px;
-      object-fit: cover; /* Mantiene le proporzioni */
-    }
-
-    .right-column {
-      flex: 1 1 60%; /* La colonna di destra occupa il 60% dello spazio */
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem; /* Spazio tra il rettangolo "CIAO!" e gli accordion */
-      min-height: 500px; /* Imposta un'altezza minima */
-    }
-
-    .accordion-box {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem; /* Spazio tra gli accordion */
-    }
-
-    .accordion-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 0.8rem 1rem; /* più basso */
-      border-radius: 20px;
-      background: white;
-      font-weight: bold;
-      color: #561c1c;
-      box-shadow: 0 0 8px rgba(0,0,0,0.05);
-      cursor: pointer;
-      position: relative;
-    }
-
-    .accordion-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
-
-    .accordion-title {
-      font-weight: bold;
-      font-size: 1.1rem;
-      flex: 1;
-    }
-
-    .accordion-item.expanded {
-      height: auto;
-      min-height: 100%;
-      flex-grow: 1;
-      align-items: flex-start;
-    }
-
-    .accordion-item.hidden {
-      display: none;
-    }
-
-    .plus {
-      width: 30px;
-      height: 30px;
-      background-color: #eae5dc;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      flex-shrink: 0;
-    }
-
-    .plus::before,
-    .plus::after {
-      content: "";
-      position: absolute;
-      background-color: #401d23;
-      border-radius: 4px;
-    }
-
-    .plus::before {
-      width: 16px;
-      height: 3px;
-    }
-
-    .plus::after {
-      width: 3px;
-      height: 16px;
-    }
-
-    .plus.rotate::before {
-      transform: rotate(45deg);
-    }
-
-    .plus.rotate::after {
-      transform: rotate(45deg);
-    }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.5s ease, opacity 0.3s ease;
-      margin-top: 1rem;
-      font-weight: normal;
-      color: #333;
-    }
-
-    .accordion-item.expanded .accordion-content {
-      max-height: 1000px;
-      opacity: 1;
-    }
-
-
-
-
-    @media (max-width: 1024px) {
-    .intro-content {
-        gap: 0.5rem; /* Riduci lo spazio tra "CIAO!" e il testo */
-    }
-
-    .ciao {
-        font-size: 5rem; /* Riduci la dimensione del "CIAO!" */
-    }
-
-    .intro-text {
-        font-size: 0.8rem; /* Riduci la dimensione del testo accanto */
-        margin: 0; /* Rimuove margini verticali */
-        padding: 0; /* Rimuove padding */
-    }
-}
-
-
-    @media (max-width: 768px) {
-  /* Reset globale di margini e padding */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  .intro-content {
-        gap: 0.8rem; /* Riduci lo spazio tra "CIAO!" e il testo */
-  }
-  .content-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; /* Spazio tra gli elementi */
-    margin-top: 100px; /* Riduci il margine top */
-  }
-
-  .photo-box,
-  .accordion-box {
-    margin: 0;
-    padding: 0;
-    width: 100%; /* Occupano tutta la larghezza disponibile */
-  }
-
-  /* Riduci margine sotto la foto */
-  .photo-box {
-    margin-bottom: 0px; /* Riduci margine sotto la foto */
-    flex: auto;
-  }
-
-  /* Regola lo spazio tra gli item dell'accordion */
-  .accordion-box {
-    margin-top: 10px; /* Riduci il margine sopra gli accordion */
-  }
-
-  .accordion-item {
-    gap: 0.8rem; /* Spazio tra le voci dell'accordion */
-    padding: 1rem; /* Riduci il padding per avere meno spazio all'interno */
-    width: 100%;
-  }
-
-  /* Regola margine e padding per intro box */
-  .intro-box {
-    margin-top: 10px; /* Aggiusta il margine sopra */
-    padding: 1.5rem; /* Riduci padding per avere meno spazio all'interno */
-
-  }
-
-    .content-wrapper {
-        flex-direction: column; /* Dispone gli elementi in colonna */
-        align-items: center;
-        gap: 1.5rem; /* Spazio tra gli elementi */
-    }
-
-    .photo-box,
-    .right-column {
-        width: 100%; /* Gli elementi occupano tutta la larghezza */
-    }
-
-    .photo-box img {
-        width: 80%; /* Riduci la dimensione della foto */
-    }
-
-    .intro-text {
-      font-size: 0.8rem;
-      color: #561c1c;
-      line-height: 1.5; /* Migliora la leggibilità */
-      margin: 1rem 0 0 0; /* Aggiunge 1rem di spazio sopra il testo */
-      margin: 0; /* Rimuove margini verticali */
-      padding: 0; /* Rimuove padding */
-    }
-}
-
-    @media (max-width: 400px) {
-      .intro-content {
-        gap: 0.5rem; /* Riduci lo spazio tra "CIAO!" e il testo */
-      }
-
-      .ciao {
-        font-size: 4rem; /* Riduci la dimensione del "CIAO!" */
-      }
-
-      .intro-text {
-      font-size: 0.6rem;
-      color: #561c1c;
-      line-height: 1.5; /* Migliora la leggibilità */
-      margin: 0; /* Rimuove margini verticali */
-      padding: 0; /* Rimuove padding */
-    }
-
-    }
-
-</style>
 </head>
 <body>
 
 
 
-  <div class="content-wrapper">
-    <div class="photo-box">
-      <img src="../immagini/cate1.jpeg" alt="Foto di presentazione">
-    </div>
-    <div class="right-column">
-      <div class="intro-box">
-        <div class="intro-content">
-          <strong class="ciao">Ciao!</strong>
-          <p class="intro-text">
-            Vorrei rubare qualche minuto del tuo prezioso tempo per presentarmi a te.
-          </p>
-        </div>
-      </div>
-      <div class="accordion-box">
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="accordion-title">LA MIA ESPERIENZA</div>
-            <div class="plus"></div>
-          </div>
-          <div class="accordion-content">
-            <p>Ho lavorato per oltre dieci anni nel settore dell’interior design, seguendo progetti su misura per clienti esigenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Morbi vitae purus at enim lacinia pretium. Aenean ac sapien et elit sollicitudin tincidunt. </p>
-            <p><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec justo at lacus bibendum facilisis. Integer non turpis id justo dapibus blandit. Vivamus sit amet orci in sem ullamcorper fermentum.</p>
-            <p>Curabitur consequat, lorem sed fringilla euismod, tortor elit efficitur risus, a lacinia massa velit non turpis. Nullam convallis, sapien vitae facilisis lacinia, neque lacus hendrerit magna, nec tempor erat nisl non lorem.</p>
-            <p><br>Aliquam erat volutpat. Sed suscipit convallis justo, vel dignissim lorem ullamcorper nec. Etiam at enim ac velit tincidunt fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
-            <br>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="accordion-title">AFFIDATI A ME PERCHÈ...</div>
-            <div class="plus"></div>
-          </div>
-          <div class="accordion-content">
-            <p>La mia attenzione al dettaglio e la capacità di interpretare i desideri del cliente mi permettono di trasformare ogni progetto in qualcosa di unico...</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="accordion-title">LA MIA STORIA</div>
-            <div class="plus"></div>
-          </div>
-          <div class="accordion-content">
-            <p>Il mio percorso nasce da una profonda passione per il design e l'arte, che mi ha portato a studiare e specializzarmi nel settore...</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <div class="accordion-title">IL MIO METODO</div>
-            <div class="plus"></div>
-          </div>
-          <div class="accordion-content">
-            <p>Ogni progetto parte dall'ascolto: comprendo le esigenze del cliente, studio gli spazi e propongo soluzioni personalizzate e funzionali...</p>
-          </div>
-        </div>
-      </div>
-    </div>
+ <div class="card-container">
+<div class="card">
+  <div class="card-content" style="background-image: url('../immagini/servizi/foto5.jpg');">
+    <h3>La mia storia</h3>
+    <div class="plus"></div>
   </div>
+  <div class="expanded-text">Testo centrale della card. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+  <button class="close" onclick="chiudiCard(this)"></button>
+    <div class="underline"></div> <!-- 🔹 NUOVA LINEA -->
+
+
+</div>
+<div class="card">
+    <div class="card-content" style="background-image: url('../immagini/servizi/foto2.jpg');">
+      <h3>Il mio metodo</h3>
+      <div class="plus"></div>
+    </div>
+  <div class="expanded-text">Testo centrale della card. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+  <button class="close" onclick="chiudiCard(this)"></button>
+      <div class="underline"></div> <!-- 🔹 NUOVA LINEA -->
+</div>
+<div class="card">
+    <div class="card-content" style="background-image: url('../immagini/servizi/foto1.jpg');">
+      <h3>La mia mission</h3>
+      <div class="plus"></div>
+    </div>
+  <div class="expanded-text">Testo centrale della card. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+  <button class="close" onclick="chiudiCard(this)"></button>
+      <div class="underline"></div> <!-- 🔹 NUOVA LINEA -->
+</div>
 
   <script src="../header.js"></script>
-  <script>
-    const accordionItems = document.querySelectorAll('.accordion-item');
-  
-    accordionItems.forEach((item, index) => {
-      const plus = item.querySelector('.plus');
-  
-      plus.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isExpanded = item.classList.contains('expanded');
-  
-        // Reset tutti gli elementi
-        accordionItems.forEach((other, i) => {
-          other.classList.remove('expanded', 'hidden');
-          other.querySelector('.plus').classList.remove('rotate');
-        });
-  
-        // Se non era già espanso, espandilo
-        if (!isExpanded) {
-          item.classList.add('expanded');
-          plus.classList.add('rotate');
-          accordionItems.forEach((other, i) => {
-            if (i !== index) other.classList.add('hidden');
-          });
-        }
+ <script>
+  const accordionItems = document.querySelectorAll('.card');
+
+  accordionItems.forEach((item) => {
+    // Click su tutta la card
+    item.addEventListener('click', (e) => {
+      // Evita che il click sulla X (close) faccia riespandere la card
+      if (e.target.classList.contains('close') || e.target.closest('.close')) return;
+
+      const isExpanded = item.classList.contains('expanded');
+
+      // Chiudi tutte
+      accordionItems.forEach((other) => {
+        other.classList.remove('expanded');
       });
+
+      if (!isExpanded) {
+        item.classList.add('expanded');
+      }
     });
-  </script>
+  });
+
+  // Click sulla X per chiudere
+  function chiudiCard(button) {
+    const card = button.closest('.card');
+    if (card) {
+      card.classList.remove('expanded');
+    }
+  }
+</script>
 </body>
 </html>
