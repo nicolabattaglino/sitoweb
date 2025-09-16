@@ -1,42 +1,79 @@
 document.addEventListener("DOMContentLoaded", function () {
     const popupOverlay = document.querySelector(".popup-overlay");
+    const popups = Array.from(document.querySelectorAll(".popup"));
+    const prevArrow = document.querySelector(".popup-nav-prev");
+    const nextArrow = document.querySelector(".popup-nav-next");
+
+    if (prevArrow) prevArrow.style.display = "none";
+    if (nextArrow) nextArrow.style.display = "none";
+
+
+    let currentPopupIndex = null;
 
     function openPopup(popupId) {
-        // Chiude eventuali popup aperti prima di aprirne uno nuovo
         closePopup();
-        const popup = document.querySelector(`#${popupId}`);
-        popup.style.display = "flex"; 
-        popup.classList.add("show");  // Aggiungi la classe 'show' per stilizzare il pop-up
-        popupOverlay.style.display = "block"; 
+        const popup = document.getElementById(popupId);
+        currentPopupIndex = popups.indexOf(popup);
+        popup.style.display = "flex";
+        popup.classList.add("show");
+        popupOverlay.style.display = "block";
         document.body.classList.add("blurred");
+        document.body.classList.add("popup-open");
+        showArrows(true);
     }
 
     function closePopup() {
-        const popups = document.querySelectorAll(".popup");
         popups.forEach(popup => {
-            popup.classList.remove("show");  // Rimuovi la classe 'show' per nascondere il pop-up
+            popup.classList.remove("show");
             popup.style.display = "none";
         });
-        popupOverlay.style.display = "none";    
+        popupOverlay.style.display = "none";
         document.body.classList.remove("blurred");
+        document.body.classList.remove("popup-open");
+        showArrows(false);
+        currentPopupIndex = null;
     }
 
-    // Gestione della chiusura dei pop-up
+    function showArrows(show) {
+        if (prevArrow) prevArrow.style.display = show ? "flex" : "none";
+        if (nextArrow) nextArrow.style.display = show ? "flex" : "none";
+    }
+
+    function goToPopup(index) {
+        if (currentPopupIndex === null) return;
+        popups[currentPopupIndex].style.display = "none";
+        popups[currentPopupIndex].classList.remove("show");
+        currentPopupIndex = (index + popups.length) % popups.length;
+        popups[currentPopupIndex].style.display = "flex";
+        popups[currentPopupIndex].classList.add("show");
+    }
+
+    // Click sulle frecce globali
+    if (prevArrow) {
+        prevArrow.addEventListener("click", () => {
+            goToPopup(currentPopupIndex - 1);
+        });
+    }
+    if (nextArrow) {
+        nextArrow.addEventListener("click", () => {
+            goToPopup(currentPopupIndex + 1);
+        });
+    }
+
+    // Chiusura popup
     const closeButtons = document.querySelectorAll(".close");
     closeButtons.forEach(button => button.addEventListener("click", closePopup));
-    
-    popupOverlay.addEventListener("click", closePopup);
+    if (popupOverlay) popupOverlay.addEventListener("click", closePopup);
 
-    // Associa il click sulle card ai rispettivi pop-up
+    // Click sulle card
     document.querySelectorAll(".card").forEach(card => {
         card.addEventListener("click", function () {
-            const popupId = card.getAttribute("onclick").match(/'([^']+)'/)[1]; // Estrae l'ID del popup dalla funzione onclick
+            const popupId = card.getAttribute("onclick").match(/'([^']+)'/)[1];
             openPopup(popupId);
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
+    // Carousel
     const carousel = document.querySelector(".carousel");
     const prevButton = document.querySelector(".prev");
     const nextButton = document.querySelector(".next");
@@ -44,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateButtons() {
         const scrollPos = carousel.scrollLeft;
         const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-        
         prevButton.classList.toggle("disabled", scrollPos <= 5);
         nextButton.classList.toggle("disabled", scrollPos >= maxScroll - 5);
     }
@@ -61,5 +97,5 @@ document.addEventListener("DOMContentLoaded", function () {
     nextButton.addEventListener("click", scrollRight);
     carousel.addEventListener("scroll", () => setTimeout(updateButtons, 50));
 
-    updateButtons(); // Stato iniziale dei bottoni
+    updateButtons();
 });

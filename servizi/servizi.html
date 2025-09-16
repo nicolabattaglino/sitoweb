@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"></head>
 <body>
     <div id="popup-overlay" class="popup-overlay"></div>
+
+    <!-- Frecce globali per tutti i popup, posizionate sullo sfondo -->
+    <div class="popup-nav-prev"><i class="fas fa-chevron-left"></i></div>
+    <div class="popup-nav-next"><i class="fas fa-chevron-right"></i></div>
+
     <div class="container">
         <div class="carousel">
             <div class="card" onclick="openPopup('popup1')">
@@ -347,7 +352,6 @@
         function apriServizio(url) {
             window.location.href = url;
         }
-    
     </script>
     <script src="../header.js"></script>
     <script src="../servizi/script.js"></script>

@@ -34,6 +34,8 @@ body {
     padding-top: 40px;
 }
 
+
+
 .hero-servizi {
     position: relative;
     z-index: 1;
@@ -96,10 +98,19 @@ body {
     padding-top: 20px;
 }
 
-.card:hover .overlay {
-    height: 150px;
-    padding: 20px;
-}
+
+  .card:hover .overlay {
+      height: 200px; /* prima era 150px */
+      color: white;
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 15px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+  }
+
 
 .overlay-text {
     opacity: 1;
@@ -117,7 +128,7 @@ body {
     position: relative;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .card:hover .plus {
@@ -195,19 +206,21 @@ body {
 }
 
 .cta-button {
-    background-color: white;
+    border: solid rgba(64, 29, 35);
+    background: transparent;
+    color:  rgba(64, 29, 35); 
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 0.8rem;
     font-weight: bold;
-    color: #432127;
-    border: 2px solid #401d23;
-    padding: 12px 25px;
-    font-size: 1rem;
     border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background 0.3s, color 0.3s;
 }
 
 .cta-button:hover {
-    background-color: #dfdbdc;
+    background-color: white;
+    color: #401d23;
 }
 
 /* Popup */
@@ -219,16 +232,17 @@ body {
     padding: 0px 0px;
     padding-top: 20px;
     transform: translate(-50%, -50%);
-    background: #f8f4f0;
+    background-color: #f8f4f0; /* colore opaco */
+    background: #f8f4f0; 
     border-radius: 0px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     max-width: 1000px;
     width: 1500px;
     height: 650px;
-    z-index: 1000;
+    z-index: 1005;
     flex-direction: column; /* Organizza tutto in colonna */
     overflow: hidden; /* Nasconde gli overflow per mantenere i bordi arrotondati */
-    animation: popupUp 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    /* animation: popupUp 0.8s cubic-bezier(0.23, 1, 0.32, 1); */
 }
 .popup-body {
     padding: 0 !important;
@@ -339,7 +353,7 @@ body {
 .blurred #main-header {
     filter: blur(2px);
     pointer-events: none;
-    background: rgba(0, 0, 0, 0.3) !important; /* Sostituisci con il colore che preferisci */
+    background: rgba(255, 255, 255, 0) !important; /* Sostituisci con il colore che preferisci */
 
 }
 .blurred .container {
@@ -488,13 +502,145 @@ body {
 
 }
 
-@keyframes popupUp {
+
+/* Animazione popup smooth */
+@keyframes popupSmooth {
     from {
         opacity: 0;
-        transform: translate(-50%, 30%);
+        transform: translate(-50%, -52%);
     }
     to {
         opacity: 1;
         transform: translate(-50%, -50%);
     }
+}
+
+.popup.show {
+    animation: popupSmooth 0.4s ease-out forwards;
+}
+@media (max-width: 900px) {
+    .card:hover .overlay {
+        height: auto !important;
+        padding: 15px !important;
+        transform: none !important;
+    }
+
+    .card:hover .plus {
+        opacity: 0 !important; /* nasconde il + */
+    }
+
+    .overlay {
+        height: auto !important;
+        padding: 15px !important;
+        transform: none !important;
+    }
+
+    .plus {
+        display: none !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .card .overlay {
+        height: 100px !important; /* altezza fissa */
+        padding: 20px !important; /* padding fisso */
+        transform: none !important;
+        transition: none !important; /* rimuove animazioni */
+    }
+
+    .card:hover .overlay {
+        height: 100px !important; /* rimane uguale all'hover */
+        padding: 20px !important;
+    }
+
+    .card .plus {
+        display: none !important; /* rimuove il + */
+        opacity: 0 !important;
+    }
+}
+
+
+/* Wrapper interno per il testo del popup con scroll senza scrollbar */
+.popup-open .popup-testo-sx-inner {
+    height: 100%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE e Edge */
+    scrollbar-width: none;      /* Firefox */
+    -webkit-overflow-scrolling: touch; /* iOS */
+    padding-right: 20px; /* evita che il contenuto tocchi il bordo */
+}
+
+.popup-open .popup-testo-sx-inner::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.popup-open .carousel {
+    overflow: hidden !important;
+}
+
+/* Frecce di navigazione popup */
+.popup-nav-prev,
+.popup-nav-next {
+    display: none; /* nascoste di default */
+}
+
+body.popup-open .popup-nav-prev,
+body.popup-open .popup-nav-next {
+    display: flex; /* visibili solo quando il popup è aperto */
+}
+
+.popup-nav-prev,
+.popup-nav-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(64,29,35,1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.popup-nav-prev:hover,
+.popup-nav-next:hover {
+    background-color: #401d23;
+}
+
+.popup-nav-prev {
+    left: 20px;
+}
+
+.popup-nav-next {
+    right: 20px;
+}
+
+.popup-nav-prev i,
+.popup-nav-next i {
+    font-size: 1.2rem;
+}
+
+/* Animazioni carousel popup */
+@keyframes scrollLeftAnimation {
+    from { transform: translateX(0); }
+    to { transform: translateX(-300px); }
+}
+
+@keyframes scrollRightAnimation {
+    from { transform: translateX(0); }
+    to { transform: translateX(300px); }
+}
+
+/* Classe da applicare temporaneamente per animare */
+.carousel.scroll-left {
+    animation: scrollLeftAnimation 1s forwards;
+}
+
+.carousel.scroll-right {
+    animation: scrollRightAnimation 1s forwards;
 }
