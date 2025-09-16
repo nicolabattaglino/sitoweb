@@ -74,25 +74,59 @@ body {
     width: 100%;
 }
 
-.planimetria {
-    width: 100%;
-    max-width: 800px;
-    border-radius: 0px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Pattern corretto griglia immagini */
+.griglia-immagini img:nth-child(12n+1) {
+    grid-column: span 4; /* grande quadrata */
+    grid-row: span 2;
 }
 
+.griglia-immagini img:nth-child(12n+2) {
+    grid-column: span 2; /* verticale */
+    grid-row: span 2;
+}
+
+.griglia-immagini img:nth-child(12n+3),
+.griglia-immagini img:nth-child(12n+4) {
+    grid-column: span 3; /* due quadrate */
+    grid-row: span 2;
+}
+
+.griglia-immagini img:nth-child(12n+5) {
+    grid-column: span 2; /* verticale */
+    grid-row: span 2;
+}
+
+.griglia-immagini img:nth-child(12n+6) {
+    grid-column: span 4; /* quadrata */
+    grid-row: span 2;
+}
+
+.griglia-immagini img:nth-child(12n+7),
+.griglia-immagini img:nth-child(12n+8) {
+    grid-column: span 3; /* due quadrate */
+    grid-row: span 2;
+}
+
+/* Stili comuni */
 .griglia-immagini {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
     gap: 20px;
-    width: 100%;
-    max-width: 800px;
+    width: 80%;
     margin-top: 20px;
 }
 
 .griglia-immagini img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+}
+
+.planimetria {
+    width: 100%;
+    max-width: 800px;
     border-radius: 0px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -149,8 +183,6 @@ body {
         flex-direction: column; /* Inverte l'ordine: prima le immagini, poi il testo */
         align-items: center; /* Centra gli elementi */
         margin-top: -10vh;   /* o -15vh, regola a piacere */
-
-        
     }
 
     .progetto-testo {
@@ -164,9 +196,33 @@ body {
         max-width: auto;
         height: 400px; /* Adatta l'altezza in base alle immagini */
         border: none;
-        
     }
 
+    .griglia-immagini {
+        grid-template-columns: 1fr; /* una colonna */
+        grid-auto-rows: 200px; /* altezza fissa per tutte le immagini */
+    }
+
+    .griglia-immagini img {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Sovrascrivi gli nth-child solo per mobile */
+    .griglia-immagini img:nth-child(12n+1),
+    .griglia-immagini img:nth-child(12n+2),
+    .griglia-immagini img:nth-child(12n+3),
+    .griglia-immagini img:nth-child(12n+4),
+    .griglia-immagini img:nth-child(12n+5),
+    .griglia-immagini img:nth-child(12n+6),
+    .griglia-immagini img:nth-child(12n+7),
+    .griglia-immagini img:nth-child(12n+8) {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+    }
 }
 
 
