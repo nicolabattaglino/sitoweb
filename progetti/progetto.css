@@ -158,7 +158,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Occupa tutta la schermata */
+    height: 70%; /* Occupa tutta la schermata */
     z-index: -1; /* Manda l'immagine in background */
 }
 
@@ -227,49 +227,108 @@ body {
 
 
 
+
+/* Lightbox overlay */
 .lightbox {
-    display: none; /* Nascosto di default */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0,0,0,0.8);
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
-.lightbox-content {
+/* Immagine della lightbox */
+#lightbox-img {
     max-width: 90%;
     max-height: 90%;
-    border-radius: 0px;
 }
 
+/* Pulsante chiusura */
 .close {
+    width: 35px;
+    height: 35px;
+    background-color: #eae5dc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 20px;
     right: 30px;
-    color: white;
-    font-size: 40px;
     cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    z-index: 1100;
 }
 
-.lightbox-nav {
+.close::before,
+.close::after {
+    content: "";
+    position: absolute;
+    background-color: #401d23;
+    border-radius: 4px;
+    width: 16px;
+    height: 3px;
+}
+
+.close::before { transform: rotate(45deg); }
+.close::after { transform: rotate(-45deg); }
+
+/* Frecce avanti/indietro */
+.prev,
+.next {
     position: absolute;
     top: 50%;
-    width: 100%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(64,29,35,1);
+    color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    border: none;
+    transition: background-color 0.3s ease;
 }
 
-.prev, .next {
+.prev:hover,
+.next:hover {
+    background-color: #401d23;
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.prev i::before,
+.next i::before {
+
+    font-size: 1.2rem;
     color: white;
-    font-size: 40px;
-    cursor: pointer;
-    padding: 10px;
+}
+
+/* Nascondi frecce su mobile */
+@media (max-width: 768px) {
+    .prev,
+    .next {
+        display: none;
+    }
 }
 
 body, h1, h2, h3, h4, h5, h6, p, a, .progetto-testo, .progetto-descrizione, .progetto-dettagli, .progetto-container, .planimetria, .griglia-immagini, .hero, .hero-image, .lightbox, .lightbox-content {
     font-family: 'Bodoni 72', serif !important;
 }
+
+
