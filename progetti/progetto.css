@@ -252,8 +252,9 @@ body {
 .close {
     width: 35px;
     height: 35px;
-    background-color: #eae5dc;
-    border-radius: 50%;
+    /* background-color: #eae5dc; */ /* Rimosso background */
+    opacity: 1;
+    /* border-radius: 50%; */ /* Rimosso bordo tondo */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -270,7 +271,7 @@ body {
 .close::after {
     content: "";
     position: absolute;
-    background-color: #401d23;
+    background-color: white;
     border-radius: 4px;
     width: 16px;
     height: 3px;
@@ -287,21 +288,23 @@ body {
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    background-color: rgba(64,29,35,1);
+    background: rgba(0,0,0,0);
+
+    /* background-color: rgba(64,29,35,1); */ /* rimosso sfondo */
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
+    /* border-radius: 50%; */ /* rimosso bordo tondo */
     cursor: pointer;
     z-index: 1000;
     border: none;
-    transition: background-color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .prev:hover,
 .next:hover {
-    background-color: #401d23;
+    color: white;
 }
 
 .prev {
@@ -314,9 +317,8 @@ body {
 
 .prev i::before,
 .next i::before {
-
-    font-size: 1.2rem;
-    color: white;
+    background: none !important;
+    font-size: 1.5rem;
 }
 
 /* Nascondi frecce su mobile */

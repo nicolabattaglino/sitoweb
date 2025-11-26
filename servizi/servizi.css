@@ -83,7 +83,7 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(143, 142, 124, 0.5);
+    background: rgba(143, 142, 124, 0.7);
     color: white;
     font-size: 1.2rem;
     text-align: center;
@@ -120,8 +120,8 @@ body {
 .plus {
     width: 40px;
     height: 40px;
-    background-color: #eae5dc;
-    border-radius: 50%;
+    /*background-color: #eae5dc;
+    border-radius: 50%;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,17 +139,17 @@ body {
 .plus::after {
     content: "";
     position: absolute;
-    background-color: #401d23;
+    background-color: white;
     border-radius: 4px;
 }
 
 .plus::before {
     width: 18px;
-    height: 4px;
+    height: 3px;
 }
 
 .plus::after {
-    width: 4px;
+    width: 3px;
     height: 18px;
 }
 
@@ -163,7 +163,8 @@ body {
 .nav-buttons button {
     width: 35px;
     height: 35px;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
+    background-color: rgba(0, 0, 0, 0);
     border: none;
     display: flex;
     justify-content: center;
@@ -173,15 +174,15 @@ body {
 }
 
 .prev {
-    background-color: #401d23;
+    /*background-color: #401d23;*/
 }
 
 .next {
-    background-color: #401d23;
+    /*background-color: #401d23;*/
 }
 
 .nav-buttons button i {
-    color: #EAE5DC;
+    color: #401d23;
     font-size: 1.2rem;
 }
 
@@ -279,13 +280,13 @@ body {
 .close {
     width: 35px;
     height: 35px;
-    background-color: #eae5dc;
-    border-radius: 50%;
+    /*background-color: #eae5dc;
+    border-radius: 50%;*/
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 20px;
+    top: 0px;
     right: 20px;
     cursor: pointer;
     border: none;
@@ -297,7 +298,7 @@ body {
 .close::after {
     content: "";
     position: absolute;
-    background-color: #401d23;
+    background-color: white;
     border-radius: 4px;
     width: 16px;
     height: 3px;
@@ -313,13 +314,13 @@ body {
 }
 
 .close:hover {
-    background-color: #dfdbdc;
-    transform: scale(1.1);
+    transform: scale(1.3);
+    color: #401d23 !important;
 }
 
 .close:hover::before,
 .close:hover::after {
-    background-color: #732F3D;
+    background-color: #401d23 !important;
 }
 
 .popup-text {
@@ -348,7 +349,7 @@ body {
     backdrop-filter: blur(2px);
     display: none;
     z-index: 10;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.7);
 }
 .blurred #main-header {
     filter: blur(2px);
@@ -357,9 +358,27 @@ body {
 
 }
 .blurred .container {
-    filter: blur(2px);
+    filter: blur(1px);
     pointer-events: none;
+
+    
 }
+
+/* Cambia colore di tutti gli elementi testuali dell'header durante il blur */
+.blurred header,
+.blurred header .bold,
+.blurred header .thin,
+.blurred header .separator,
+.blurred header .logo,
+.blurred header nav ul,
+.blurred header nav ul li,
+.blurred header nav ul li a,
+.blurred header .name,
+.blurred header .menu-toggle span {
+    color: #1c0e0e !important; /* Colore desiderato durante il blur */
+    border-color: #1c0e0e !important; /* Aggiorna eventuali bordi o separatori */
+}
+
 
 .popup-flex {
     display: block;
@@ -596,12 +615,12 @@ body.popup-open .popup-nav-next {
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    background-color: rgba(64,29,35,1);
+    /*background-color: rgba(64,29,35,1);*/
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
+   /*border-radius: 50%;*/
     cursor: pointer;
     z-index: 1000;
     transition: background-color 0.3s ease;
@@ -609,7 +628,9 @@ body.popup-open .popup-nav-next {
 
 .popup-nav-prev:hover,
 .popup-nav-next:hover {
-    background-color: #401d23;
+    color: #401d23;
+    background: none;
+
 }
 
 .popup-nav-prev {
@@ -622,7 +643,7 @@ body.popup-open .popup-nav-next {
 
 .popup-nav-prev i,
 .popup-nav-next i {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 /* Animazioni carousel popup */
