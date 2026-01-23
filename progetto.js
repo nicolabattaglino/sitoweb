@@ -27,10 +27,8 @@ async function caricaProgetto() {
 
         const sliderIframe = document.querySelector(".slider-iframe");
         if (sliderIframe) {
-            sliderIframe.onload = function () {
-                sliderIframe.contentWindow.postMessage({ slug: progetto.slug }, "*");
-            };
-        }   
+            sliderIframe.src = `../slider-block/index.html?slug=${encodeURIComponent(progetto.slug)}`;
+        }
 
         // **🔽 INIZIALIZZA LIGHTBOX SOLO DOPO AVER CREATO LE IMMAGINI 🔽**
         inizializzaLightbox();

@@ -1,0 +1,88 @@
+/* ===== VARIABILI GLOBALI - COLORI, FONT E PROPRIETÀ COMUNI ===== */
+
+:root {
+  /* COLORI PRINCIPALI */
+  --color-primary: #55111e;        /* Bordeaux/Marrone scuro principale */
+  --color-secondary: #6d1b1b;      /* Bordeaux leggermente più scuro */
+  --color-tertiary: #401d23;       /* Marrone scuro più profondo */
+  --color-dark: #561c1c;           /* Marrone scuro alternativo */
+  --color-accent: #732F3D;         /* Rosa-marrone per accenti */
+  
+  /* COLORI NEUTRI */
+  --color-bg-light: #EEECE6;       /* Beige/Crema - sfondo principale */
+  --color-bg-light-alt: #eae5dc;   /* Beige chiaro alternativo */
+  --color-gray: #8f8e7c;           /* Grigio-marrone neutro */
+  --color-gray-dark: #464332;      /* Grigio-marrone più scuro */
+  --color-text-dark: #333;         /* Testo scuro generale */
+  --color-text-light: #333;        /* Testo chiaro */
+  --color-white: #ffffff;          /* Bianco puro */
+  
+  /* COLORI OVERLAY E TRASPARENTI */
+  --color-overlay-gray: rgba(143, 142, 124, 0.5);      /* Overlay grigio */
+  --color-overlay-dark: rgba(70, 67, 50, 0.5);         /* Overlay scuro */
+  --color-overlay-black-light: rgba(0, 0, 0, 0.5);     /* Overlay nero leggero */
+  
+  /* FONT E TIPOGRAFIA */
+  --font-family-main: 'Bodoni 72', serif;
+  --font-family-secondary: 'Bodoni Moda', serif;
+  --font-family-sans: 'Roboto', sans-serif;
+  
+  /* FONT SIZES */
+  --font-size-h1: 2.2rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h4: 1.2rem;
+  --font-size-base: 16px;
+  --font-size-small: 14px;
+  
+  /* FONT WEIGHTS */
+  --font-weight-light: lighter;
+  --font-weight-normal: normal;
+  --font-weight-bold: bold;
+  
+  /* LETTER SPACING */
+  --letter-spacing-normal: 0.03em;
+  --letter-spacing-wide: 0.05em;
+  
+  /* SPACING */
+  --gap-small: 10px;
+  --gap-medium: 20px;
+  --gap-large: 40px;
+  --gap-xl: 60px;
+  
+  /* BORDER RADIUS */
+  --border-radius-none: 0px;
+  --border-radius-small: 10px;
+  --border-radius-medium: 12px;
+  --border-radius-circle: 50%;
+  
+  /* BOX SHADOW */
+  --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  --shadow-none: none;
+  
+  /* TRANSITIONS */
+  --transition-fast: 0.3s ease;
+  --transition-normal: 0.4s ease;
+  --transition-slow: 0.7s ease-in-out;
+}
+
+/* ===== RESET BASE ===== */
+body, header, nav, .logo, .name, .bold, .thin, .separator, nav ul, nav ul li, nav ul li a,
+h1, h2, h3, h4, h5, h6, p, a, label, input, textarea, button,
+.contact-container, .contact-left, .contact-content, .contact-text, .contact-details,
+.popup-heading, .popup-header, .popup-text, .hero-servizi, .cta-container, .cta-button,
+.overlay, .card, .nav-buttons, .close, .title, .hero-text, .navbar, .contact-button, .insta-link {
+  font-family: var(--font-family-main) !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

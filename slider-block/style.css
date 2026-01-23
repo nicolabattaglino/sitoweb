@@ -1,0 +1,115 @@
+:root {
+  --color-bg: #EEECE6;
+  --color-track: #8f8e7c;
+  --color-thumb: #8f8e7c;
+  --color-thumb-text: #ffffff;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: var(--color-bg);
+  font-family: 'Bodoni 72', serif;
+}
+
+#slider-root {
+  width: min(900px, 94vw);
+}
+
+.img-comp-container {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 70vw, 680px);
+  overflow: hidden;
+  background: var(--color-bg);
+  border-radius: 0;
+  touch-action: none;
+  user-select: none;
+}
+
+.img-comp-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.img-comp-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* mostra più contenuto, leggermente “zoom out” */
+  background: var(--color-bg);
+  user-select: none;
+  pointer-events: none;
+}
+
+.img-comp-img.img-comp-overlay {
+  background: var(--color-bg);
+}
+
+.img-comp-slider {
+  position: absolute;
+  z-index: 3;
+  cursor: ew-resize;
+  width: 42px;
+  height: 42px;
+  background-color: var(--color-thumb);
+  opacity: 0.95;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-thumb-text);
+  font-size: 11px;
+  font-weight: bold;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: var(--shadow);
+  touch-action: none;
+  user-select: none;
+}
+
+.img-comp-slider::after {
+  content: "\25C0 \25B6";
+  position: relative;
+  z-index: 1;
+}
+
+.slider-error {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: #fff3cd;
+  color: #6c4a00;
+  border: 1px solid #ffe08a;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  #slider-root {
+    width: 100%;
+  }
+  .img-comp-container {
+    width: 100%;
+    height: 100vw;
+    max-height: 640px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .img-comp-slider {
+    width: 44px;
+    height: 44px;
+    font-size: 10px;
+  }
+}
