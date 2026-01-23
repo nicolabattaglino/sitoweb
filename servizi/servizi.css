@@ -140,16 +140,16 @@ body {
     content: "";
     position: absolute;
     background-color: #401d23;
-    border-radius: 4px;
+    border-radius: 0;
 }
 
 .plus::before {
     width: 18px;
-    height: 4px;
+    height: 3.5px;
 }
 
 .plus::after {
-    width: 4px;
+    width: 3.5px;
     height: 18px;
 }
 
@@ -183,6 +183,7 @@ body {
 .nav-buttons button i {
     color: #EAE5DC;
     font-size: 1.2rem;
+    transform: scaleX(0.85);
 }
 
 .nav-buttons button.disabled {
@@ -298,9 +299,9 @@ body {
     content: "";
     position: absolute;
     background-color: #401d23;
-    border-radius: 4px;
+    border-radius: 0;
     width: 16px;
-    height: 3px;
+    height: 3.5px;
     transition: all 0.3s ease;
 }
 
@@ -623,6 +624,7 @@ body.popup-open .popup-nav-next {
 .popup-nav-prev i,
 .popup-nav-next i {
     font-size: 1.2rem;
+    transform: scaleX(0.85);
 }
 
 /* Animazioni carousel popup */
