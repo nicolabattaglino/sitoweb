@@ -142,7 +142,7 @@ body {
   left: 20px; /* o quanto vuoi dal bordo sinistro */
   color: #561c1c;
   font-size: 1rem;
-  text-align: left;
+  text-align: justify;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   z-index: 1;
@@ -154,6 +154,15 @@ body {
 .card.expanded .expanded-text {
   opacity: 1;
   pointer-events: auto;
+}
+
+.expanded-text p {
+  margin: 0 0 0.9em;
+  text-align: justify;
+}
+
+.expanded-text p:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {

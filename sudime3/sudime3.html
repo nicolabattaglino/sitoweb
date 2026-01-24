@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Su di me</title>
+  <link rel="stylesheet" href="../home/style.css">
+  <link rel="stylesheet" href="sudime3.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="stack" aria-label="Su di me">
+    <article class="card" style="--bg: url('../immagini/servizi/foto5.jpg');" data-card>
+      <button class="card-title" type="button" aria-expanded="false">
+        <span class="card-text">La mia storia</span>
+        <span class="card-toggle" aria-hidden="true"></span>
+      </button>
+      <div class="card-body">
+        <p>Ciao, sono Caterina, architetto specializzato nella progettazione e ristrutturazione di interni.</p>
+        <p>Il mio lavoro nasce dall’incontro con le persone. Amo ascoltare le loro storie, capire come vivono, quali sono le loro abitudini e i loro desideri, anche quelli che ancora non riescono a esprimere con chiarezza.</p>
+        <p>È proprio da qui che prende forma ogni progetto. Per me, progettare una casa non significa solo creare spazi belli, ma accompagnare chi la vivrà in un percorso fatto di scelte, emozioni e trasformazioni. Ogni progetto è un viaggio condiviso, in cui il cliente è sempre il vero protagonista.</p>
+      </div>
+    </article>
+
+    <article class="card" style="--bg: url('../immagini/servizi/foto2.jpg');" data-card>
+      <button class="card-title" type="button" aria-expanded="false">
+        <span class="card-text">Il mio metodo</span>
+        <span class="card-toggle" aria-hidden="true"></span>
+      </button>
+      <div class="card-body">
+        <p>Accompagnare ogni persona nella scoperta della propria casa ideale, uno spazio capace di accogliere le giornate, migliorare il benessere quotidiano e adattarsi al tempo che cambia.</p>
+        <p>Credo che una casa ben progettata possa semplificare la vita e restituire energia. Per questo metto la persona al centro dell’intero processo creativo, traducendo esigenze concrete ed emozioni in soluzioni funzionali, armoniose e su misura.</p>
+      </div>
+    </article>
+
+    <article class="card" style="--bg: url('../immagini/servizi/foto1.jpg');" data-card>
+      <button class="card-title" type="button" aria-expanded="false">
+        <span class="card-text">La mia mission</span>
+        <span class="card-toggle" aria-hidden="true"></span>
+      </button>
+      <div class="card-body">
+        <p>L’empatia e l’attenzione ai dettagli sono gli elementi alla base del mio lavoro. Ti ascolto, mi racconti le tue esigenze abitative e insieme le trasformiamo in spazi che parlano di te, che rispecchino il tuo modo di vivere, che valorizzano i tuoi gusti e che accompagnano la tua quotidianità.</p>
+        <p>Il mio obiettivo è farti sentire seguito, compreso e mai solo durante tutto il percorso, dalla prima idea su carta fino alla realizzazione finale. La tua casa è una storia che merita di essere progettata con cura. Io sono qui per ascoltarla.</p>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll('[data-card]');
+
+    const openCard = (card) => {
+      const button = card.querySelector('.card-title');
+
+      cards.forEach((other) => {
+        other.classList.remove('is-open');
+        const otherButton = other.querySelector('.card-title');
+        if (otherButton) otherButton.setAttribute('aria-expanded', 'false');
+      });
+
+      card.classList.add('is-open');
+      if (button) button.setAttribute('aria-expanded', 'true');
+    };
+
+    const closeCard = (card) => {
+      card.classList.remove('is-open');
+      const button = card.querySelector('.card-title');
+      if (button) button.setAttribute('aria-expanded', 'false');
+    };
+
+    cards.forEach((card) => {
+      const button = card.querySelector('.card-title');
+
+      if (button) {
+        button.addEventListener('click', (event) => {
+          event.stopPropagation();
+          if (card.classList.contains('is-open')) {
+            closeCard(card);
+          } else {
+            openCard(card);
+          }
+        });
+      }
+
+      card.addEventListener('click', () => {
+        if (!card.classList.contains('is-open')) {
+          openCard(card);
+        }
+      });
+    });
+  </script>
+  <script src="../header.js"></script>
+</body>
+</html>
