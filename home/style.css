@@ -1,7 +1,8 @@
 @import url('../header/header.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 body, h1, h2, h3, h4, h5, h6, p, a, .title, .hero-text, .navbar, .contact-button, .insta-link {
-    font-family: 'Bodoni 72', serif !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 body.no-scroll {
     overflow: hidden;
@@ -19,6 +20,7 @@ body {
     padding-top: 80px;
     background-color: #ffffff;
     color: #333;
+    font-weight: 300;
 
 }
 
@@ -64,9 +66,9 @@ header {
     top: 75%;
     left: 5%; /* Spazio dal bordo sinistro */
     transform: translateY(-50%);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 4rem;
-    font-weight: normal;
+    font-weight: 300;
     color: white;
     text-align: left;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
@@ -131,7 +133,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(30, 30, 30, 0.672); /* Velo nero trasparente */
+    background: rgba(82, 71, 71, 0.3); /* Velo nero trasparente */
     z-index: 1; /* Sta sopra le immagini ma sotto il testo */
 }
 
@@ -176,9 +178,9 @@ header {
         top: 70%;
         left: 5%; /* Spazio dal bordo sinistro */
         transform: translateY(-50%);
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-size: 2rem;
-        font-weight: bold;
+        font-weight: 300;
         color: white;
         text-align: left;
         text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
@@ -240,7 +242,7 @@ header {
     position: absolute;
     top: 100px;
     left: 50px;
-    font-family: 'Roboto', sans-serif; /* Font Roboto */
+    font-family: 'Poppins', sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.06); /* Ombra del testo */
 }
 
@@ -262,8 +264,4 @@ header {
 
 .slide.active {
     opacity: 1;
-}
-
-body, h1, h2, h3, h4, h5, h6, p, a, .title, .hero-text, .navbar, .contact-button, .insta-link {
-    font-family: 'Bodoni 72', serif !important;
 }

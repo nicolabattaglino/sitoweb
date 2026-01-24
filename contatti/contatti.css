@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 html, body {
     margin: 0;
     padding: 0;
@@ -5,12 +7,12 @@ html, body {
 }
 
 html, body, h1, h2, h3, h4, h5, h6, p, a, label, input, textarea, button, .contact-container, .contact-left, .contact-content, .contact-text, .contact-details, .popup-heading, #terms-and-conditions, .text-body {
-    font-family: 'Bodoni 72', serif !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 body {
-    background-color: #EEECE6 !important; /* Colore di sfondo */
-    font-family: 'Bodoni 72', serif !important;
+    background-color: #ffffff !important; /* Colore di sfondo */
+    font-family: 'Poppins', sans-serif !important;
     color: #401d23 !important;
     margin: 0;
     padding: 0;

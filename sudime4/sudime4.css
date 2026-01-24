@@ -6,6 +6,8 @@
   --card-width: 100vw;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -14,7 +16,8 @@ body {
   margin: 0;
   background-color: var(--cream);
   color: var(--wine);
-  font-family: 'Bodoni 72', serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
   position: relative;
   min-height: 100vh;
 }
@@ -129,7 +132,7 @@ body {
   border: none;
   background: transparent;
   color: var(--wine);
-  font-family: 'Bodoni 72', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.6rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;

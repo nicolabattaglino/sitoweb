@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
 .progetto-container {
     display: grid;
     grid-template-columns: 1fr 2fr; /* Testo più stretto a sinistra, immagini più larghe a destra */
@@ -10,13 +12,15 @@
     padding: 50px;
     display: flex;
     align-items: flex-start;
-    background-color: #EEECE6 !important; /* Colore di sfondo */
+    background-color: #ffffff !important; /* Colore di sfondo */
 
 }
 
 body {
     overflow-x: hidden;
-    background-color: #EEECE6 !important; /* Colore di sfondo */
+    background-color: #ffffff !important; /* Colore di sfondo */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
 
 }
 
@@ -25,6 +29,7 @@ body {
     width: 100%;
     max-width: 900px;
     height: clamp(320px, 70vw, 680px);
+    background-color: #ffffff !important;
     border: none;
     overflow: hidden; 
 }
@@ -38,7 +43,7 @@ body {
     top: 120px;
     height: fit-content;
     font-size: 16px;
-    color: #333;
+    color: #000000;
 }
 
 
@@ -50,7 +55,7 @@ body {
 
 #titolo {
     font-size: 32px !important; /* Cambia solo la grandezza del titolo */
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: 50px;
     color: #6d1b1b;
 
@@ -59,7 +64,7 @@ body {
 #descrizione {
     font-size: 16px; /* Mantieni la grandezza normale per il testo */
     line-height: 1.5;
-    color: #333;
+    color: #000000;
 }
 
 
@@ -172,7 +177,7 @@ body {
 /* Contenuto principale */
 .progetto-container {
     position: relative;
-    background-color: #EEECE6 !important; /* Colore di sfondo */
+    background-color: #ffffff !important; /* Colore di sfondo */
     padding: 50px;
     z-index: 1;
 }
@@ -330,7 +335,5 @@ body {
 }
 
 body, h1, h2, h3, h4, h5, h6, p, a, .progetto-testo, .progetto-descrizione, .progetto-dettagli, .progetto-container, .planimetria, .griglia-immagini, .hero, .hero-image, .lightbox, .lightbox-content {
-    font-family: 'Bodoni 72', serif !important;
+    font-family: 'Poppins', sans-serif !important;
 }
-
-

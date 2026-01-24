@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 body, h1, h2, h3, h4, h5, h6, p, a, .hero-servizi, .cta-container, .popup-header, .popup-text, .overlay, .card, .nav-buttons, .close, .cta-button {
-    font-family: 'Bodoni 72', serif !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 body {
-    font-family: 'Bodoni Moda', serif;
-    background-color: #EEECE6 !important; /* Colore di sfondo */
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff !important; /* Colore di sfondo */
     margin: 0;
     padding: 0;
 }
@@ -42,7 +44,7 @@ body {
     padding: 50px 20% 0px;
     color: #6d1b1b;
     text-align: center;
-    background-color: #EEECE6 !important;
+    background-color: #ffffff !important;
     height: 70px;
 }
 
@@ -100,15 +102,9 @@ body {
 
 
   .card:hover .overlay {
-      height: 200px; /* prima era 150px */
-      color: white;
-        font-size: 1.2rem;
-        text-align: center;
-        padding: 15px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: column;
+      background: rgba(121, 129, 123, 0.8);
+      height: 80px;
+      padding-top: 20px;
   }
 
 
@@ -118,39 +114,49 @@ body {
 }
 
 .plus {
-    width: 40px;
-    height: 40px;
-    background-color: #eae5dc;
-    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    background-color: transparent;
+    border-radius: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    font-size: 0;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     margin-top: 50px;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
 }
 
 .card:hover .plus {
-    opacity: 1;
+    opacity: 0;
+}
+
+.plus:hover::before,
+.plus:hover::after {
+    background-color: #6d1b1b;
 }
 
 .plus::before,
 .plus::after {
     content: "";
     position: absolute;
-    background-color: #401d23;
-    border-radius: 0;
+    top: 50%;
+    left: 50%;
+    width: 22px;
+    height: 2px;
+    background-color: #ffffff;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
 }
 
 .plus::before {
-    width: 18px;
-    height: 3.5px;
+    transform: translate(-50%, -50%) rotate(0deg);
 }
 
 .plus::after {
-    width: 3.5px;
-    height: 18px;
+    transform: translate(-50%, -50%) rotate(90deg);
 }
 
 .nav-buttons {
@@ -194,7 +200,7 @@ body {
     text-align: center;
     margin-top: 30px;
     padding: 20px;
-    background-color: #EEECE6 !important;
+    background-color: #ffffff !important;
     border-radius: 0px;
 }
 
@@ -232,8 +238,8 @@ body {
     padding: 0px 0px;
     padding-top: 20px;
     transform: translate(-50%, -50%);
-    background-color: #f8f4f0; /* colore opaco */
-    background: #f8f4f0; 
+    background-color: #ffffff; /* colore opaco */
+    background: #ffffff;
     border-radius: 0px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     max-width: 1000px;
@@ -268,19 +274,18 @@ body {
 .popup-header h2 {
     margin: 0;
     font-size: 2rem;
-    font-weight: 100 ;
+    font-weight: 300 !important;
     width: 100%; /* Occupa tutto lo spazio disponibile */
-    font-family: 'Bodoni 72', 'Bodoni', serif;
+    font-family: 'Poppins', sans-serif;
     color: #401d23;
-    font-weight: bold
 }
 
 /* Sostituisci lo stile esistente del .close con questo: */
 .close {
-    width: 35px;
-    height: 35px;
-    background-color: #eae5dc;
-    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    background-color: transparent;
+    border-radius: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -297,11 +302,12 @@ body {
 .close::after {
     content: "";
     position: absolute;
-    background-color: #401d23;
+    background-color: #ffffff;
     border-radius: 0;
-    width: 16px;
-    height: 3.5px;
+    width: 22px;
+    height: 2px;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 }
 
 .close::before {
@@ -313,7 +319,6 @@ body {
 }
 
 .close:hover {
-    background-color: #dfdbdc;
     transform: scale(1.1);
 }
 
@@ -327,7 +332,8 @@ body {
     color: #401d23;
     margin-top: 30px;
     line-height: 1.6;    
-    font-family: 'Bodoni 72 Book', 'Bodoni', serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
 
 }
 
@@ -439,7 +445,7 @@ body {
 
     .popup-header h2 {
         font-size: 1.2rem;
-        font-weight: bold;
+        font-weight: 300;
         margin: 0;
     }
 
@@ -486,9 +492,10 @@ body {
         line-height: 1.4;
     }
 
-    .popup-heading {
-        font-size: 16px;
-    }
+.popup-heading {
+    font-size: 16px;
+    font-weight: 300;
+}
 
     .nav-buttons {
         top: 535px;

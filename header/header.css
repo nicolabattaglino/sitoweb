@@ -1,18 +1,21 @@
-body, header, nav, .logo, .name, .bold, .thin, .separator, nav ul, nav ul li, nav ul li a {
-    font-family: 'Bodoni 72', serif !important;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+#main-header,
+#main-header * {
+    font-family: 'Poppins', sans-serif !important;
     letter-spacing: 0.03em; /* oppure 0.05em, prova il valore che preferisci */ 
 }
 
 header {
-    background-color: #EEECE6 !important;
+    background-color: #ffffff !important;
     height: 100px;
     box-shadow: none !important;
     border-bottom: none;
-    font-family: 'Bodoni 72', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
   }
 
 .logo {
-    font-family: 'Bodoni 72', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
     display: flex;
     align-items: center;
     gap: 4px;
@@ -25,7 +28,7 @@ header {
 }
 
 .bold {
-    font-weight: bold;
+    font-weight: normal;
     color: #55111e; /* Marrone scuro */
     font-size: 16px;
 }
@@ -50,7 +53,7 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 25px;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 nav ul li {
@@ -144,7 +147,7 @@ nav ul li a.active::before {
 
     .name .bold {
         font-size: 12px; /* Riduci la dimensione del nome */
-        font-weight: bold;
+        font-weight: normal;
         color: #55111e; /* Marrone scuro */
     }
 
