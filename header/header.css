@@ -21,6 +21,12 @@ header {
     gap: 4px;
 }
 
+.logo-image {
+    height: 68px;
+    width: auto;
+    display: block;
+}
+
 .name {
     display: flex;
     flex-direction: column;
@@ -137,6 +143,10 @@ nav ul li a.active::before {
         text-align: left; /* Allinea il logo a sinistra */
         gap: 2px; /* Riduci lo spazio tra gli elementi */
         margin-left: 10px; /* Aggiungi un margine a sinistra */
+    }
+
+    .logo-image {
+        height: 36px;
     }
 
     .name {
