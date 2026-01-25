@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetti</title>
+    <link rel="stylesheet" href="../progetti2/progetti2.css">
+    <link rel="stylesheet" href="../home/style.css">
+</head>
+<body>
+    <div class="griglia-progetti" id="griglia-progetti"></div>
+
+    <script>
+        async function caricaProgetti() {
+            const response = await fetch("../data/progetti.json");
+            const progetti = await response.json();
+            const griglia = document.getElementById("griglia-progetti");
+
+            const numTotale = 12;
+            let index = 0;
+
+            progetti.forEach(progetto => {
+                if (index >= numTotale) return;
+
+                const card = document.createElement("div");
+                card.classList.add("progetto-card");
+                card.setAttribute("data-clicked", "false"); // inizializza
+
+                card.innerHTML = `
+                    <a href="progetto.html?p=${progetto.slug}">
+                        <img src="${progetto.immagine_hero_ext}" alt="${progetto.titolo}">
+                        <div class="overlay">
+                            <span>${progetto.titolo}</span>
+                        </div>
+                    </a>
+                `;
+                griglia.appendChild(card);
+                index++;
+            });
+
+            while (index < numTotale) {
+                const placeholder = document.createElement("div");
+                placeholder.classList.add("progetto-card", "placeholder");
+                placeholder.innerHTML = `<span>In arrivo</span>`;
+                griglia.appendChild(placeholder);
+                index++;
+            }
+        }
+
+        function setupMobileScrollOverlay() {
+            if (window.innerWidth > 768) return; // Solo per mobile
+
+            const cards = document.querySelectorAll(".progetto-card");
+            if (!("IntersectionObserver" in window)) {
+                cards.forEach(card => {
+                    const overlay = card.querySelector(".overlay");
+                    if (overlay) overlay.classList.add("is-visible");
+                });
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const overlay = entry.target.querySelector(".overlay");
+                    if (!overlay) return;
+                    overlay.classList.toggle("is-visible", entry.isIntersecting);
+                });
+            }, { threshold: 0.4, rootMargin: "0px 0px -15% 0px" });
+
+            cards.forEach(card => observer.observe(card));
+        }
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            await caricaProgetti();
+            setupMobileScrollOverlay();
+        });
+
+        window.addEventListener("pageshow", () => {
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll(".overlay").forEach(overlay => {
+                    overlay.classList.remove("is-visible");
+                });
+            }
+        });
+    </script>
+
+    <script src="../header.js"></script>
+</body>
+</html>
