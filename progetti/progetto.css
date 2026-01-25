@@ -240,15 +240,14 @@ body {
 .lightbox {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
-    height: 100%;
+    height: 100svh;
     min-height: 100dvh;
     background: rgba(0,0,0,0.8);
     justify-content: center;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 40px env(safe-area-inset-bottom);
     z-index: 1000;
 }
 
@@ -366,6 +365,11 @@ body {
 
 /* Nascondi frecce su mobile */
 @media (max-width: 768px) {
+    #lightbox-img {
+        max-width: 110%;
+        max-height: 92%;
+    }
+
     .progetto-container {
         margin-top: -6vh;
         gap: 20px;
@@ -380,9 +384,9 @@ body {
     }
 
     .progetto-immagini {
-        margin-left: -40px;
-        margin-right: -40px;
-        width: calc(100% + 80px);
+        margin-left: -50px;
+        margin-right: -50px;
+        width: calc(100% + 100px);
     }
 
     .prev,
@@ -393,4 +397,13 @@ body {
 
 body, h1, h2, h3, h4, h5, h6, p, a, .progetto-testo, .progetto-descrizione, .progetto-dettagli, .progetto-container, .planimetria, .griglia-immagini, .hero, .hero-image, .lightbox, .lightbox-content {
     font-family: 'Poppins', sans-serif !important;
+}
+
+body.no-scroll,
+html.no-scroll {
+    overflow: hidden;
+    height: 100%;
+    touch-action: none;
+    position: fixed;
+    width: 100%;
 }

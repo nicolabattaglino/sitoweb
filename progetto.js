@@ -41,6 +41,7 @@ async function caricaProgetto() {
 // **NUOVA FUNZIONE PER INIZIALIZZARE LA LIGHTBOX**
 let indiceCorrente = 0;
 let immaginiProgetto = [];
+let scrollLockY = 0;
 
 function inizializzaLightbox() {
     const immagini = document.querySelectorAll('#griglia-immagini img');
@@ -81,9 +82,24 @@ function inizializzaLightbox() {
         });
     }
 
+    const lockScroll = () => {
+        scrollLockY = window.scrollY || window.pageYOffset;
+        document.documentElement.classList.add("no-scroll");
+        document.body.classList.add("no-scroll");
+        document.body.style.top = `-${scrollLockY}px`;
+    };
+
+    const unlockScroll = () => {
+        document.documentElement.classList.remove("no-scroll");
+        document.body.classList.remove("no-scroll");
+        document.body.style.top = "";
+        window.scrollTo(0, scrollLockY);
+    };
+
     immagini.forEach((img, index) => {
         img.addEventListener("click", function() {
             lightbox.style.display = "flex";
+            lockScroll();
             updateLightbox(index);
         });
     });
@@ -91,6 +107,7 @@ function inizializzaLightbox() {
     if (closeBtn) {
         closeBtn.addEventListener("click", function() {
             lightbox.style.display = "none";
+            unlockScroll();
         });
     }
 
@@ -111,6 +128,7 @@ function inizializzaLightbox() {
     lightbox.addEventListener("click", function(event) {
         if (event.target === lightbox) {
             lightbox.style.display = "none";
+            unlockScroll();
         }
     });
 
@@ -126,6 +144,7 @@ function inizializzaLightbox() {
             }
             if (e.key === "Escape") {
                 lightbox.style.display = "none";
+                unlockScroll();
             }
         }
     });
