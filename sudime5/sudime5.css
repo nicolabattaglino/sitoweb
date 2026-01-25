@@ -194,9 +194,8 @@ body {
   background: transparent;
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.6rem;
+  font-size: 2rem;
   letter-spacing: 0.03em;
-  text-transform: uppercase;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -378,6 +377,15 @@ body {
     background-position: center;
   }
 
+  .card.is-open::before {
+    height: calc(var(--mobile-card-height) * 0.7);
+  }
+
+  .card.is-open .card-title {
+    height: calc(var(--mobile-card-height) * 0.7);
+    align-items: center;
+  }
+
   .card:nth-child(1) {
     --stack-y: calc(-2 * (var(--mobile-card-height) + var(--mobile-gap)));
   }
@@ -412,7 +420,7 @@ body {
     height: var(--mobile-card-height);
     padding: 0 20px;
     justify-content: space-between;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     text-align: left;
     pointer-events: auto;
     color: #ffffff;
