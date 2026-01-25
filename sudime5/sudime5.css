@@ -159,7 +159,7 @@ body {
   height: 100%;
   border: none;
   background: transparent;
-  color: var(--wine);
+  color: #ffffff;
   font-family: 'Poppins', sans-serif;
   font-size: 1.6rem;
   letter-spacing: 0.03em;
@@ -201,7 +201,7 @@ body {
   left: 50%;
   width: 22px;
   height: 2px;
-  background: var(--wine);
+  background: #ffffff;
   transform-origin: center;
   transition: transform 0.25s ease;
 }
@@ -257,36 +257,61 @@ body {
 }
 
 @media (max-width: 768px) {
+  html,
   body {
-    padding-top: 80px;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    padding-top: var(--header-height);
     padding-bottom: 40px;
     text-align: justify;
   }
 
   :root {
+    --header-height: 100px;
     --title-width: 100%;
     --mobile-card-height: 100px;
     --mobile-gap: 0px;
-    --mobile-open-height: 78vh;
+    --mobile-open-height: calc(100svh - var(--header-height));
     --mobile-hide-offset: 120px;
     --mobile-reserved: calc(var(--mobile-card-height) * 2 + var(--mobile-gap));
   }
 
   .story-hero {
-    min-height: 100vh;
+    height: 100svh;
     justify-content: center;
-    padding: 30px 24px calc(var(--mobile-reserved) + 40px);
-    padding-top: 100px;
+    padding: 24px 24px calc(var(--mobile-reserved) + 200px);
+    padding-top: var(--header-height);
+    overflow: hidden;
   }
+  .story-hero-content h2 {
+  margin: 0 0 0px;
+  font-weight: 400;
+  font-size: 2.2rem;
+}
 
   .story-hero-content {
     width: 100%;
-    max-height: calc(100vh - var(--mobile-reserved) - 80px);
-    overflow-y: auto;
+    height: calc(100svh - var(--mobile-reserved) - 120px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    overscroll-behavior: contain;
   }
 
-  .story-hero-content p {
+  .story-hero-scroll {
+    flex: 1;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    padding-bottom: 30px;
+  }
+
+  .story-hero-scroll p {
     text-align: justify;
   }
 
@@ -296,6 +321,7 @@ body {
     bottom: 0;
     height: 100vh;
     padding-top: 0;
+    pointer-events: none;
   }
 
   .card {
@@ -306,6 +332,7 @@ body {
     transform: translateY(var(--stack-y));
     transition: transform 0.5s ease, height 0.5s ease, box-shadow 0.5s ease, opacity 0.3s ease;
     margin-top: 0;
+    pointer-events: auto;
   }
 
   .card::before {
@@ -350,6 +377,8 @@ body {
     justify-content: space-between;
     font-size: 1.2rem;
     text-align: left;
+    pointer-events: auto;
+    color: #ffffff;
   }
 
   .card-title > span:first-child {
@@ -371,6 +400,7 @@ body {
     margin-right: 0;
     padding: 24px 22px 28px;
     height: calc(var(--mobile-open-height) - var(--mobile-card-height));
+    pointer-events: auto;
   }
 
   .card-body-inner {
