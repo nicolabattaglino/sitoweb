@@ -3,7 +3,8 @@
   --wine: #561c1c;
   --title-width: 28vw;
   --title-overlay-width: 62px;
-  --card-width: 100vw;
+  --card-width: 66vw;
+  --open-offset: 94vw;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -78,7 +79,7 @@ body {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(49, 39, 32, 0.22);
+  background: rgba(0, 0, 0, 0.113);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -96,6 +97,7 @@ body {
   left: 0;
   width: var(--card-width);
   background: var(--cream);
+  --swap-left: calc(-1 * (100% - var(--title-width)));
   transform: translateX(calc(-1 * (100% - var(--title-width)) + var(--stack-offset)));
   transition: transform 0.6s ease, box-shadow 0.6s ease;
   overflow: hidden;
@@ -119,13 +121,11 @@ body {
 
 .card:nth-child(1) {
   --stack-offset: 0vw;
-  --open-offset: 70vw;
   z-index: 3;
 }
 
 .card:nth-child(2) {
   --stack-offset: 10vw;
-  --open-offset: 94vw;
   z-index: 2;
 }
 
@@ -137,6 +137,18 @@ body {
 .card.is-open {
   transform: translateX(calc(var(--open-offset, 90vw) - var(--card-width)));
   box-shadow: 0 30px 70px rgba(86, 28, 28, 0.25);
+}
+
+.stack[data-open="1"] .card:nth-child(2),
+.stack[data-open="2"] .card:nth-child(1) {
+  width: var(--title-width);
+  transform: translateX(var(--swap-left));
+}
+
+.stack[data-open="1"] .card:nth-child(2) .card-body,
+.stack[data-open="2"] .card:nth-child(1) .card-body {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .card-title {
@@ -224,7 +236,6 @@ body {
 
 .card-body-inner {
   width: 420px;
-  min-width: 320px;
   max-width: 100%;
 }
 
@@ -241,13 +252,14 @@ body {
   line-height: 1.7;
 }
 
-  .card-body p:last-child {
-    margin-bottom: 0;
-  }
+.card-body p:last-child {
+  margin-bottom: 0;
+}
 
 @media (max-width: 768px) {
   body {
-    padding-top: 0;
+    padding-top: 80px;
+    padding-bottom: 40px;
     text-align: justify;
   }
 
@@ -257,16 +269,21 @@ body {
     --mobile-gap: 0px;
     --mobile-open-height: 78vh;
     --mobile-hide-offset: 120px;
+    --mobile-reserved: calc(var(--mobile-card-height) * 2 + var(--mobile-gap));
   }
 
   .story-hero {
     min-height: 100vh;
     justify-content: center;
-    padding: 30px 24px 140px;
+    padding: 30px 24px calc(var(--mobile-reserved) + 40px);
+    padding-top: 100px;
   }
 
   .story-hero-content {
     width: 100%;
+    max-height: calc(100vh - var(--mobile-reserved) - 80px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .story-hero-content p {
