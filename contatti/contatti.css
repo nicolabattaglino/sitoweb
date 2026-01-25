@@ -270,6 +270,7 @@ textarea,
         gap: 20px; /* Spazio tra gli elementi */
         padding-left: 0;
         padding-right: 0;
+        margin: 0 auto;
     }
 
     .contact-left {
@@ -282,6 +283,7 @@ textarea,
         width: 300px; /* Aumenta la dimensione della foto nella versione mobile */
         height: 400px;
         object-fit: contain ;   /* Mantiene il ritaglio proporzionato */
+        margin: 0 auto;
 
     }
 
@@ -292,6 +294,7 @@ textarea,
     .contact-content {
         width: 100%; /* La colonna di destra occupa tutta la larghezza */
         padding-top: 0; /* Rimuovi il padding superiore */
+        margin: 0 auto;
     }
 
     .contact-text {
@@ -309,6 +312,8 @@ textarea,
     .contact-form {
         width: 100%; /* Il form occupa tutta la larghezza */
         max-width: 100%; /* Rimuovi il limite massimo di larghezza */
+        margin-left: auto;
+        margin-right: auto;
     }
 
     textarea {
