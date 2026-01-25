@@ -185,7 +185,7 @@ nav ul li a.active::before {
         position: absolute;
         top: 100px;
         right: 0;
-        background: #EEECE6;
+        background: #ffffff;
         width: 100%;
         box-shadow: none;
         z-index: 1000;
@@ -204,7 +204,7 @@ nav ul li a.active::before {
 
     nav ul li {
         padding: 20px;
-        border-top: 1px solid #eee;
+        border-top: 1px solid #e8e8e81d;
         text-align: center;
     }
 

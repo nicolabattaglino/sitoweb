@@ -31,6 +31,7 @@ body {
     max-width: 1100px;
     width: 100%;
     padding-top: 40px; /* Padding in alto per la container */
+    padding-left: 60px; /* Più spazio a sinistra della foto */
 }
 
 .contact-left {
@@ -38,7 +39,7 @@ body {
     flex-direction: column;
     align-items: left;
     gap: 10px; /* Distanza tra il titolo e la foto */
-    width: 38%; /* La colonna di sinistra occupa il 30% della larghezza */
+    width: 40%; /* Più spazio alla foto */
     padding-top: 50px; /* Aggiunge distanza dal margine superiore */
 }
 
@@ -61,13 +62,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
+    width: 60%;
     padding-top: 20px; /* Padding in alto per il contenuto */
+    max-width: 620px;
 
 }
 
 .contact-text {
-    max-width: 900px;
+    max-width: 620px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -86,7 +88,7 @@ body {
     width: 100%;
     margin-top: 20px;
     box-shadow: none;
-    max-width: 800px;
+    max-width: 620px;
 
 }
 
@@ -100,7 +102,7 @@ input {
     resize: vertical; /* Permette il ridimensionamento solo in verticale */
     width: 100%;
     padding: 10px;
-    border: none;
+    border: 0.5px solid #732F3D;
     background: white;
     font-size: 16px;
     color: #401d23;
@@ -114,7 +116,7 @@ textarea {
     resize: vertical; /* Permette il ridimensionamento solo in verticale */
     width: 100%;
     padding: 10px;
-    border: none;
+    border: 0.5px solid #732F3D;
     background: white;
     font-size: 16px;
     color: #401d23;
@@ -335,6 +337,14 @@ textarea,
     display: inline-block;
     margin: 0 auto;        /* Centra la lista */
     padding-left: 1rem;
+}
+
+@media (max-width: 1100px) and (min-width: 769px) {
+    .contact-image img {
+        min-height: 0;
+        height: auto;
+        object-fit: contain;
+    }
 }
 
 

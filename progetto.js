@@ -49,6 +49,7 @@ function inizializzaLightbox() {
     const closeBtn = document.querySelector(".close");
     const btnPrev = document.querySelector(".prev");  // Modificato per corrispondere all'HTML
     const btnNext = document.querySelector(".next");  // Modificato per corrispondere all'HTML
+    const dotsContainer = document.querySelector(".lightbox-dots");
 
     if (immagini.length === 0) {
         console.warn("⚠ Nessuna immagine trovata nella griglia!");
@@ -57,11 +58,33 @@ function inizializzaLightbox() {
 
     immaginiProgetto = Array.from(immagini).map(img => img.src);
 
+    const updateLightbox = (index) => {
+        indiceCorrente = (index + immaginiProgetto.length) % immaginiProgetto.length;
+        lightboxImg.src = immaginiProgetto[indiceCorrente];
+        if (dotsContainer) {
+            dotsContainer.querySelectorAll("button").forEach((dot, dotIndex) => {
+                dot.classList.toggle("is-active", dotIndex === indiceCorrente);
+                dot.setAttribute("aria-current", dotIndex === indiceCorrente ? "true" : "false");
+            });
+        }
+    };
+
+    if (dotsContainer) {
+        dotsContainer.innerHTML = "";
+        immaginiProgetto.forEach((_, index) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "lightbox-dot";
+            dot.setAttribute("aria-label", `Immagine ${index + 1}`);
+            dot.addEventListener("click", () => updateLightbox(index));
+            dotsContainer.appendChild(dot);
+        });
+    }
+
     immagini.forEach((img, index) => {
         img.addEventListener("click", function() {
             lightbox.style.display = "flex";
-            lightboxImg.src = this.src;
-            indiceCorrente = index;
+            updateLightbox(index);
         });
     });
 
@@ -74,15 +97,13 @@ function inizializzaLightbox() {
     // Pulsanti avanti/indietro
     if (btnNext) {
         btnNext.addEventListener("click", function() {
-            indiceCorrente = (indiceCorrente + 1) % immaginiProgetto.length;
-            lightboxImg.src = immaginiProgetto[indiceCorrente];
+            updateLightbox(indiceCorrente + 1);
         });
     }
 
     if (btnPrev) {
         btnPrev.addEventListener("click", function() {
-            indiceCorrente = (indiceCorrente - 1 + immaginiProgetto.length) % immaginiProgetto.length;
-            lightboxImg.src = immaginiProgetto[indiceCorrente];
+            updateLightbox(indiceCorrente - 1);
         });
     }
 
@@ -98,12 +119,10 @@ function inizializzaLightbox() {
         // Controlla che la lightbox sia visibile
         if (window.getComputedStyle(lightbox).display !== "none") {
             if (e.key === "ArrowRight") {
-                indiceCorrente = (indiceCorrente + 1) % immaginiProgetto.length;
-                lightboxImg.src = immaginiProgetto[indiceCorrente];
+                updateLightbox(indiceCorrente + 1);
             }
             if (e.key === "ArrowLeft") {
-                indiceCorrente = (indiceCorrente - 1 + immaginiProgetto.length) % immaginiProgetto.length;
-                lightboxImg.src = immaginiProgetto[indiceCorrente];
+                updateLightbox(indiceCorrente - 1);
             }
             if (e.key === "Escape") {
                 lightbox.style.display = "none";
@@ -111,10 +130,68 @@ function inizializzaLightbox() {
         }
     });
 
+    // Swipe su mobile per cambiare immagine
+    let touchStartX = 0;
+    let touchStartY = 0;
+    const swipeThreshold = 40;
+
+    lightbox.addEventListener("touchstart", function(event) {
+        const touch = event.touches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+    }, { passive: true });
+
+    lightbox.addEventListener("touchend", function(event) {
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - touchStartX;
+        const deltaY = touch.clientY - touchStartY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+            if (deltaX < 0) {
+                updateLightbox(indiceCorrente + 1);
+            } else {
+                updateLightbox(indiceCorrente - 1);
+            }
+        }
+    }, { passive: true });
+
+    // Drag su desktop per cambiare immagine
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let isDragging = false;
+
+    const onPointerDown = (event) => {
+        if (event.pointerType === "mouse" || event.pointerType === "pen") {
+            isDragging = true;
+            dragStartX = event.clientX;
+            dragStartY = event.clientY;
+            lightboxImg.setPointerCapture(event.pointerId);
+        }
+    };
+
+    const onPointerUp = (event) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const deltaX = event.clientX - dragStartX;
+        const deltaY = event.clientY - dragStartY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+            if (deltaX < 0) {
+                updateLightbox(indiceCorrente + 1);
+            } else {
+                updateLightbox(indiceCorrente - 1);
+            }
+        }
+    };
+
+    lightboxImg.addEventListener("pointerdown", onPointerDown);
+    lightboxImg.addEventListener("pointerup", onPointerUp);
+    lightboxImg.addEventListener("pointercancel", () => {
+        isDragging = false;
+    });
+
     console.log("✅ Lightbox inizializzata con", immaginiProgetto.length, "immagini.");
 }
 
 // Esegui la funzione principale
 caricaProgetto();
-
-

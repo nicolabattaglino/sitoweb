@@ -225,8 +225,9 @@ body {
 }
 
 .cta-button:hover {
-    background-color: white;
+    background-color: #401d23;
     color: #401d23;
+    color: white;
 }
 
 /* Popup */
@@ -603,7 +604,7 @@ body.popup-open .popup-nav-next {
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    background-color: rgba(64,29,35,1);
+    background-color: transparent;
     color: white;
     display: flex;
     justify-content: center;
