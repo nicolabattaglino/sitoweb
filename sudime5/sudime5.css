@@ -4,7 +4,9 @@
   --title-width: 28vw;
   --title-overlay-width: 62px;
   --card-width: 66vw;
-  --open-offset: 94vw;
+  --open-offset: 100vw;
+  --mini-slide-left: 3vw;
+  --mini-slide-right: 6vw;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -139,14 +141,45 @@ body {
   box-shadow: 0 30px 70px rgba(86, 28, 28, 0.25);
 }
 
-.stack[data-open="1"] .card:nth-child(2),
-.stack[data-open="2"] .card:nth-child(1) {
+.stack.has-open .card:not(.is-open) {
   width: var(--title-width);
   transform: translateX(var(--swap-left));
 }
 
-.stack[data-open="1"] .card:nth-child(2) .card-body,
-.stack[data-open="2"] .card:nth-child(1) .card-body {
+
+.stack[data-open="2"] .card:not(.is-open):nth-child(3) {
+  transform: translateX(calc(var(--mini-slide-right)));
+}
+
+.stack[data-open="2"] .card:not(.is-open):nth-child(1) {
+  transform: translateX(calc(var(--swap-left) - var(--mini-slide-right)));
+}
+
+
+.stack[data-open="3"] .card:not(.is-open):nth-child(2) {
+  transform: translateX(calc(var(--mini-slide-right)));
+}
+
+.stack[data-open="3"] .card:not(.is-open):nth-child(1) {
+  transform: translateX(calc(var(--swap-left) - var(--mini-slide-right)));
+}
+
+
+.stack[data-open="1"] .card:not(.is-open):nth-child(2) {
+  transform: translateX(calc(var(--swap-left) - var(--mini-slide-right)));
+}
+
+
+.stack[data-open="1"] .card:not(.is-open):nth-child(3) {
+  transform: translateX(calc(var(--swap-left) - var(--mini-slide-left)));
+}
+
+.stack.has-open .card:not(.is-open):nth-child(3) {
+  transform: translateX(calc(var(--swap-left) + var(--mini-slide-right)));
+}
+
+
+.stack.has-open .card:not(.is-open) .card-body {
   opacity: 0;
   pointer-events: none;
 }
@@ -272,7 +305,7 @@ body {
   :root {
     --header-height: 100px;
     --title-width: 100%;
-    --mobile-card-height: 100px;
+    --mobile-card-height: calc((100svh - var(--header-height)) / 3);
     --mobile-gap: 0px;
     --mobile-open-height: calc(100svh - var(--header-height));
     --mobile-hide-offset: 120px;
@@ -346,24 +379,28 @@ body {
   }
 
   .card:nth-child(1) {
-    --stack-y: calc(-1 * (var(--mobile-card-height) + var(--mobile-gap)));
+    --stack-y: calc(-2 * (var(--mobile-card-height) + var(--mobile-gap)));
   }
 
   .card:nth-child(2) {
+    --stack-y: calc(-1 * (var(--mobile-card-height) + var(--mobile-gap)));
+  }
+
+  .card:nth-child(3) {
     --stack-y: 0px;
   }
 
   .card.is-open {
     height: var(--mobile-open-height);
-    transform: translateY(var(--stack-y));
-  }
-
-  .card:nth-child(1).is-open {
-    transform: translateY(calc(var(--stack-y) + 100px));
+    transform: translateY(0);
   }
 
   .stack[data-open="1"] .card:nth-child(2),
-  .stack[data-open="2"] .card:nth-child(1) {
+  .stack[data-open="1"] .card:nth-child(3),
+  .stack[data-open="2"] .card:nth-child(1),
+  .stack[data-open="2"] .card:nth-child(3),
+  .stack[data-open="3"] .card:nth-child(1),
+  .stack[data-open="3"] .card:nth-child(2) {
     opacity: 0;
     transform: translateY(calc(var(--stack-y) + var(--mobile-hide-offset)));
     pointer-events: none;

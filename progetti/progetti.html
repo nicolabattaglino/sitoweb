@@ -47,51 +47,38 @@
             }
         }
 
-        function setupMobileClickOverlay() {
+        function setupMobileScrollOverlay() {
             if (window.innerWidth > 768) return; // Solo per mobile
 
-            document.querySelectorAll(".progetto-card").forEach(card => {
-                const link = card.querySelector("a");
-                const overlay = card.querySelector(".overlay");
-                if (!overlay || !link) return;
-
-                let timeout = null;
-
-                card.addEventListener("click", (e) => {
-                    e.preventDefault();
-
-                    if (card.dataset.clicked === "false") {
-                        overlay.style.height = "50%";
-                        overlay.style.opacity = "1";
-                        card.dataset.clicked = "true";
-
-                        timeout = setTimeout(() => {
-                            overlay.style.height = "0";
-                            overlay.style.opacity = "0";
-                            card.dataset.clicked = "false";
-                        }, 2000);
-                    } else {
-                        clearTimeout(timeout);
-                        window.location.href = link.href;
-                    }
+            const cards = document.querySelectorAll(".progetto-card");
+            if (!("IntersectionObserver" in window)) {
+                cards.forEach(card => {
+                    const overlay = card.querySelector(".overlay");
+                    if (overlay) overlay.classList.add("is-visible");
                 });
-            });
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const overlay = entry.target.querySelector(".overlay");
+                    if (!overlay) return;
+                    overlay.classList.toggle("is-visible", entry.isIntersecting);
+                });
+            }, { threshold: 0.4, rootMargin: "0px 0px -15% 0px" });
+
+            cards.forEach(card => observer.observe(card));
         }
 
         document.addEventListener("DOMContentLoaded", async () => {
             await caricaProgetti();
-            setupMobileClickOverlay();
+            setupMobileScrollOverlay();
         });
 
         window.addEventListener("pageshow", () => {
             if (window.innerWidth <= 768) {
                 document.querySelectorAll(".overlay").forEach(overlay => {
-                    overlay.style.height = "0";
-                    overlay.style.opacity = "0";
-                });
-
-                document.querySelectorAll(".progetto-card").forEach(card => {
-                    card.dataset.clicked = "false";
+                    overlay.classList.remove("is-visible");
                 });
             }
         });

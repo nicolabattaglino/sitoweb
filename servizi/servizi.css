@@ -507,6 +507,11 @@ body {
         right: 30px;
     }
 
+    .close::before,
+    .close::after {
+        background-color: #732F3D;
+    }
+
 
 }
 
