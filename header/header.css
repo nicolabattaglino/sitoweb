@@ -35,20 +35,23 @@ header {
 
 .bold {
     font-weight: normal;
-    color: #55111e; /* Marrone scuro */
+    color: rgb(89, 5, 43);
+ /* Marrone scuro */
     font-size: 16px;
 }
 
 .separator {
     width: 2px;
     height: 32px;
-    background-color: #55111e; /* Stessa tonalità */
+    background-color: rgb(89, 5, 43);
+ /* Stessa tonalità */
     margin: 0 10px;
 }
 
 .thin {
     font-weight: normal;
-    color: #55111e; /* Grigio scuro */
+    color: rgb(89, 5, 43);
+ /* Grigio scuro */
     font-size: 14px;
     position: relative;
     top: 10px; /* Regola il valore per allinearlo come preferisci */
@@ -69,7 +72,8 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #55111e;
+    color: rgb(89, 5, 43);
+
     font-size: 14px;
     letter-spacing: 0.03em; /* oppure 0.05em, prova il valore che preferisci */
 }
@@ -81,7 +85,8 @@ nav ul li a:hover {
 nav ul li a {
     position: relative;
     display: inline-block; /* Assicura che il link occupi solo la larghezza necessaria */
-    color: #55111e; /* Colore del testo */
+    color: rgb(89, 5, 43);
+ /* Colore del testo */
 }
 
 /* Crea un'animazione per la linea */
@@ -123,7 +128,8 @@ nav ul li a.active::before {
 .menu-toggle span {
     display: block;
     height: 2px;
-    background: #55111e;
+    background: rgb(89, 5, 43);
+
     border-radius: 2px;
 }
 
@@ -158,13 +164,15 @@ nav ul li a.active::before {
     .name .bold {
         font-size: 12px; /* Riduci la dimensione del nome */
         font-weight: normal;
-        color: #55111e; /* Marrone scuro */
+        color: rgb(89, 5, 43);
+ /* Marrone scuro */
     }
 
     .thin {
         font-size: 10px; /* Riduci la dimensione del titolo "ARCHITETTO" */
         font-weight: normal;
-        color: #55111e; /* Marrone scuro */
+        color: rgb(89, 5, 43);
+ /* Marrone scuro */
         position: relative;
         top: 9px; /* Regola l'allineamento verticale */
     }
@@ -172,7 +180,8 @@ nav ul li a.active::before {
     .separator {
         width: 1px; /* Riduci la larghezza della barra divisoria */
         height: 29px; /* Riduci l'altezza della barra divisoria */
-        background-color: #55111e; /* Stessa tonalità */
+        background-color: rgb(89, 5, 43);
+ /* Stessa tonalità */
         margin: 0 5px; /* Riduci lo spazio laterale */
     }
 

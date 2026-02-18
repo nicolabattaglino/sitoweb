@@ -1,7 +1,8 @@
 [
     {
     "slug": "casa-salento",
-    "titolo": "Lu sule, lu mare e lu jentu",
+    "titolo": "LU SULE, LU MARE E LU JENTU",
+    "sottotitolo": "Una ristrutturazione su misura per una giovane coppia",
     "descrizione": "Tra il sole, il mare e il vento del Salento, una giovane coppia affiatata ha deciso di realizzare la propria prima casa: Marco, fotografo, e Federica, pasticciera. Il loro desiderio era chiaro: una zona giorno ampia e luminosa, due camere da letto, due bagni e uno spazio lavanderia.\nPulizia, minimalismo, essenzialità: tre parole che sintetizzano il processo creativo di questo progetto.\n\nFin dal primo incontro i clienti hanno saputo trasmettere sensazioni ed esigenze precise. A me è bastato tradurle nel linguaggio dell’architettura, lavorando su composizione, proporzioni e soluzioni di interior.\n\nL’appartamento nasce con una planimetria a U: tipologia insolita nel contesto torinese, ma comune nelle case d’epoca salentine. La ridefinizione distributiva è passata da alcuni interventi mirati:\n- l’apertura della parte d’ingresso verso l’esterno, trasformata in zona filtro per biciclette e piante;\n- la demolizione dei muri di spina che formavano il disimpegno centrale, sostituiti da un unico grande ambiente in cui convivono cucina, pranzo e living.\n\nUn mobile su misura dai toni neutri e caldi integra il camino esistente, reinterpretato in chiave contemporanea.\n\nLa cucina è posta in fondo allo spazio, organizzata in un’isola centrale che separa la zona pranzo da quella operativa, completata da una parete attrezzata e da una dispensa celata da due ante di arredo.\n\nUna parete verde, studiata per la loro gattina, dialoga con i toni delicati del beige e del legno naturale del pavimento.\n\nLa zona giorno è il fulcro della casa e si apre direttamente sul cortile interno. Su questo affaccio si dispongono la cameretta, il bagno principale e la lavanderia, con accesso indipendente al cortile. Sul lato opposto si trova la suite padronale, composta da camera, cabina armadio e bagno privato.\n\nIl verde, colore preferito dai committenti, ricorre come filo conduttore: dalla parete della cucina al ripiano del mobile del soggiorno, dalla testata del letto al mobile del bagno. Insieme al calore del legno diventa l’elemento identitario della casa.\n\nIl risultato è un nido d’amore luminoso e leggero, capace di esprimere l’energia e la freschezza dei suoi giovani abitanti.",
     "luogo": "Monteroni (LE)",
     "anno": "2024",
@@ -22,7 +23,8 @@
   },
   {
     "slug": "casa-sonnaz",
-    "titolo": "Skyline tales",
+    "titolo": "SKYLINE TALES",
+    "sottotitolo": "Un rifugio sopra la città",
     "descrizione": "Elisa è una persona dai modi gentili, con le idee chiare e un’innata attenzione ai dettagli e alla bellezza. La sua casa riflette perfettamente il suo modo di essere e custodisce la sua storia: era la casa della nonna, un luogo intriso di ricordi preziosi.\nQuando mi ha contattata, il suo desiderio era chiaro: trasformare questi spazi in una piccola oasi di pace, dove ritrovare equilibrio al termine della giornata, accogliere con gioia gli amici e curare le sue piante.\nPer lei bellezza e funzionalità non sono opzionali, ma valori indispensabili.\nL’appartamento è una luminosa mansarda con una splendida vista sui tetti della città. Le finestre diventano veri e propri quadri impressionisti, capaci di raccontare le stagioni attraverso le sfumature del cielo.\n\nLa casa si sviluppa intorno a un’ampia zona giorno che integra in modo armonioso l’area divani, pensata per il relax, la cucina operativa e la zona pranzo, creando un ambiente conviviale e funzionale al tempo stesso.\nLa zona notte ospita la camera da letto principale e uno studio raccolto e silenzioso, ideale per il lavoro e la concentrazione. Infine, la zona di servizio è organizzata con lavanderia e bagno, garantendo praticità e ordine. L’ingresso, studiato come un volume di passaggio, accompagna lo sguardo verso la zona giorno e definisce con eleganza il perimetro dello spazio.\n\nIl pavimento originale in marmo è stato mantenuto e valorizzato: un dettaglio prezioso che conserva l’anima storica della casa, riportandoci al fascino autentico delle dimore dei primi anni del ’900. A dialogare con questo elemento dal carattere forte, una palette cromatica chiara e ben definita. Le tonalità del verde, scelte per il divano e per le lampade della zona pranzo, evocano freschezza e vitalità, mentre i toni del blu, presenti nella cucina e nei rivestimenti del bagno, aggiungono profondità ed eleganza.\n\nIl risultato è uno spazio che unisce memoria e contemporaneità, capace di raccontare la storia di chi lo abita e di restituire la sensazione di un luogo intimo, accogliente e allo stesso tempo aperto alla condivisione.",
     "luogo": "Torino",
     "anno": "2022",
@@ -31,19 +33,20 @@
     "superficie": "90 mq",
     "foto_crediti": "Nicola Battaglino",
     "immagine_hero": "../immagini/casa-sonnaz/int.jpg",
-    "immagine_hero_ext": "../immagini/casa-sonnaz/ext.jpg",
+    "immagine_hero_ext": "../immagini/casa-sonnaz/ext1.png",
     "immagini": [
-      "../immagini/casa-sonnaz/cucina.jpg",
-      "../immagini/casa-sonnaz/cucina1.jpg",
-      "../immagini/casa-sonnaz/cucina2.jpg",
-      "../immagini/casa-sonnaz/bagno.jpg",
-      "../immagini/casa-sonnaz/divano.jpg",
-      "../immagini/casa-sonnaz/tavolo.jpg"
+      "../immagini/casa-sonnaz/1.png",
+      "../immagini/casa-sonnaz/2.png",
+      "../immagini/casa-sonnaz/3.png",
+      "../immagini/casa-sonnaz/4.png",
+      "../immagini/casa-sonnaz/5.png",
+      "../immagini/casa-sonnaz/6.png"
     ]
   },
   {
     "slug": "casa-frejus",
-    "titolo": "Casa frejus",
+    "titolo": "CASA FREJUS",
+    "sottotitolo": "Una casa che si trasforma seguendo le esigenze della famiglia",
     "descrizione": "La richiesta principale della committenza era di massimizzare la superficie e valorizzare la zona giorno.\n\nCasa Fréjus si affaccia sull’omonima via torinese, che ricorda il celebre traforo alpino di collegamento tra Italia e Francia. L’appartamento nasce dall’unione di due unità abitative, distinte per funzioni: una dedicata alla zona giorno e l’altra alla zona notte. Entrambi gli accessi originari sono stati mantenuti, ciascuno a servizio delle rispettive aree.\n\nIl progetto si sviluppa a partire dall’idea di ampliare la zona giorno, eliminando l’ingresso esistente e creando un ambiente unico e continuo tra soggiorno e cucina. Le demolizioni e la nuova organizzazione spaziale sono state pensate per esaltare, sin dall’accesso, la percezione della zona giorno, caratterizzata da una doppia apertura verso l’esterno. La cucina è rimasta nella posizione originaria, ma ora si apre visivamente verso il soggiorno, contribuendo a rafforzare l’unità dello spazio.\n\nElemento cardine del progetto è un blocco centrale verde, fulcro dell’intero ambiente, che ospita al suo interno il bagno di servizio e la lavanderia. Questo volume compatto diventa un vero e proprio segno architettonico: separa la cucina dal soggiorno, organizza gli spazi e definisce con decisione il carattere della casa. Una porta filo muro, dipinta nello stesso verde, garantisce continuità e discrezione all’elemento.\n\nLa zona notte è separata dalla zona giorno da una porta scorrevole e si articola attorno a un ampio disimpegno: qui trovano posto la camera master, due camere aggiuntive (di cui una con cabina armadio), un ripostiglio e un bagno.\n\nPer i pavimenti è stata scelta una piastrella effetto pietra, materiale elegante e neutro che lega tra loro gli ambienti. Il bagno principale è arricchito da una piastrella effetto semilucido, che dona luminosità e movimento alle superfici.",
     "luogo": "Torino",
     "anno": "2023",
@@ -52,7 +55,7 @@
     "superficie": "140 mq",
     "foto_crediti": "Nicola Battaglino",
     "immagine_hero": "../immagini/casa-frejus/01.JPG",
-    "immagine_hero_ext": "../immagini/casa-frejus/ext.JPG",
+    "immagine_hero_ext": "../immagini/casa-frejus/ext1.png",
     "immagini": [
       "../immagini/casa-frejus/01.JPG",
       "../immagini/casa-frejus/02.JPG",
@@ -66,7 +69,8 @@
   },
   {
     "slug": "casa-armonia",
-    "titolo": "Armonia e colore",
+    "titolo": "ARMONIE DI COLORE",
+    "sottotitolo": "Una casa dove armonia e colore si incontrano",
     "descrizione": "Maristella è una ragazza con le idee molto chiare e un senso estetico fuori dall’ordinario, mai scontato.\nPer lei la casa non è solo un luogo in cui vivere, ma un riflesso della personalità, del modo di vedere il mondo e di abitare lo spazio, piccolo o grande che sia.\nLa sua richiesta è stata precisa: una casa unica e di carattere, una composizione in cui ogni nota trova il proprio posto e contribuisce a creare un’armonia riconoscibile e personale.\n\nDurante il percorso di progettazione chiedo sempre ai miei clienti di condividere suggestioni e immagini che possano aiutarmi a interpretare i loro desideri e le loro aspettative. Con Maristella lo stile è emerso fin da subito: audace, creativo, eclettico. Un linguaggio che unisce stili e influenze diverse, mantenendo però un equilibrio armonico e coerente.\n\nAlcuni tratti distintivi:\n- Il legno, presente come filo conduttore nei pavimenti e nelle porte d’epoca con cornici;\n- La convivenza di stili differenti, in cui materiali e colori si incastrano con naturalezza;\n- Il potere del colore, protagonista in ogni ambiente;\n- Piastrelle di piccolo formato con fughe colorate, dettaglio che aggiunge ritmo e personalità.\n\nIn ogni stanza prende forma un frammento della sua identità: la parete verde che fa da sfondo al divano, le lampade color terracotta, i bagni definiti da piastrelline color pompelmo e verde Tiffany, fino al soffitto della camera, un intenso Borgogna.\nOgni dettaglio è stato pensato per suscitare un’emozione precisa, legata al modo in cui Maristella desiderava vivere ciascun ambiente.\n\nIl risultato è una casa che non potrebbe appartenere a nessun altro: la sua casa, specchio fedele della sua personalità, di cui ogni centimetro quadrato la rappresenta.",    "luogo": "Torino",
     "anno": "2024",
     "commitente": "Privato",

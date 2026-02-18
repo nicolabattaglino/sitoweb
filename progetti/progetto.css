@@ -42,7 +42,7 @@ body {
     position: sticky;
     top: 120px;
     height: fit-content;
-    font-size: 16px;
+    font-size: 12px;
     color: #000000;
 }
 
@@ -54,17 +54,27 @@ body {
 }
 
 #titolo {
-    font-size: 32px !important; /* Cambia solo la grandezza del titolo */
+    font-size: 20px !important; /* Cambia solo la grandezza del titolo */
     font-weight: 500;
-    margin-bottom: 50px;
-    color: #6d1b1b;
+    margin-bottom: 0px;
+    color: rgb(89, 5, 43);
+
+}
+
+#sottotitolo {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 26px;
+    color: rgb(89, 5, 43);
+    line-height: 1.15; /* riduce spazio tra le righe */
+    text-align: left;
 
 }
 
 #descrizione {
-    font-size: 16px; /* Mantieni la grandezza normale per il testo */
+    font-size: 14px; /* Mantieni la grandezza normale per il testo */
     line-height: 1.5;
-    color: #000000;
+    color: rgba(36, 2, 2, 1);
 }
 
 
@@ -377,6 +387,11 @@ body {
 
     #titolo {
         margin-bottom: 28px;
+    }
+
+    #sottotitolo {
+        font-size: 18px;
+        margin-bottom: 18px;
     }
 
     .progetto-descrizione {

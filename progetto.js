@@ -8,6 +8,16 @@ async function caricaProgetto() {
     if (progetto) {
         document.title = progetto.titolo;
         document.getElementById("titolo").innerText = progetto.titolo;
+        const sottotitoloEl = document.getElementById("sottotitolo");
+        if (sottotitoloEl) {
+            const sottotitolo = progetto.sottotitolo && progetto.sottotitolo.trim();
+            if (sottotitolo) {
+                sottotitoloEl.innerText = sottotitolo;
+                sottotitoloEl.style.display = "";
+            } else {
+                sottotitoloEl.style.display = "none";
+            }
+        }
         document.getElementById("descrizione").innerText = progetto.descrizione;
         document.getElementById("luogo").innerText = progetto.luogo;
         document.getElementById("anno").innerText = progetto.anno;
