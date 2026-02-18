@@ -7,6 +7,7 @@
   --open-offset: 100vw;
   --mini-slide-left: 3vw;
   --mini-slide-right: 6vw;
+  --closed-offset: calc((100vw - var(--card-width)) / 2); /* strip visibile per card chiusa */
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -100,7 +101,7 @@ body {
   width: var(--card-width);
   background: var(--cream);
   --swap-left: calc(-1 * (100% - var(--title-width)));
-  transform: translateX(calc(-1 * (100% - var(--title-width)) + var(--stack-offset)));
+  transform: translateX(calc(-1 * (100% - var(--closed-offset)) + var(--stack-offset)));
   transition: transform 0.6s ease, box-shadow 0.6s ease;
   overflow: hidden;
   margin-top: 100px;
@@ -123,63 +124,63 @@ body {
 }
 
 .card:nth-child(1) {
-  --stack-offset: 0vw;
-  z-index: 3;
+  --stack-offset: calc(var(--closed-offset) * 2); /* in fondo, più a destra */
+  z-index: 1; /* La mia storia - in fondo */
 }
 
 .card:nth-child(2) {
-  --stack-offset: 10vw;
-  z-index: 2;
+  --stack-offset: var(--closed-offset); /* in mezzo */
+  z-index: 2; /* Il mio metodo - in mezzo */
 }
 
 .card:nth-child(3) {
-  --stack-offset: 20vw;
-  z-index: 1;
+  --stack-offset: 0vw; /* sopra a tutti, parte da 0 */
+  z-index: 3; /* La mia mission - sopra a tutti */
 }
 
+/* Card attiva: ombra. Card 3 va sopra, card 1 rimane sullo sfondo, card 2 rimane in mezzo */
 .card.is-open {
-  transform: translateX(calc(var(--open-offset, 90vw) - var(--card-width)));
   box-shadow: 0 30px 70px rgba(86, 28, 28, 0.25);
 }
 
-.stack.has-open .card:not(.is-open) {
-  width: var(--title-width);
-  transform: translateX(var(--swap-left));
+.card:nth-child(3).is-open {
+  z-index: 10 !important;
 }
 
-
-.stack[data-open="2"] .card:not(.is-open):nth-child(3) {
-  transform: translateX(calc(var(--mini-slide-right)));
+/* Card 1 aperta rimane sempre sotto le altre */
+.card:nth-child(1).is-open {
+  z-index: 1;
 }
 
-.stack[data-open="2"] .card:not(.is-open):nth-child(1) {
-  transform: translateX(calc(var(--swap-left) - var(--mini-slide-right)));
+/* Card 2 aperta rimane sempre in mezzo */
+.card:nth-child(2).is-open {
+  z-index: 2;
 }
 
+/* -----------------------------------------------
+   Posizioni aperte: ogni card si sposta a destra
+   con leggera sovrapposizione sulla precedente
+   ----------------------------------------------- */
 
-.stack[data-open="3"] .card:not(.is-open):nth-child(2) {
-  transform: translateX(calc(var(--mini-slide-right)));
+/* Card 1 aperta: depth >= 1 */
+.stack[data-open="1"] .card:nth-child(1),
+.stack[data-open="2"] .card:nth-child(1),
+.stack[data-open="3"] .card:nth-child(1) {
+  transform: translateX(calc(100vw - var(--card-width)));
 }
 
-.stack[data-open="3"] .card:not(.is-open):nth-child(1) {
-  transform: translateX(calc(var(--swap-left) - var(--mini-slide-right)));
+/* Card 2 aperta: depth >= 2, stessa sovrapposizione delle card chiuse */
+.stack[data-open="2"] .card:nth-child(2),
+.stack[data-open="3"] .card:nth-child(2) {
+  transform: translateX(calc(100vw - var(--card-width) - var(--closed-offset)));
 }
 
-
-.stack[data-open="1"] .card:not(.is-open):nth-child(2) {
-  transform: translateX(calc(var(--swap-left) - var(--mini-slide-right)));
+/* Card 3 aperta: depth >= 3, stessa sovrapposizione delle card chiuse */
+.stack[data-open="3"] .card:nth-child(3) {
+  transform: translateX(calc(100vw - var(--card-width) - var(--closed-offset) * 2));
 }
 
-
-.stack[data-open="1"] .card:not(.is-open):nth-child(3) {
-  transform: translateX(calc(var(--swap-left) - var(--mini-slide-left)));
-}
-
-.stack.has-open .card:not(.is-open):nth-child(3) {
-  transform: translateX(calc(var(--swap-left) + var(--mini-slide-right)));
-}
-
-
+/* Contenuto visibile solo sulla card attiva */
 .stack.has-open .card:not(.is-open) .card-body {
   opacity: 0;
   pointer-events: none;
@@ -268,7 +269,7 @@ body {
 }
 
 .card-body-inner {
-  width: 420px;
+  width: 460px;
   max-width: 100%;
 }
 
@@ -279,10 +280,23 @@ body {
 }
 
 .card-body p {
-  margin: 0 0 1.2em;
+  margin: 0 0 1.4em;
   text-align: justify;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.95rem;
+  line-height: 1.85;
+  font-weight: 300;
+  color: #401d23;
+}
+
+.card-body p:first-of-type::first-letter {
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1;
+  float: left;
+  margin-right: 6px;
+  margin-top: 4px;
+  color: #401d23;
+  font-family: 'Great Vibes', cursive;
 }
 
 .card-body p:last-child {
@@ -378,6 +392,19 @@ body {
     background-position: center;
   }
 
+  /* Gradiente scuro nella zona del titolo per leggibilità */
+  .card::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: var(--mobile-card-height);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
   .card.is-open::before {
     height: calc(var(--mobile-card-height) * 0.7);
   }
@@ -401,6 +428,22 @@ body {
 
   .card.is-open {
     height: var(--mobile-open-height);
+    transform: translateY(0);
+  }
+
+  /* Override dei translateX desktop per i data-open — su mobile tutto è translateY */
+  .stack[data-open="1"] .card:nth-child(1),
+  .stack[data-open="2"] .card:nth-child(1),
+  .stack[data-open="3"] .card:nth-child(1),
+  .stack[data-open="2"] .card:nth-child(2),
+  .stack[data-open="3"] .card:nth-child(2),
+  .stack[data-open="3"] .card:nth-child(3) {
+    transform: translateY(var(--stack-y));
+  }
+
+  .stack[data-open="1"] .card:nth-child(1).is-open,
+  .stack[data-open="2"] .card:nth-child(2).is-open,
+  .stack[data-open="3"] .card:nth-child(3).is-open {
     transform: translateY(0);
   }
 

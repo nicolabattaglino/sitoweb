@@ -98,4 +98,16 @@ document.addEventListener("DOMContentLoaded", function () {
     carousel.addEventListener("scroll", () => setTimeout(updateButtons, 50));
 
     updateButtons();
+
+    // Navigazione da tastiera
+    document.addEventListener("keydown", (e) => {
+        if (document.body.classList.contains("popup-open")) {
+            if (e.key === "ArrowLeft") goToPopup(currentPopupIndex - 1);
+            if (e.key === "ArrowRight") goToPopup(currentPopupIndex + 1);
+            if (e.key === "Escape") closePopup();
+            return;
+        }
+        if (e.key === "ArrowLeft") scrollLeft();
+        if (e.key === "ArrowRight") scrollRight();
+    });
 });

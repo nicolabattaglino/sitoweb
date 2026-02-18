@@ -12,14 +12,15 @@
   <div class="stack" aria-label="Su di me">
     <article class="card" style="--bg: url('../immagini/servizi/storia1.png');" data-card>
       <button class="card-title" type="button" aria-expanded="false">
-        <span>La mia storia</span>
+        <span>Mi presento</span>
         <span class="card-toggle" aria-hidden="true"></span>
       </button>
       <div class="card-body">
         <div class="card-body-inner">
-          <p>Ciao, sono Caterina, architetto specializzato nella progettazione e ristrutturazione di interni.</p>
-          <p>Il mio lavoro nasce dall’incontro con le persone. Amo ascoltare le loro storie, capire come vivono, quali sono le loro abitudini e i loro desideri, anche quelli che ancora non riescono a esprimere con chiarezza.</p>
-          <p>È proprio da qui che prende forma ogni progetto. Per me, progettare una casa non significa solo creare spazi belli, ma accompagnare chi la vivrà in un percorso fatto di scelte, emozioni e trasformazioni. Ogni progetto è un viaggio condiviso, in cui il cliente è sempre il vero protagonista.</p>
+          <p>Ciao, sono Caterina, <strong>architetto specializzato nella progettazione e ristrutturazione di interni</strong>. La mia passione per il design è nata da bambina, giocando con la mia cameretta e spostando i mobili: da quella curiosità è cresciuta la voglia di <strong>trasformare gli spazi</strong>, fino a diventare la mia professione.</p>
+          <p>Dopo il mio percorso universitario e dopo l'abilitazione all'<strong>Albo degli Architetti di Torino</strong> ho affinato il mio sguardo sul progetto collaborando con varie realtà specializzate nel campo delle ristrutturazioni di interni.</p>
+          <p>Il mio lavoro prende vita dall'<strong>incontro con le persone</strong>. Amo ascoltare le vostre storie, capire come vivete gli spazi e quali sono le vostre abitudini e desideri. È da qui che ogni progetto prende forma.</p>
+          <p>Per me, progettare una casa non significa solo creare spazi belli, ma <strong>accompagnare chi li vivrà in un percorso fatto di scelte, emozioni e trasformazioni</strong>. Ogni progetto è un viaggio condiviso, in cui tu sei sempre il vero protagonista.</p>
         </div>
       </div>
     </article>
@@ -31,8 +32,9 @@
       </button>
       <div class="card-body">
         <div class="card-body-inner">
-          <p>Accompagnare ogni persona nella scoperta della propria casa ideale, uno spazio capace di accogliere le giornate, migliorare il benessere quotidiano e adattarsi al tempo che cambia.</p>
-          <p>Credo che una casa ben progettata possa semplificare la vita e restituire energia. Per questo metto la persona al centro dell’intero processo creativo, traducendo esigenze concrete ed emozioni in soluzioni funzionali, armoniose e su misura.</p>
+          <p><strong>L'empatia</strong> e <strong>l'attenzione ai dettagli</strong> sono gli elementi alla base del mio lavoro.</p>
+          <p>Ti ascolto, mi racconti le tue esigenze abitative e insieme le trasformiamo in <strong>spazi personalizzati</strong> che parlano di te, che rispecchino il tuo modo di vivere, che valorizzano i tuoi gusti e che accompagnano la tua quotidianità.</p>
+          <p>Il mio obiettivo è farti sentire <strong>seguito, compreso e mai solo</strong> durante tutto il percorso, dalla prima idea su carta fino alla realizzazione finale.</p>
         </div>
       </div>
     </article>
@@ -44,8 +46,8 @@
       </button>
       <div class="card-body">
         <div class="card-body-inner">
-          <p>L’empatia e l’attenzione ai dettagli sono gli elementi alla base del mio lavoro. Ti ascolto, mi racconti le tue esigenze abitative e insieme le trasformiamo in spazi che parlano di te, che rispecchino il tuo modo di vivere, che valorizzano i tuoi gusti e che accompagnano la tua quotidianità.</p>
-          <p>Il mio obiettivo è farti sentire seguito, compreso e mai solo durante tutto il percorso, dalla prima idea su carta fino alla realizzazione finale. La tua casa è una storia che merita di essere progettata con cura. Io sono qui per ascoltarla.</p>
+          <p>La mia missione è <strong>accompagnarvi nella scoperta della vostra casa ideale</strong>, uno spazio capace di accogliere le vostre giornate, migliorare il vostro <strong>benessere quotidiano</strong> e adattarsi al tempo che cambia.</p>
+          <p>Credo che una <strong>casa ben progettata</strong> possa semplificare la vita e restituire energia. Per questo metto <strong>la persona al centro</strong> dell'intero processo creativo, traducendo esigenze concrete ed emozioni in soluzioni funzionali, armoniose e su misura.</p>
         </div>
       </div>
     </article>
@@ -55,58 +57,60 @@
     const cards = document.querySelectorAll('[data-card]');
     const stack = document.querySelector('.stack');
 
-    const openCard = (card) => {
-      const button = card.querySelector('.card-title');
-      const index = Array.from(cards).indexOf(card) + 1;
-
-      cards.forEach((other) => {
-        other.classList.remove('is-open');
-        const otherButton = other.querySelector('.card-title');
-        if (otherButton) otherButton.setAttribute('aria-expanded', 'false');
-      });
-
-      card.classList.add('is-open');
-      if (button) button.setAttribute('aria-expanded', 'true');
-      if (stack) {
+    // Imposta quante card sono "aperte" (depth = 0..3)
+    // La card con index === depth è l'attiva (is-open)
+    // Le card con index < depth sono nella loro posizione aperta (visibili ma contenuto nascosto)
+    // Le card con index > depth sono chiuse a sinistra
+    const setDepth = (n) => {
+      stack.dataset.open = String(n);
+      if (n > 0) {
         stack.classList.add('has-open');
-        stack.dataset.open = String(index);
-      }
-    };
-
-    const closeCard = (card) => {
-      card.classList.remove('is-open');
-      const button = card.querySelector('.card-title');
-      if (button) button.setAttribute('aria-expanded', 'false');
-      if (stack && !document.querySelector('.card.is-open')) {
+      } else {
         stack.classList.remove('has-open');
         delete stack.dataset.open;
       }
+      cards.forEach((card, i) => {
+        const isActive = (i + 1) === n;
+        card.classList.toggle('is-open', isActive);
+        const btn = card.querySelector('.card-title');
+        if (btn) btn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      });
     };
 
-    cards.forEach((card) => {
-      const button = card.querySelector('.card-title');
+    cards.forEach((card, i) => {
+      const btn = card.querySelector('.card-title');
+      if (btn) {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const depth = parseInt(stack.dataset.open || '0');
+          const idx = i + 1;
 
-      if (button) {
-        button.addEventListener('click', (event) => {
-          event.stopPropagation();
-          if (card.classList.contains('is-open')) {
-            closeCard(card);
+          if (idx === depth) {
+            // Chiudi la card attiva
+            const closingCard = cards[idx - 1];
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+              // Su mobile: chiusura torna sempre allo stato tutto chiuso
+              setDepth(0);
+            } else if (idx === 3) {
+              closingCard.style.zIndex = '20';
+              setDepth(depth - 1);
+              closingCard.addEventListener('transitionend', () => {
+                closingCard.style.zIndex = '';
+              }, { once: true });
+            } else {
+              setDepth(depth - 1);
+            }
           } else {
-            openCard(card);
+            // Apri fino a questa card (anche saltando)
+            setDepth(idx);
           }
         });
       }
-
-      card.addEventListener('click', () => {
-        if (!card.classList.contains('is-open')) {
-          openCard(card);
-        }
-      });
     });
 
-    if (window.innerWidth > 768 && cards.length > 0) {
-      openCard(cards[0]);
-    }
+    // Apri la card 1 (La mia storia) all'inizio
+    setDepth(1);
   </script>
   <script src="../header.js"></script>
 </body>

@@ -18,10 +18,10 @@
 
 body {
     overflow-x: hidden;
-    background-color: #ffffff !important; /* Colore di sfondo */
+    background-color: #ffffff !important;
     font-family: 'Poppins', sans-serif;
-    font-weight: 200;
-
+    font-weight: 300;
+    color: #401d23;
 }
 
 .slider-iframe {
@@ -54,32 +54,54 @@ body {
 }
 
 #titolo {
-    font-size: 20px !important; /* Cambia solo la grandezza del titolo */
-    font-weight: 500;
-    margin-bottom: 0px;
+    font-size: 1.5rem !important;
+    font-weight: 400;
+    margin-bottom: 4px;
+    margin-top: 0;
     color: rgb(89, 5, 43);
-
+    letter-spacing: 0.01em;
 }
 
 #sottotitolo {
-    font-size: 16px;
+    font-size: 0.8rem;
     font-weight: 400;
-    margin-bottom: 26px;
-    color: rgb(89, 5, 43);
-    line-height: 1.15; /* riduce spazio tra le righe */
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: rgba(64, 29, 35, 0.55);
+    line-height: 1.3;
     text-align: left;
-
 }
 
 #descrizione {
-    font-size: 14px; /* Mantieni la grandezza normale per il testo */
-    line-height: 1.5;
-    color: rgba(36, 2, 2, 1);
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: #401d23;
+    font-weight: 300;
+    margin-bottom: 32px;
 }
 
 
 .progetto-dettagli {
     text-align: left;
+    border-top: 1px solid rgba(64, 29, 35, 0.15);
+    padding-top: 16px;
+}
+
+.progetto-dettagli p {
+    font-size: 0.75rem;
+    line-height: 1.8;
+    margin: 0;
+    color: #401d23;
+}
+
+.progetto-dettagli strong {
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    opacity: 0.6;
 }
 
 

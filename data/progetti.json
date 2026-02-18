@@ -13,19 +13,21 @@
     "immagine_hero": "../immagini/casa-salento/01.jpg",
     "immagine_hero_ext": "../immagini/casa-salento/ext.jpg",
     "immagini": [
-      "../immagini/casa-salento/01.jpg",
-      "../immagini/casa-salento/02.jpg",
+      "../immagini/casa-salento/07.png",
+      "../immagini/casa-salento/08.png",
       "../immagini/casa-salento/03.jpg",
       "../immagini/casa-salento/04.jpg",
       "../immagini/casa-salento/05.jpg",
-      "../immagini/casa-salento/06.jpg"
+      "../immagini/casa-salento/06.jpg",
+      "../immagini/casa-salento/01.jpg",
+      "../immagini/casa-salento/02.jpg"
     ]
   },
   {
     "slug": "casa-sonnaz",
     "titolo": "SKYLINE TALES",
     "sottotitolo": "Un rifugio sopra la città",
-    "descrizione": "Elisa è una persona dai modi gentili, con le idee chiare e un’innata attenzione ai dettagli e alla bellezza. La sua casa riflette perfettamente il suo modo di essere e custodisce la sua storia: era la casa della nonna, un luogo intriso di ricordi preziosi.\nQuando mi ha contattata, il suo desiderio era chiaro: trasformare questi spazi in una piccola oasi di pace, dove ritrovare equilibrio al termine della giornata, accogliere con gioia gli amici e curare le sue piante.\nPer lei bellezza e funzionalità non sono opzionali, ma valori indispensabili.\nL’appartamento è una luminosa mansarda con una splendida vista sui tetti della città. Le finestre diventano veri e propri quadri impressionisti, capaci di raccontare le stagioni attraverso le sfumature del cielo.\n\nLa casa si sviluppa intorno a un’ampia zona giorno che integra in modo armonioso l’area divani, pensata per il relax, la cucina operativa e la zona pranzo, creando un ambiente conviviale e funzionale al tempo stesso.\nLa zona notte ospita la camera da letto principale e uno studio raccolto e silenzioso, ideale per il lavoro e la concentrazione. Infine, la zona di servizio è organizzata con lavanderia e bagno, garantendo praticità e ordine. L’ingresso, studiato come un volume di passaggio, accompagna lo sguardo verso la zona giorno e definisce con eleganza il perimetro dello spazio.\n\nIl pavimento originale in marmo è stato mantenuto e valorizzato: un dettaglio prezioso che conserva l’anima storica della casa, riportandoci al fascino autentico delle dimore dei primi anni del ’900. A dialogare con questo elemento dal carattere forte, una palette cromatica chiara e ben definita. Le tonalità del verde, scelte per il divano e per le lampade della zona pranzo, evocano freschezza e vitalità, mentre i toni del blu, presenti nella cucina e nei rivestimenti del bagno, aggiungono profondità ed eleganza.\n\nIl risultato è uno spazio che unisce memoria e contemporaneità, capace di raccontare la storia di chi lo abita e di restituire la sensazione di un luogo intimo, accogliente e allo stesso tempo aperto alla condivisione.",
+    "descrizione": "Elisa è una persona dai modi gentili, con le idee chiare e un’innata attenzione ai dettagli e alla bellezza. La sua casa riflette perfettamente il suo modo di essere e custodisce la sua storia: era la casa della nonna, un luogo intriso di ricordi preziosi.\nQuando mi ha contattata, il suo desiderio era chiaro: trasformare questi spazi in una piccola oasi di pace, dove ritrovare equilibrio al termine della giornata, accogliere con gioia gli amici e curare le sue piante.\nPer lei bellezza e funzionalità non sono opzionali, ma valori indispensabili.\nL’appartamento è una luminosa mansarda con una splendida vista sui tetti della città. Le finestre diventano veri e propri quadri impressionisti, capaci di raccontare le stagioni attraverso le sfumature del cielo.\nLa casa si sviluppa intorno a un’ampia zona giorno che integra in modo armonioso l’area divani, pensata per il relax, la cucina operativa e la zona pranzo, creando un ambiente conviviale e funzionale al tempo stesso.\nLa zona notte ospita la camera da letto principale e uno studio raccolto e silenzioso, ideale per il lavoro e la concentrazione. Infine, la zona di servizio è organizzata con lavanderia e bagno, garantendo praticità e ordine. L’ingresso, studiato come un volume di passaggio, accompagna lo sguardo verso la zona giorno e definisce con eleganza il perimetro dello spazio.\n\nIl pavimento originale in marmo è stato mantenuto e valorizzato: un dettaglio prezioso che conserva l’anima storica della casa, riportandoci al fascino autentico delle dimore dei primi anni del ’900. A dialogare con questo elemento dal carattere forte, una palette cromatica chiara e ben definita. Le tonalità del verde, scelte per il divano e per le lampade della zona pranzo, evocano freschezza e vitalità, mentre i toni del blu, presenti nella cucina e nei rivestimenti del bagno, aggiungono profondità ed eleganza.\n\nIl risultato è uno spazio che unisce memoria e contemporaneità, capace di raccontare la storia di chi lo abita e di restituire la sensazione di un luogo intimo, accogliente e allo stesso tempo aperto alla condivisione.",
     "luogo": "Torino",
     "anno": "2022",
     "commitente": "Privato",
@@ -54,17 +56,17 @@
     "tipologia": "Residenziale",
     "superficie": "140 mq",
     "foto_crediti": "Nicola Battaglino",
-    "immagine_hero": "../immagini/casa-frejus/01.JPG",
+    "immagine_hero": "../immagini/casa-frejus/01.png",
     "immagine_hero_ext": "../immagini/casa-frejus/ext1.png",
     "immagini": [
-      "../immagini/casa-frejus/01.JPG",
-      "../immagini/casa-frejus/02.JPG",
-      "../immagini/casa-frejus/03.JPG",
-      "../immagini/casa-frejus/04.JPG",
-      "../immagini/casa-frejus/05.JPG",
-      "../immagini/casa-frejus/06.JPG",
-      "../immagini/casa-frejus/07.JPG",
-      "../immagini/casa-frejus/08.JPG"
+      "../immagini/casa-frejus/01.png",
+      "../immagini/casa-frejus/02.png",
+      "../immagini/casa-frejus/03.png",
+      "../immagini/casa-frejus/04.png",
+      "../immagini/casa-frejus/05.png",
+      "../immagini/casa-frejus/06.png",
+      "../immagini/casa-frejus/07.png",
+      "../immagini/casa-frejus/08.png"
     ]
   },
   {

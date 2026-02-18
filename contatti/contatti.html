@@ -31,7 +31,7 @@
     <section class="contact-content">
         <div class="contact-text">
             <div class="popup-text">
-                <div style="font-family: sans-serif; color: #3c3c3c; line-height: 1.6;">
+                <div>
                     <h2 class="popup-heading">Perché contattarmi?</h2>
                     <div class="text-body">
                     <ul style="margin-left: 1rem; padding-left: 1rem;">
@@ -49,18 +49,33 @@
         <div class="contact-form">
             <form id="contact-form">
                 <div class="form-group">
-                    <input type="text" name="nome" placeholder="Nome" required>
-                    <input type="text" name="cognome" placeholder="Cognome" required>
+                    <div class="field-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+                    </div>
+                    <div class="field-group">
+                        <label for="cognome">Cognome</label>
+                        <input type="text" id="cognome" name="cognome" placeholder="Il tuo cognome" required>
+                    </div>
                 </div>
-                <input type="email" name="email" placeholder="Email" required>
-                <textarea name="messaggio" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+                <div class="field-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="La tua email" required>
+                </div>
+                <div class="field-group">
+                    <label for="messaggio">Messaggio</label>
+                    <textarea id="messaggio" name="messaggio" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+                </div>
                 <div class="checkbox-container">
                     <label class="checkbox-label">
                         <input type="checkbox" name="termini" required>
                         Accetto i termini e condizioni
                     </label>
                 </div>
-                <div class="form-group">
+                <div class="form-bottom">
+                    <div id="terms-and-conditions">
+                        <p>I dati forniti saranno utilizzati esclusivamente per rispondere alla tua richiesta e non saranno condivisi con terze parti. Per ulteriori dettagli, consulta la nostra <a href="../contatti/privacy/privacy.html">Informativa sulla Privacy</a>.</p>
+                    </div>
                     <button type="submit">Invia</button>
                 </div>
             </form>
@@ -68,10 +83,6 @@
             <!-- Messaggio di conferma -->
             <div id="form-message" style="display:none; margin-top: 1em; color: green;">
                 Il tuo messaggio è stato inviato con successo!
-            </div>
-
-            <div id="terms-and-conditions" style="margin-top: 20px;">
-                <p>Accettando i termini e condizioni, confermi di aver letto e compreso le seguenti informazioni: I dati forniti saranno utilizzati esclusivamente per rispondere alla tua richiesta e non saranno condivisi con terze parti. Potremmo contattarti, se necessario, per ulteriori dettagli relativi alla tua richiesta. Inoltre, accetti di rispettare le normative vigenti in materia di privacy e protezione dei dati personali. Per ulteriori dettagli, consulta la nostra <a href="../contatti/privacy/privacy.html" style="color: #6b4f3f; text-decoration: underline;">Informativa sulla Privacy</a>.</p>
             </div>
 
             

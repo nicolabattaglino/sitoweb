@@ -15,7 +15,7 @@ body {
     font-family: 'Poppins', sans-serif !important;
     color: #401d23 !important;
     margin: 0;
-    padding: 0;
+    padding: 0 0 120px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -32,6 +32,7 @@ body {
     width: 100%;
     padding-top: 40px; /* Padding in alto per la container */
     padding-left: 60px; /* Più spazio a sinistra della foto */
+    padding-bottom: 100px;
 }
 
 .contact-left {
@@ -83,53 +84,133 @@ body {
 }
 
 .contact-form {
-    background: transparent;
-    padding: 20px;
+    background: #f9f7f4;
+    padding: 28px 28px 24px;
     width: 100%;
-    margin-top: 20px;
-    box-shadow: none;
+    margin-top: 10px;
+    box-shadow: 0 4px 24px rgba(64, 29, 35, 0.12);
     max-width: 620px;
+    border-radius: 2px;
+}
 
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.field-group label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #401d23;
+    opacity: 0.7;
 }
 
 .form-group {
     display: flex;
-    gap: 10px;
+    gap: 16px;
     width: 100%;
 }
 
-input {
-    resize: vertical; /* Permette il ridimensionamento solo in verticale */
+input[type="text"],
+input[type="email"] {
     width: 100%;
-    padding: 10px;
-    border: 0.5px solid #732F3D;
-    background: white;
-    font-size: 16px;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid rgba(64, 29, 35, 0.4);
+    background: transparent;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
     color: #401d23;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px; /* Distanza tra i campi */
-    max-width: 900px;
-
+    box-shadow: none;
+    margin-bottom: 0;
+    border-radius: 0;
+    transition: border-color 0.2s ease;
 }
 
 textarea {
-    resize: vertical; /* Permette il ridimensionamento solo in verticale */
     width: 100%;
-    padding: 10px;
-    border: 0.5px solid #732F3D;
-    background: white;
-    font-size: 16px;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid rgba(64, 29, 35, 0.4);
+    background: transparent;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
     color: #401d23;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px; /* Distanza tra i campi */
-    max-width: 900px;
-    min-height: 50px;
-
+    box-shadow: none;
+    margin-bottom: 0;
+    border-radius: 0;
+    min-height: 80px;
+    resize: none;
+    transition: border-color 0.2s ease;
 }
 
-input:focus, textarea:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
     outline: none;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    border-bottom-color: #401d23;
+    box-shadow: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(64, 29, 35, 0.35);
+    font-weight: 300;
+    font-size: 0.85rem;
+}
+
+.form-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.form-bottom button {
+    align-self: flex-end;
+    background-color: transparent;
+    border: 1px solid #401d23;
+    color: #401d23;
+    padding: 10px 32px;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.form-bottom button:hover {
+    background-color: #401d23;
+    color: #ffffff;
+}
+
+#terms-and-conditions {
+    font-size: 0.65rem;
+    color: #401d23;
+    opacity: 0.6;
+    line-height: 1.4;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+}
+
+#terms-and-conditions p {
+    margin: 0;
+}
+
+#terms-and-conditions a {
+    color: #401d23;
+    text-decoration: underline;
 }
 
 /* Checkbox */
@@ -137,24 +218,26 @@ input:focus, textarea:focus {
 
 .checkbox-container input[type="checkbox"] {
     appearance: none;
-    width: 14px;  /* Aumenta un po' la larghezza */
-    height: 14px; /* Aumenta un po' l'altezza */
-    border: 2px solid #4A2C2A;  /* Mantieni il bordo sottile */
-    border-radius: 3px;
+    -webkit-appearance: none;
+    width: 13px;
+    height: 13px;
+    border: 1px solid #401d23;
+    border-radius: 0;
     background-color: white;
     position: relative;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .checkbox-container input[type="checkbox"]:checked::before {
     content: '';
     position: absolute;
-    top: 2px;   /* Riduci lo spazio dall'alto */
-    left: 2px;  /* Riduci lo spazio dai lati */
-    width: 16px;  /* Aumenta la larghezza del quadratino interno */
-    height: 16px; /* Aumenta l'altezza del quadratino interno */
-    background-color: #4A2C2A; /* Colore marrone */
-    border-radius: 2px; /* Mantieni gli angoli leggermente arrotondati */
+    top: 1px;
+    left: 1px;
+    width: 9px;
+    height: 9px;
+    background-color: #401d23;
+    border-radius: 0;
 }
 
 .checkbox-label {
@@ -173,6 +256,11 @@ input:focus, textarea:focus {
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
+}
+
+.form-submit button:hover {
+    background-color: #401d23;
+    color: #ffffff;
 }
 
 button:hover {
@@ -210,20 +298,50 @@ button:hover {
 }
 
 .popup-heading {
-    font-size: 25px;
+    font-size: 1.6rem;
+    font-weight: 300;
     color: #401d23;
-    margin-top: 1.5rem;
-    padding-bottom: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(64, 29, 35, 0.2);
+    font-family: 'Poppins', sans-serif;
+}
+
+.text-body {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #401d23;
+    font-weight: 300;
+}
+
+.text-body ul {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.text-body ul li {
+    margin-bottom: 0.6rem;
+    text-align: justify;
+}
+
+.text-body p {
+    text-align: justify;
+    margin-top: 0;
+}
+
+.text-body strong {
+    font-weight: 600;
 }
 
 #terms-and-conditions {
-    font-size: 9px;
+    font-size: 0.65rem;
     color: #401d23;
-    text-align: center;   
-    margin-top: 20px;
+    text-align: left;
+    margin-top: 0;
     width: 100%;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 
