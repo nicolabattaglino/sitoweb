@@ -1,7 +1,7 @@
 [
     {
     "slug": "casa-salento",
-    "titolo": "LU SULE, LU MARE E LU JENTU",
+    "titolo": "ARIA SALENTINA",
     "sottotitolo": "Una ristrutturazione su misura per una giovane coppia",
     "descrizione": "Tra il sole, il mare e il vento del Salento, una giovane coppia affiatata ha deciso di realizzare la propria prima casa: Marco, fotografo, e Federica, pasticciera. Il loro desiderio era chiaro: una zona giorno ampia e luminosa, due camere da letto, due bagni e uno spazio lavanderia.\nPulizia, minimalismo, essenzialità: tre parole che sintetizzano il processo creativo di questo progetto.\n\nFin dal primo incontro i clienti hanno saputo trasmettere sensazioni ed esigenze precise. A me è bastato tradurle nel linguaggio dell’architettura, lavorando su composizione, proporzioni e soluzioni di interior.\n\nL’appartamento nasce con una planimetria a U: tipologia insolita nel contesto torinese, ma comune nelle case d’epoca salentine. La ridefinizione distributiva è passata da alcuni interventi mirati:\n- l’apertura della parte d’ingresso verso l’esterno, trasformata in zona filtro per biciclette e piante;\n- la demolizione dei muri di spina che formavano il disimpegno centrale, sostituiti da un unico grande ambiente in cui convivono cucina, pranzo e living.\n\nUn mobile su misura dai toni neutri e caldi integra il camino esistente, reinterpretato in chiave contemporanea.\n\nLa cucina è posta in fondo allo spazio, organizzata in un’isola centrale che separa la zona pranzo da quella operativa, completata da una parete attrezzata e da una dispensa celata da due ante di arredo.\n\nUna parete verde, studiata per la loro gattina, dialoga con i toni delicati del beige e del legno naturale del pavimento.\n\nLa zona giorno è il fulcro della casa e si apre direttamente sul cortile interno. Su questo affaccio si dispongono la cameretta, il bagno principale e la lavanderia, con accesso indipendente al cortile. Sul lato opposto si trova la suite padronale, composta da camera, cabina armadio e bagno privato.\n\nIl verde, colore preferito dai committenti, ricorre come filo conduttore: dalla parete della cucina al ripiano del mobile del soggiorno, dalla testata del letto al mobile del bagno. Insieme al calore del legno diventa l’elemento identitario della casa.\n\nIl risultato è un nido d’amore luminoso e leggero, capace di esprimere l’energia e la freschezza dei suoi giovani abitanti.",
     "luogo": "Monteroni (LE)",
@@ -12,6 +12,7 @@
     "foto_crediti": "",
     "immagine_hero": "../immagini/casa-salento/01.jpg",
     "immagine_hero_ext": "../immagini/casa-salento/ext.jpg",
+    "slider_line_percent": 60,
     "immagini": [
       "../immagini/casa-salento/07.png",
       "../immagini/casa-salento/08.png",
@@ -36,6 +37,7 @@
     "foto_crediti": "Nicola Battaglino",
     "immagine_hero": "../immagini/casa-sonnaz/int.jpg",
     "immagine_hero_ext": "../immagini/casa-sonnaz/ext1.png",
+    "slider_line_percent": 95,
     "immagini": [
       "../immagini/casa-sonnaz/1.png",
       "../immagini/casa-sonnaz/2.png",
@@ -58,6 +60,7 @@
     "foto_crediti": "Nicola Battaglino",
     "immagine_hero": "../immagini/casa-frejus/01.png",
     "immagine_hero_ext": "../immagini/casa-frejus/ext1.png",
+    "slider_line_percent": 80,
     "immagini": [
       "../immagini/casa-frejus/01.png",
       "../immagini/casa-frejus/02.png",
@@ -81,6 +84,7 @@
     "foto_crediti": "",
     "immagine_hero": "../immagini/casa-armonia/02.jpg",
     "immagine_hero_ext": "../immagini/casa-armonia/ext.jpg",
+    "slider_line_percent": 70,
     "immagini": [
       "../immagini/casa-armonia/01.jpg",
       "../immagini/casa-armonia/02.jpg",

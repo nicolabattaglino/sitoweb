@@ -73,8 +73,6 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--color-thumb-text);
-  font-size: 11px;
-  font-weight: bold;
   top: 50%;
   transform: translate(-50%, -50%);
   box-shadow: var(--shadow);
@@ -82,10 +80,38 @@ body {
   user-select: none;
 }
 
+.img-comp-divider {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background-color: var(--color-thumb);
+  opacity: 0.95;
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.img-comp-slider::before,
 .img-comp-slider::after {
-  content: "\25C0 \25B6";
-  position: relative;
-  z-index: 1;
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform-origin: center;
+}
+
+.img-comp-slider::before {
+  left: 12px;
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+.img-comp-slider::after {
+  right: 12px;
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .slider-error {
@@ -111,6 +137,5 @@ body {
   .img-comp-slider {
     width: 44px;
     height: 44px;
-    font-size: 10px;
   }
 }

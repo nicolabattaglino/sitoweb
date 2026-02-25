@@ -37,7 +37,11 @@ async function caricaProgetto() {
 
         const sliderIframe = document.querySelector(".slider-iframe");
         if (sliderIframe) {
-            sliderIframe.src = `../slider-block/index.html?slug=${encodeURIComponent(progetto.slug)}`;
+            const rawLinePercent = Number(progetto.slider_line_percent);
+            const linePercent = Number.isFinite(rawLinePercent)
+                ? Math.max(20, Math.min(100, Math.round(rawLinePercent)))
+                : 100;
+            sliderIframe.src = `../slider-block/index.html?slug=${encodeURIComponent(progetto.slug)}&line=${linePercent}&v=20260225`;
         }
 
         // **🔽 INIZIALIZZA LIGHTBOX SOLO DOPO AVER CREATO LE IMMAGINI 🔽**

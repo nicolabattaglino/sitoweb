@@ -1,6 +1,10 @@
 (function () {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get('slug') || 'casa-frejus';
+  const rawLinePercent = Number(params.get('line'));
+  const linePercent = Number.isFinite(rawLinePercent)
+    ? Math.max(20, Math.min(100, rawLinePercent))
+    : 100;
   const container = document.getElementById('slider-container');
   const errorBox = document.getElementById('slider-error');
 
@@ -66,14 +70,21 @@
     slider.setAttribute('aria-valuemax', '100');
     slider.setAttribute('aria-valuenow', '50');
     slider.title = 'Trascina per confrontare';
+    const divider = document.createElement('div');
+    divider.className = 'img-comp-divider';
+    beforeWrapper.insertAdjacentElement('beforebegin', divider);
     beforeWrapper.insertAdjacentElement('beforebegin', slider);
 
     positionSlider(w / 2);
+    updateDividerGeometry();
+    setupHintOnEnter();
 
     let dragging = false;
     let activePointerId = null;
+    let cancelHintAnimation = false;
 
     const startDrag = (e) => {
+      cancelHintAnimation = true;
       dragging = true;
       activePointerId = e.pointerId;
       if (e.target === slider && slider.setPointerCapture) {
@@ -104,6 +115,16 @@
       }
     });
 
+    window.addEventListener('resize', () => {
+      const rect = ctx.getBoundingClientRect();
+      const current = parseFloat(slider.style.left) || rect.width / 2;
+      const bounded = Math.max(0, Math.min(current, rect.width));
+      img.style.width = rect.width + 'px';
+      img.style.height = rect.height + 'px';
+      positionSlider(bounded);
+      updateDividerGeometry();
+    });
+
     function move(clientX) {
       const rect = ctx.getBoundingClientRect();
       let pos = clientX - rect.left;
@@ -115,8 +136,82 @@
       const rect = ctx.getBoundingClientRect();
       const bounded = Math.max(0, Math.min(x, rect.width));
       slider.style.left = bounded + 'px';
+      divider.style.left = bounded + 'px';
       beforeWrapper.style.width = bounded + 'px';
       slider.setAttribute('aria-valuenow', Math.round((bounded / rect.width) * 100));
+    }
+
+    function updateDividerGeometry() {
+      const rect = ctx.getBoundingClientRect();
+      const naturalW = img.naturalWidth || rect.width;
+      const naturalH = img.naturalHeight || rect.height;
+      const scale = Math.min(rect.width / naturalW, rect.height / naturalH);
+      const renderedH = naturalH * scale;
+      const offsetY = (rect.height - renderedH) / 2;
+
+      const dividerH = renderedH * (linePercent / 100);
+      const dividerTop = offsetY + (renderedH - dividerH) / 2;
+
+      divider.style.top = dividerTop + 'px';
+      divider.style.height = dividerH + 'px';
+    }
+
+    function setupHintOnEnter() {
+      if (!('IntersectionObserver' in window)) {
+        runHintAnimation();
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting || cancelHintAnimation) return;
+          runHintAnimation();
+          observer.disconnect();
+        });
+      }, {
+        root: null,
+        threshold: 0.45
+      });
+
+      observer.observe(ctx);
+    }
+
+    function runHintAnimation() {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const rect = ctx.getBoundingClientRect();
+      const center = rect.width * 0.5;
+      const right = rect.width * 0.57;
+
+      setTimeout(() => {
+        animateTo(right, 420, () => {
+          animateTo(center, 420);
+        });
+      }, 500);
+    }
+
+    function animateTo(targetX, duration, onDone) {
+      const rect = ctx.getBoundingClientRect();
+      const startX = parseFloat(slider.style.left) || rect.width * 0.5;
+      const boundedTarget = Math.max(0, Math.min(targetX, rect.width));
+      const startTs = performance.now();
+
+      const tick = (now) => {
+        if (cancelHintAnimation) return;
+        const t = Math.min(1, (now - startTs) / duration);
+        const eased = t < 0.5
+          ? 2 * t * t
+          : 1 - Math.pow(-2 * t + 2, 2) / 2;
+        const x = startX + (boundedTarget - startX) * eased;
+        positionSlider(x);
+        if (t < 1) {
+          requestAnimationFrame(tick);
+        } else if (onDone) {
+          onDone();
+        }
+      };
+
+      requestAnimationFrame(tick);
     }
   }
 })();

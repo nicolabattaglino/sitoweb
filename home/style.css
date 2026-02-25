@@ -133,7 +133,13 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(82, 71, 71, 0.3); /* Velo nero trasparente */
+    background: linear-gradient(
+        to top,
+        rgba(90, 90, 90, 0.72) 0%,
+        rgba(90, 90, 90, 0.5) 35%,
+        rgba(90, 90, 90, 0.18) 50%,
+        rgba(90, 90, 90, 0) 68%
+    );
     z-index: 1; /* Sta sopra le immagini ma sotto il testo */
 }
 

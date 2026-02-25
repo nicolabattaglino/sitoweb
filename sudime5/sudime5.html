@@ -6,7 +6,6 @@
   <title>Su di me</title>
   <link rel="stylesheet" href="../home/style.css">
   <link rel="stylesheet" href="sudime5.css">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="stack" aria-label="Su di me">
@@ -109,8 +108,8 @@
       }
     });
 
-    // Apri la card 1 (La mia storia) all'inizio
-    setDepth(1);
+    // Su mobile parti con tutte le card chiuse, su desktop apri la prima.
+    setDepth(window.innerWidth <= 768 ? 0 : 1);
   </script>
   <script src="../header.js"></script>
 </body>
