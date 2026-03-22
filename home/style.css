@@ -81,12 +81,13 @@ header {
 }
 
 .hero-cylinder {
-    --item-height: 1.1em;
+    --item-height: 1.35em;
     height: var(--item-height);
     overflow: hidden;
     perspective: 550px;
-    width: fit-content;
+    width: min(96vw, 1280px);
     margin-bottom: 0.1em;
+    padding-left: 24px;
 }
 
 .hero-cylinder-track {
@@ -101,10 +102,15 @@ header {
     align-items: center;
     white-space: nowrap;
     opacity: 0.92;
+    justify-content: flex-start;
+    text-align: left;
 }
 
 .hero-cylinder-track .final-line {
     font-weight: 500;
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
 }
 
 @keyframes words-rise {
@@ -277,8 +283,19 @@ header {
         width: 92vw;
     }
     .hero-cylinder {
-        --item-height: 1.2em;
+        --item-height: 2.35em;
         width: 90vw;
+        padding-left: 12px;
+    }
+    .hero-cylinder-track span {
+        justify-content: flex-start;
+        text-align: left;
+    }
+    .hero-cylinder-track .final-line {
+        white-space: normal;
+        text-align: left;
+        line-height: 1.2;
+        max-width: 90vw;
     }
     .contact-button {
         border: 2px solid white;
