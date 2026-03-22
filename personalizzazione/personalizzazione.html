@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizzazione</title>
+    <link rel="stylesheet" href="personalizzazione.css">
+    <link rel="stylesheet" href="../home/style.css">
+</head>
+<body>
+    <main class="personalizzazione-page">
+        <section class="personalizzazione-section questionnaire-section">
+            <div class="section-heading">
+                <p class="eyebrow">Questionario guidato</p>
+                <h2>Rispondi a poche domande e ti propongo i servizi piu adatti.</h2>
+            </div>
+            <form class="package-form" id="package-form">
+                <fieldset class="question-block">
+                    <legend>1. In che fase sei?</legend>
+                    <div class="option-grid">
+                        <label class="option-card">
+                            <input type="radio" name="fase" value="inizio" required>
+                            <span>Sto iniziando e ho bisogno di orientamento</span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="fase" value="layout">
+                            <span>Voglio definire spazi e distribuzione</span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="fase" value="esecutiva">
+                            <span>Ho bisogno di elaborati tecnici per partire</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="question-block">
+                    <legend>2. Su cosa ti serve piu aiuto?</legend>
+                    <div class="option-grid">
+                        <label class="option-card">
+                            <input type="radio" name="focus" value="idee" required>
+                            <span>Capire possibilita, priorita e idee</span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="focus" value="visual">
+                            <span>Vedere il risultato prima dei lavori</span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="focus" value="pratiche">
+                            <span>Gestire aspetti tecnici, pratiche o conformita</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="question-block">
+                    <legend>3. Che tipo di supporto immagini?</legend>
+                    <div class="option-grid">
+                        <label class="option-card">
+                            <input type="radio" name="supporto" value="consulenza" required>
+                            <span>Una consulenza iniziale mirata</span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="supporto" value="progetto">
+                            <span>Un progetto completo e coordinato</span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="supporto" value="cantiere">
+                            <span>Aiuto anche nella fase di realizzazione</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="question-block">
+                    <legend>4. Hai bisogno anche di scegliere materiali, arredi o illuminazione?</legend>
+                    <div class="option-grid compact-grid">
+                        <label class="option-card">
+                            <input type="radio" name="materiali" value="si" required>
+                            <span>Si</span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="materiali" value="no">
+                            <span>No</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="submit" class="primary-action form-submit">Scopri il pacchetto consigliato</button>
+                </div>
+            </form>
+
+            <section class="result-card is-hidden" id="package-result" aria-live="polite">
+                <p class="eyebrow">Pacchetto consigliato</p>
+                <h3 id="result-title">Percorso consigliato</h3>
+                <p class="result-description" id="result-description"></p>
+                <div class="result-services">
+                    <h4>Servizi suggeriti</h4>
+                    <ul id="result-services"></ul>
+                </div>
+                <div class="result-actions">
+                    <button type="button" class="primary-action inline-contact-trigger" id="open-contact-form">Richiedi questa consulenza</button>
+                    <a href="../servizi/servizi.html" class="secondary-action">Rivedi tutti i servizi</a>
+                </div>
+            </section>
+
+            <section class="inline-contact is-hidden" id="inline-contact">
+                <p class="eyebrow">Richiesta consulenza</p>
+                <h3>Compila il form e inviami la tua richiesta.</h3>
+
+                <div class="contact-form inline-contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <div class="field-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+                            </div>
+                            <div class="field-group">
+                                <label for="cognome">Cognome</label>
+                                <input type="text" id="cognome" name="cognome" placeholder="Il tuo cognome" required>
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="La tua email" required>
+                        </div>
+                        <div class="field-group">
+                            <label for="messaggio">Messaggio</label>
+                            <textarea id="messaggio" name="messaggio" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+                        </div>
+                        <div class="checkbox-container">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="termini" required>
+                                Accetto i termini e condizioni
+                            </label>
+                        </div>
+                        <div class="form-bottom">
+                            <div id="terms-and-conditions">
+                                <p>I dati forniti saranno utilizzati esclusivamente per rispondere alla tua richiesta e non saranno condivisi con terze parti. Per ulteriori dettagli, consulta la nostra <a href="../contatti/privacy/privacy.html">Informativa sulla Privacy</a>.</p>
+                            </div>
+                            <button type="submit">Invia</button>
+                        </div>
+                    </form>
+
+                    <div id="form-message" class="form-message is-hidden">
+                        Il tuo messaggio e stato inviato con successo.
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById("package-form");
+        const resultCard = document.getElementById("package-result");
+        const resultTitle = document.getElementById("result-title");
+        const resultDescription = document.getElementById("result-description");
+        const resultServices = document.getElementById("result-services");
+        const openContactFormButton = document.getElementById("open-contact-form");
+        const inlineContactSection = document.getElementById("inline-contact");
+        const contactForm = document.getElementById("contact-form");
+        const messageField = document.getElementById("messaggio");
+        const formMessage = document.getElementById("form-message");
+        let lastRecommendation = null;
+
+        const serviceLabels = {
+            consulenza: "Parliamo della tua casa",
+            preliminare: "Progettazione preliminare di spazi su misura",
+            treD: "Modellazione 3D",
+            esecutiva: "Progettazione esecutiva",
+            praticheEdilizie: "Pratiche edilizie",
+            praticheCatastali: "Pratiche catastali",
+            cantiere: "Assistenza al cliente nella gestione del cantiere",
+            materiali: "Consulenza materiali, arredi, finiture e illuminazione"
+        };
+
+        function uniqueServices(list) {
+            return [...new Set(list)];
+        }
+
+        function buildRecommendation(answers) {
+            const services = ["consulenza"];
+            let title = "Pacchetto di orientamento";
+            let description = "Il punto di partenza giusto per chiarire obiettivi, priorita e prossimi passi del progetto.";
+
+            if (answers.fase === "layout") {
+                services.push("preliminare");
+                title = "Pacchetto distribuzione e concept";
+                description = "Ti serve una base progettuale chiara per capire come organizzare gli spazi e prendere decisioni con piu sicurezza.";
+            }
+
+            if (answers.fase === "esecutiva") {
+                services.push("esecutiva");
+                title = "Pacchetto tecnico operativo";
+                description = "Hai gia bisogno di una fase piu tecnica, con elaborati pronti per passare alla realizzazione.";
+            }
+
+            if (answers.focus === "visual") {
+                services.push("preliminare", "treD");
+                title = "Pacchetto visualizzazione del progetto";
+                description = "La priorita e vedere il risultato in anticipo, confrontare alternative e scegliere con maggiore consapevolezza.";
+            }
+
+            if (answers.focus === "pratiche") {
+                services.push("praticheEdilizie", "praticheCatastali");
+                title = "Pacchetto tecnica e conformita";
+                description = "La tua esigenza principale riguarda documentazione, verifiche e gestione corretta degli aspetti amministrativi.";
+            }
+
+            if (answers.supporto === "progetto") {
+                services.push("preliminare", "esecutiva");
+                title = "Pacchetto progetto completo";
+                description = "Il percorso suggerito unisce fase strategica e sviluppo tecnico, per accompagnarti in modo piu strutturato.";
+            }
+
+            if (answers.supporto === "cantiere") {
+                services.push("esecutiva", "cantiere");
+                title = "Pacchetto progetto e accompagnamento";
+                description = "Oltre al progetto, emerge il bisogno di supporto nella fase realizzativa e nel coordinamento con il cantiere.";
+            }
+
+            if (answers.materiali === "si") {
+                services.push("materiali");
+            }
+
+            if (
+                answers.fase === "esecutiva" &&
+                answers.focus === "pratiche" &&
+                answers.supporto === "cantiere"
+            ) {
+                title = "Pacchetto ristrutturazione completa";
+                description = "La combinazione delle tue risposte suggerisce un percorso integrato: sviluppo tecnico, pratiche e supporto durante l'esecuzione.";
+                services.push("preliminare", "esecutiva", "praticheEdilizie", "praticheCatastali", "cantiere");
+            }
+
+            return {
+                title,
+                description,
+                services: uniqueServices(services)
+            };
+        }
+
+        function buildPrefilledMessage(recommendation) {
+            const servicesText = recommendation.services
+                .map(function (serviceKey) {
+                    return "- " + serviceLabels[serviceKey];
+                })
+                .join("\n");
+
+            return [
+                "Ciao Caterina,",
+                "ho compilato il questionario nella pagina personalizzazione e mi e stato suggerito questo percorso:",
+                "",
+                recommendation.title,
+                "",
+                "Servizi consigliati:",
+                servicesText,
+                "",
+                "Vorrei ricevere maggiori informazioni su questa proposta e capire come procedere.",
+                "",
+                "Grazie"
+            ].join("\n");
+        }
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const answers = Object.fromEntries(formData.entries());
+            const recommendation = buildRecommendation(answers);
+            lastRecommendation = recommendation;
+
+            resultTitle.textContent = recommendation.title;
+            resultDescription.textContent = recommendation.description;
+            resultServices.innerHTML = "";
+
+            recommendation.services.forEach(function (serviceKey) {
+                const item = document.createElement("li");
+                item.textContent = serviceLabels[serviceKey];
+                resultServices.appendChild(item);
+            });
+
+            resultCard.classList.remove("is-hidden");
+            resultCard.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        openContactFormButton.addEventListener("click", function () {
+            if (!lastRecommendation) {
+                return;
+            }
+
+            messageField.value = buildPrefilledMessage(lastRecommendation);
+            formMessage.classList.add("is-hidden");
+            inlineContactSection.classList.remove("is-hidden");
+            inlineContactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(contactForm);
+
+            fetch("https://formspree.io/f/xnndpkor", {
+                method: "POST",
+                body: formData,
+                headers: { Accept: "application/json" }
+            }).then(function (response) {
+                if (response.ok) {
+                    contactForm.reset();
+                    formMessage.classList.remove("is-hidden");
+                } else {
+                    alert("Errore durante l'invio. Riprova.");
+                }
+            }).catch(function (error) {
+                alert("Errore di rete.");
+                console.error(error);
+            });
+        });
+    </script>
+    <script src="../header.js"></script>
+</body>
+</html>

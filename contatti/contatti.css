@@ -253,7 +253,7 @@ textarea::placeholder {
     border: 2px solid #4A2C2A;
     color: #4A2C2A;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 0;
     cursor: pointer;
     font-weight: bold;
 }

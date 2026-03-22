@@ -168,7 +168,7 @@ header {
     padding: 10px 20px;
     font-size: 0.8rem;
     font-style: bold;
-    border-radius: 20px;
+    border-radius: 0;
     transition: background 0.3s, color 0.3s;
 }
 
@@ -288,8 +288,12 @@ header {
         padding: 10px 20px;
         font-size: 0.8rem;
         font-style: bold;
-        border-radius: 20px;
+        border-radius: 0;
         transition: background 0.3s, color 0.3s;
+    }
+    .hero-buttons {
+        gap: 12px;
+        flex-wrap: wrap;
     }
     .hero-buttons {
         margin-top: 46px;
