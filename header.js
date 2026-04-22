@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                 }
             }, 100);
-        });
+    });
 });
 
 function highlightActiveLink() {
