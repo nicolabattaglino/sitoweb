@@ -93,7 +93,7 @@ header {
 .hero-cylinder-track {
     display: flex;
     flex-direction: column;
-    animation: words-rise 7.6s ease-out forwards;
+    animation: words-rise 11s ease-out forwards;
 }
 
 .hero-cylinder-track span {
@@ -219,10 +219,10 @@ header {
     height: 100%;
     background: linear-gradient(
         to top,
-        rgba(90, 90, 90, 0.72) 0%,
-        rgba(90, 90, 90, 0.5) 35%,
-        rgba(90, 90, 90, 0.18) 50%,
-        rgba(90, 90, 90, 0) 68%
+        rgba(90, 90, 90, 0.48) 0%,
+        rgba(90, 90, 90, 0.32) 30%,
+        rgba(90, 90, 90, 0.12) 45%,
+        rgba(90, 90, 90, 0) 62%
     );
     z-index: 1; /* Sta sopra le immagini ma sotto il testo */
 }
@@ -244,7 +244,7 @@ header {
 }
 
 .slider.intro-active .slide.active {
-    filter: blur(8px);
+    filter: blur(2px);
 }
 
 /* Testo sopra tutto */

@@ -3,8 +3,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const slides = document.querySelectorAll(".slide");
     const slider = document.querySelector(".slider");
-    const introDurationMs = 7600;
-    const sliderStartMs = 6200;
+    const introDurationMs = 11000;
+    const sliderStartMs = 9200;
     let currentIndex = 0;
     let sliderStarted = false;
 

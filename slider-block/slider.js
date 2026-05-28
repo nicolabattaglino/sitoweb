@@ -1,4 +1,6 @@
 (function () {
+  initCustomCursor();
+
   const params = new URLSearchParams(window.location.search);
   const slug = params.get('slug') || 'casa-frejus';
   const rawLinePercent = Number(params.get('line'));
@@ -10,6 +12,45 @@
 
   const basePath = `../immagini/${slug}/`;
   renderSlider(basePath);
+
+  function initCustomCursor() {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      return;
+    }
+
+    const cursor = document.createElement("div");
+    cursor.className = "custom-cursor";
+    document.body.appendChild(cursor);
+
+    const moveCursor = (event) => {
+      cursor.classList.add("is-visible");
+      cursor.style.left = `${event.clientX}px`;
+      cursor.style.top = `${event.clientY}px`;
+    };
+
+    document.addEventListener("mousemove", moveCursor);
+    document.addEventListener("mousedown", moveCursor);
+    document.addEventListener("mouseup", moveCursor);
+
+    document.addEventListener("mouseleave", () => {
+      cursor.classList.remove("is-visible");
+    });
+
+    document.addEventListener("mouseover", (event) => {
+      if (event.target.closest(".img-comp-container, .img-comp-slider, a, button")) {
+        cursor.classList.add("is-hovering");
+      }
+    });
+
+    document.addEventListener("mouseout", (event) => {
+      const currentInteractive = event.target.closest(".img-comp-container, .img-comp-slider, a, button");
+      const nextInteractive = event.relatedTarget && event.relatedTarget.closest(".img-comp-container, .img-comp-slider, a, button");
+
+      if (currentInteractive && currentInteractive !== nextInteractive) {
+        cursor.classList.remove("is-hovering");
+      }
+    });
+  }
 
   function renderSlider(path) {
     container.innerHTML = `
