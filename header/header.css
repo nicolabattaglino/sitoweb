@@ -1,5 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+@media (hover: hover) and (pointer: fine) {
+    html,
+    html *,
+    body,
+    body * {
+        cursor: none !important;
+    }
+
+    iframe {
+        cursor: none !important;
+    }
+
+    .custom-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 28px;
+        height: 28px;
+        background: rgba(89, 5, 43, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0;
+        transform: translate3d(-50%, -50%, 0);
+        transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+        z-index: 10000;
+    }
+
+    .custom-cursor.is-visible {
+        opacity: 1;
+    }
+
+    .custom-cursor.is-hovering {
+        width: 44px;
+        height: 44px;
+        background: rgba(89, 5, 43, 0.22);
+    }
+}
+
 #main-header,
 #main-header * {
     font-family: 'Poppins', sans-serif !important;
