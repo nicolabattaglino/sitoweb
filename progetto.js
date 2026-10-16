@@ -28,12 +28,23 @@ async function caricaProgetto() {
         document.getElementById("immagine_hero").src = progetto.immagine_hero;
 
         const griglia = document.getElementById("griglia-immagini");
-        progetto.immagini.forEach(imgSrc => {
-            const img = document.createElement("img");
-            img.src = imgSrc;
-            img.alt = "Foto progetto";
-            griglia.appendChild(img);
-        });
+        if (progetto.slug === "casa-armonia") griglia.classList.add("photo-grid");
+        aggiungiImmagini(griglia, progetto.immagini, `Foto del progetto ${progetto.titolo}`);
+
+        const sezioneRender = document.getElementById("sezione-render");
+        const grigliaRender = document.getElementById("griglia-render");
+        const toggleRender = document.getElementById("toggle-render");
+        if (Array.isArray(progetto.immagini_render) && progetto.immagini_render.length > 0 && sezioneRender) {
+            sezioneRender.hidden = false;
+            aggiungiImmagini(grigliaRender, progetto.immagini_render, `Render del progetto ${progetto.titolo}`);
+            toggleRender.addEventListener("click", () => {
+                const isOpen = toggleRender.getAttribute("aria-expanded") === "true";
+                toggleRender.setAttribute("aria-expanded", String(!isOpen));
+                grigliaRender.hidden = isOpen;
+                toggleRender.querySelector(".render-toggle-icon").textContent = isOpen ? "+" : "−";
+                toggleRender.querySelector("span").textContent = isOpen ? "Scopri i render del progetto" : "Nascondi i render del progetto";
+            });
+        }
 
         const sliderIframe = document.querySelector(".slider-iframe");
         if (sliderIframe) {
@@ -52,13 +63,28 @@ async function caricaProgetto() {
     }
 }
 
+function aggiungiImmagini(griglia, immagini, descrizione) {
+    if (!griglia || !Array.isArray(immagini)) return;
+    immagini.forEach((imgSrc, index) => {
+        const img = document.createElement("img");
+        img.src = imgSrc;
+        img.alt = `${descrizione} ${index + 1}`;
+        img.loading = "lazy";
+        img.decoding = "async";
+        griglia.appendChild(img);
+    });
+}
+
 // **NUOVA FUNZIONE PER INIZIALIZZARE LA LIGHTBOX**
 let indiceCorrente = 0;
 let immaginiProgetto = [];
 let scrollLockY = 0;
 
 function inizializzaLightbox() {
-    const immagini = document.querySelectorAll('#griglia-immagini img');
+    const gallerie = [
+        document.getElementById("griglia-immagini"),
+        document.getElementById("griglia-render")
+    ].filter(Boolean);
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const closeBtn = document.querySelector(".close");
@@ -66,12 +92,11 @@ function inizializzaLightbox() {
     const btnNext = document.querySelector(".next");  // Modificato per corrispondere all'HTML
     const dotsContainer = document.querySelector(".lightbox-dots");
 
-    if (immagini.length === 0) {
+    const tutteLeImmagini = gallerie.flatMap(griglia => Array.from(griglia.querySelectorAll("img")));
+    if (tutteLeImmagini.length === 0) {
         console.warn("⚠ Nessuna immagine trovata nella griglia!");
         return;
     }
-
-    immaginiProgetto = Array.from(immagini).map(img => img.src);
 
     const updateLightbox = (index) => {
         indiceCorrente = (index + immaginiProgetto.length) % immaginiProgetto.length;
@@ -84,7 +109,8 @@ function inizializzaLightbox() {
         }
     };
 
-    if (dotsContainer) {
+    const preparaPuntini = () => {
+        if (!dotsContainer) return;
         dotsContainer.innerHTML = "";
         immaginiProgetto.forEach((_, index) => {
             const dot = document.createElement("button");
@@ -94,7 +120,7 @@ function inizializzaLightbox() {
             dot.addEventListener("click", () => updateLightbox(index));
             dotsContainer.appendChild(dot);
         });
-    }
+    };
 
     const lockScroll = () => {
         scrollLockY = window.scrollY || window.pageYOffset;
@@ -110,11 +136,16 @@ function inizializzaLightbox() {
         window.scrollTo(0, scrollLockY);
     };
 
-    immagini.forEach((img, index) => {
-        img.addEventListener("click", function() {
-            lightbox.style.display = "flex";
-            lockScroll();
-            updateLightbox(index);
+    gallerie.forEach(griglia => {
+        const immagini = Array.from(griglia.querySelectorAll("img"));
+        immagini.forEach((img, index) => {
+            img.addEventListener("click", function() {
+                immaginiProgetto = immagini.map(elemento => elemento.src);
+                preparaPuntini();
+                lightbox.style.display = "flex";
+                lockScroll();
+                updateLightbox(index);
+            });
         });
     });
 

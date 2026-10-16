@@ -82,10 +82,20 @@
     "tipologia": "Residenziale",
     "superficie": "106 mq",
     "foto_crediti": "",
-    "immagine_hero": "../immagini/casa-armonia/02.jpg",
-    "immagine_hero_ext": "../immagini/casa-armonia/ext.jpg",
+    "immagine_hero": "../immagini/casa-armonia/051.JPG",
+    "immagine_hero_ext": "../immagini/casa-armonia/051.JPG",
     "slider_line_percent": 70,
     "immagini": [
+      "../immagini/casa-armonia/051.JPG",
+      "../immagini/casa-armonia/061.JPG",
+      "../immagini/casa-armonia/01.png",
+      "../immagini/casa-armonia/02.png",
+      "../immagini/casa-armonia/03.png",
+      "../immagini/casa-armonia/04.png",
+      "../immagini/casa-armonia/bagno1.png",
+      "../immagini/casa-armonia/bagno2.png"
+    ],
+    "immagini_render": [
       "../immagini/casa-armonia/01.jpg",
       "../immagini/casa-armonia/02.jpg",
       "../immagini/casa-armonia/03.jpg",

@@ -38,8 +38,7 @@ body {
     align-items: flex-start;
     max-width: 350px;
     width: 100%;
-    position: sticky;
-    top: 120px;
+    position: static;
     height: fit-content;
     font-size: 12px;
     color: #000000;
@@ -145,6 +144,11 @@ body {
     grid-row: span 2;
 }
 
+.photo-grid img:nth-child(-n+2) {
+    grid-column: span 3;
+    grid-row: span 2;
+}
+
 /* Stili comuni */
 .griglia-immagini {
     display: grid;
@@ -161,6 +165,56 @@ body {
     height: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
+    cursor: zoom-in;
+}
+
+.griglia-immagini[hidden],
+.render-section[hidden] {
+    display: none;
+}
+
+.render-section {
+    width: 100%;
+    margin-top: 34px;
+}
+
+.render-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 0;
+    border: 0;
+    border-top: 1px solid rgba(64, 29, 35, 0.2);
+    border-bottom: 1px solid rgba(64, 29, 35, 0.2);
+    background: transparent;
+    color: #401d23;
+    font: inherit;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-align: left;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.render-toggle:hover,
+.render-toggle:focus-visible {
+    color: rgb(89, 5, 43);
+}
+
+.render-toggle:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+}
+
+.render-toggle-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.render-grid {
+    margin-top: 24px;
 }
 
 .planimetria {
