@@ -1,6 +1,11 @@
 @import url('../header/header.css');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+:root {
+    --content-max-width: 1040px;
+    --page-gutter: 50px;
+}
+
 body, h1, h2, h3, h4, h5, h6, p, a, .title, .hero-text, .navbar, .contact-button, .insta-link {
     font-family: 'Poppins', sans-serif !important;
 }
@@ -28,7 +33,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 20px max(var(--page-gutter), calc((100% - var(--content-max-width)) / 2));
     position: fixed;
     width: 100%;
     top: 0;
@@ -63,7 +68,7 @@ header {
 /* Testo grande sopra il carosello */
 .hero-text {
     position: absolute;
-    top: 72%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Poppins', sans-serif;
@@ -80,88 +85,12 @@ header {
     align-items: center;
 }
 
-.hero-cylinder {
-    --item-height: 1.35em;
-    height: var(--item-height);
-    overflow: hidden;
-    perspective: 550px;
-    width: min(96vw, 1280px);
-    margin-bottom: 0.1em;
-    padding-left: 24px;
-}
-
-.hero-cylinder-track {
-    display: flex;
-    flex-direction: column;
-    animation: words-rise 11s ease-out forwards;
-}
-
-.hero-cylinder-track span {
-    height: var(--item-height);
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    opacity: 0.92;
-    justify-content: flex-start;
-    text-align: left;
-}
-
-.hero-cylinder-track .final-line {
-    font-weight: 500;
-    width: 100%;
-    justify-content: flex-start;
-    text-align: left;
-}
-
-@keyframes words-rise {
-    0% {
-        transform: translateY(100%) rotateX(-20deg);
-        opacity: 0;
-    }
-    12% {
-        transform: translateY(0) rotateX(12deg);
-        opacity: 1;
-    }
-    28% {
-        transform: translateY(calc(-1 * var(--item-height))) rotateX(10deg);
-    }
-    44% {
-        transform: translateY(calc(-2 * var(--item-height))) rotateX(8deg);
-    }
-    60% {
-        transform: translateY(calc(-3 * var(--item-height))) rotateX(5deg);
-    }
-    74%,
-    82% {
-        transform: translateY(calc(-4 * var(--item-height))) rotateX(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(calc(-4 * var(--item-height) - 0.25em)) rotateX(-8deg);
-        opacity: 0;
-    }
-}
-
 .hero-buttons {
     margin-top: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px; /* Distanza tra il pulsante e l'icona */
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(58px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
-}
-
-.slider.intro-active ~ .hero-text .hero-buttons {
-    opacity: 0;
-    transform: translateY(58px);
-    pointer-events: none;
-}
-
-.slider:not(.intro-active) ~ .hero-text .hero-buttons {
-    opacity: 1;
     transform: translateY(46px);
     pointer-events: auto;
 }
@@ -234,17 +163,12 @@ header {
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 1s ease-in-out, filter 0.9s ease-in-out;
+    transition: opacity 1s ease-in-out;
     z-index: 0; /* più basso dell’overlay */
 }
 
 .slide.active {
     opacity: 1;
-    filter: blur(0);
-}
-
-.slider.intro-active .slide.active {
-    filter: blur(2px);
 }
 
 /* Testo sopra tutto */
@@ -270,7 +194,7 @@ header {
     /* Testo grande sopra il carosello */
     .hero-text {
         position: absolute;
-        top: 70%;
+        top: 80%;
         left: 50%;
         transform: translate(-50%, -50%);
         font-family: 'Poppins', sans-serif;
@@ -281,21 +205,6 @@ header {
         text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
         z-index: 2;
         width: 92vw;
-    }
-    .hero-cylinder {
-        --item-height: 2.35em;
-        width: 90vw;
-        padding-left: 12px;
-    }
-    .hero-cylinder-track span {
-        justify-content: flex-start;
-        text-align: left;
-    }
-    .hero-cylinder-track .final-line {
-        white-space: normal;
-        text-align: left;
-        line-height: 1.2;
-        max-width: 90vw;
     }
     .contact-button {
         border: 2px solid white;
@@ -314,12 +223,6 @@ header {
     }
     .hero-buttons {
         margin-top: 46px;
-        transform: translateY(42px);
-    }
-    .slider.intro-active ~ .hero-text .hero-buttons {
-        transform: translateY(42px);
-    }
-    .slider:not(.intro-active) ~ .hero-text .hero-buttons {
         transform: translateY(30px);
     }
 }
@@ -384,7 +287,7 @@ header {
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 1s ease-in-out, filter 0.9s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 .slide.active {

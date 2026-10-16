@@ -1,116 +1,78 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Su di me</title>
-  <link rel="stylesheet" href="../home/style.css">
-  <link rel="stylesheet" href="sudime5.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sono Caterina Di Bernardo, architetto. Scopri la mia storia e il mio approccio alla progettazione e ristrutturazione di interni.">
+  <title>Su di me | Caterina Di Bernardo</title>
+  <link rel="stylesheet" href="../home/style.css?v=website-v3-2">
+  <link rel="stylesheet" href="sudime5.css?v=website-v3-2">
 </head>
-<body>
-  <div class="stack" aria-label="Su di me">
-    <article class="card" style="--bg: url('../immagini/servizi/storia1.png');" data-card>
-      <button class="card-title" type="button" aria-expanded="false">
-        <span>Mi presento</span>
-        <span class="card-toggle" aria-hidden="true"></span>
-      </button>
-      <div class="card-body">
-        <div class="card-body-inner">
-          <p>Ciao, sono Caterina, <strong>architetto specializzato nella progettazione e ristrutturazione di interni</strong>. La mia passione per il design è nata da bambina, giocando con la mia cameretta e spostando i mobili: da quella curiosità è cresciuta la voglia di <strong>trasformare gli spazi</strong>, fino a diventare la mia professione.</p>
-          <p>Dopo il mio percorso universitario e dopo l'abilitazione all'<strong>Albo degli Architetti di Torino</strong> ho affinato il mio sguardo sul progetto collaborando con varie realtà specializzate nel campo delle ristrutturazioni di interni.</p>
-          <p>Il mio lavoro prende vita dall'<strong>incontro con le persone</strong>. Amo ascoltare le vostre storie, capire come vivete gli spazi e quali sono le vostre abitudini e desideri. È da qui che ogni progetto prende forma.</p>
-          <p>Per me, progettare una casa non significa solo creare spazi belli, ma <strong>accompagnare chi li vivrà in un percorso fatto di scelte, emozioni e trasformazioni</strong>. Ogni progetto è un viaggio condiviso, in cui tu sei sempre il vero protagonista.</p>
+<body class="about-page">
+  <main class="about-container">
+    <section class="about-intro" aria-labelledby="about-title">
+      <figure class="about-portrait">
+        <img src="../immagini/cate.jpg" alt="Ritratto di Caterina Di Bernardo" width="2316" height="3088" fetchpriority="high">
+      </figure>
+      <div class="about-intro-copy">
+        <h1 id="about-title">Ciao, sono Caterina,<br>architetto.</h1>
+        <p class="about-lead">Progetto spazi che raccontano chi li abita.</p>
+        <p class="about-intro-description">Mi occupo di progettazione e ristrutturazione di interni. Ascolto le tue idee, le tue abitudini e i tuoi desideri per dare forma a una casa che ti somigli.</p>
+        <a class="about-text-link" href="#mi-presento">Ti racconto di me <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="about-story about-text-section" id="mi-presento" aria-labelledby="story-title">
+      <h2 id="story-title">Mi presento</h2>
+      <div class="about-prose">
+        <p>La mia passione per gli spazi è nata da bambina, spostando i mobili della mia cameretta e immaginando ogni volta un modo diverso di abitarla. Quella curiosità è cresciuta con me, fino a diventare la mia professione.</p>
+        <p>Dopo il percorso universitario e l’abilitazione all’Albo degli Architetti di Torino, ho affinato il mio sguardo collaborando con diverse realtà nel campo delle ristrutturazioni di interni.</p>
+        <p>Oggi il mio lavoro prende vita dall’incontro con le persone. Mi piace conoscere le vostre storie, capire come vivete la casa e cosa vorreste cambiare. È da qui che ogni progetto prende forma.</p>
+      </div>
+    </section>
+
+    <figure class="about-project-image">
+      <a href="../progetti/progetto.html?p=casa-armonia" aria-label="Scopri il progetto Armonie di colore">
+        <img src="../immagini/casa-armonia/02.jpg" alt="Zona pranzo del progetto Armonie di colore, con arredi verdi e dettagli in legno" width="3840" height="2160" loading="lazy" decoding="async">
+      </a>
+      <figcaption><span>Armonie di colore</span><span>Torino</span></figcaption>
+    </figure>
+
+    <section class="about-method" aria-labelledby="method-title">
+      <div class="about-method-copy">
+        <h2 id="method-title">Come lavoro</h2>
+        <p class="about-section-lead">Ogni progetto inizia con l’ascolto.</p>
+        <div class="about-prose">
+          <p>Mi racconti le tue esigenze abitative e insieme le trasformiamo in spazi personalizzati, capaci di rispecchiare il tuo modo di vivere e accompagnare la tua quotidianità.</p>
+          <p>L’empatia e l’attenzione ai dettagli guidano ogni scelta: dalla distribuzione degli ambienti ai materiali, fino alle piccole cose che rendono una casa davvero tua.</p>
+          <p>Il mio obiettivo è farti sentire seguito e compreso durante tutto il percorso, dalla prima idea su carta alla realizzazione finale.</p>
         </div>
       </div>
-    </article>
+      <figure class="about-detail-image">
+        <a href="../progetti/progetto.html?p=casa-sonnaz" aria-label="Scopri il progetto Skyline Tales">
+          <img src="../immagini/casa-sonnaz/cucina1.jpg" alt="Dettaglio della cucina di Skyline Tales, con mensole in legno e arredi verdi" width="3024" height="4032" loading="lazy" decoding="async">
+        </a>
+        <figcaption><span>Skyline Tales</span><span>Torino</span></figcaption>
+      </figure>
+    </section>
 
-    <article class="card" style="--bg: url('../immagini/servizi/metodo2.png');" data-card>
-      <button class="card-title" type="button" aria-expanded="false">
-        <span>Il mio metodo</span>
-        <span class="card-toggle" aria-hidden="true"></span>
-      </button>
-      <div class="card-body">
-        <div class="card-body-inner">
-          <p><strong>L'empatia</strong> e <strong>l'attenzione ai dettagli</strong> sono gli elementi alla base del mio lavoro.</p>
-          <p>Ti ascolto, mi racconti le tue esigenze abitative e insieme le trasformiamo in <strong>spazi personalizzati</strong> che parlano di te, che rispecchino il tuo modo di vivere, che valorizzano i tuoi gusti e che accompagnano la tua quotidianità.</p>
-          <p>Il mio obiettivo è farti sentire <strong>seguito, compreso e mai solo</strong> durante tutto il percorso, dalla prima idea su carta fino alla realizzazione finale.</p>
-        </div>
+    <section class="about-values about-text-section" aria-labelledby="values-title">
+      <h2 id="values-title">Cosa mi guida</h2>
+      <div class="about-prose">
+        <p class="about-section-lead">Una casa bella da guardare.<br>E soprattutto, da vivere.</p>
+        <p>Credo che una casa ben progettata possa semplificare la vita e restituire energia. Uno spazio che accoglie le tue giornate, favorisce il tuo benessere e si adatta al tempo che cambia.</p>
+        <p>Per questo metto la persona al centro del progetto, traducendo esigenze concrete ed emozioni in soluzioni funzionali, armoniose e su misura.</p>
       </div>
-    </article>
+    </section>
 
-    <article class="card" style="--bg: url('../immagini/servizi/mission.png');" data-card>
-      <button class="card-title" type="button" aria-expanded="false">
-        <span>La mia mission</span>
-        <span class="card-toggle" aria-hidden="true"></span>
-      </button>
-      <div class="card-body">
-        <div class="card-body-inner">
-          <p>La mia missione è <strong>accompagnarvi nella scoperta della vostra casa ideale</strong>, uno spazio capace di accogliere le vostre giornate, migliorare il vostro <strong>benessere quotidiano</strong> e adattarsi al tempo che cambia.</p>
-          <p>Credo che una <strong>casa ben progettata</strong> possa semplificare la vita e restituire energia. Per questo metto <strong>la persona al centro</strong> dell'intero processo creativo, traducendo esigenze concrete ed emozioni in soluzioni funzionali, armoniose e su misura.</p>
-        </div>
+    <section class="about-contact" aria-labelledby="contact-title">
+      <div>
+        <h2 id="contact-title">Parliamo del tuo spazio.</h2>
+        <p>Raccontami la casa che immagini. Cominciamo da qui.</p>
       </div>
-    </article>
-  </div>
-
-  <script>
-    const cards = document.querySelectorAll('[data-card]');
-    const stack = document.querySelector('.stack');
-
-    // Imposta quante card sono "aperte" (depth = 0..3)
-    // La card con index === depth è l'attiva (is-open)
-    // Le card con index < depth sono nella loro posizione aperta (visibili ma contenuto nascosto)
-    // Le card con index > depth sono chiuse a sinistra
-    const setDepth = (n) => {
-      stack.dataset.open = String(n);
-      if (n > 0) {
-        stack.classList.add('has-open');
-      } else {
-        stack.classList.remove('has-open');
-        delete stack.dataset.open;
-      }
-      cards.forEach((card, i) => {
-        const isActive = (i + 1) === n;
-        card.classList.toggle('is-open', isActive);
-        const btn = card.querySelector('.card-title');
-        if (btn) btn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-      });
-    };
-
-    cards.forEach((card, i) => {
-      const btn = card.querySelector('.card-title');
-      if (btn) {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const depth = parseInt(stack.dataset.open || '0');
-          const idx = i + 1;
-
-          if (idx === depth) {
-            // Chiudi la card attiva
-            const closingCard = cards[idx - 1];
-            const isMobile = window.innerWidth <= 768;
-            if (isMobile) {
-              // Su mobile: chiusura torna sempre allo stato tutto chiuso
-              setDepth(0);
-            } else if (idx === 3) {
-              closingCard.style.zIndex = '20';
-              setDepth(depth - 1);
-              closingCard.addEventListener('transitionend', () => {
-                closingCard.style.zIndex = '';
-              }, { once: true });
-            } else {
-              setDepth(depth - 1);
-            }
-          } else {
-            // Apri fino a questa card (anche saltando)
-            setDepth(idx);
-          }
-        });
-      }
-    });
-
-    // Su mobile parti con tutte le card chiuse, su desktop apri la prima.
-    setDepth(window.innerWidth <= 768 ? 0 : 1);
-  </script>
+      <a class="about-contact-button" href="../contatti/contatti.html">Contattami <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
   <script src="../header.js"></script>
 </body>
 </html>

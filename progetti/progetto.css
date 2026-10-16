@@ -2,16 +2,14 @@
 
 .progetto-container {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Testo più stretto a sinistra, immagini più larghe a destra */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
     gap: 40px;
-    width: 100%; /* al posto di 100vw */
-    max-width: none;  /* Rimuove il limite di 1500px */
-    padding: 50px;  /* Mantiene un po' di margine interno */
+    width: 100%;
+    max-width: none;
+    padding: 50px max(var(--page-gutter), calc((100% - var(--content-max-width)) / 2));
     box-sizing: border-box; /* Evita che padding crei scroll orizzontale */
     margin: 0 auto;
-    padding: 50px;
-    display: flex;
-    align-items: flex-start;
+    align-items: start;
     background-color: #ffffff !important; /* Colore di sfondo */
 
 }
@@ -39,6 +37,7 @@ body {
     flex-direction: column; /* Mettiamo il testo sopra e i dettagli sotto */
     align-items: flex-start;
     max-width: 350px;
+    width: 100%;
     position: sticky;
     top: 120px;
     height: fit-content;
@@ -110,6 +109,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    min-width: 0;
 }
 
 /* Pattern corretto griglia immagini */
@@ -152,7 +152,7 @@ body {
     grid-auto-rows: auto;
     grid-auto-flow: dense;
     gap: 20px;
-    width: 80%;
+    width: 100%;
     margin-top: 20px;
 }
 
@@ -211,7 +211,6 @@ body {
 .progetto-container {
     position: relative;
     background-color: #ffffff !important; /* Colore di sfondo */
-    padding: 50px;
     z-index: 1;
 }
 
@@ -428,12 +427,6 @@ body {
 
     .progetto-descrizione {
         margin-bottom: 14px;
-    }
-
-    .progetto-immagini {
-        margin-left: -50px;
-        margin-right: -50px;
-        width: calc(100% + 100px);
     }
 
     .prev,

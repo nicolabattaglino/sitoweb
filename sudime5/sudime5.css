@@ -1,507 +1,310 @@
-:root {
-  --cream: #EEECE6;
-  --wine: #561c1c;
-  --title-width: 28vw;
-  --title-overlay-width: 62px;
-  --card-width: 66vw;
-  --open-offset: 100vw;
-  --mini-slide-left: 3vw;
-  --mini-slide-right: 6vw;
-  --closed-offset: calc((100vw - var(--card-width)) / 2); /* strip visibile per card chiusa */
+html:has(body.about-page) {
+  scroll-behavior: smooth;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-* {
-  box-sizing: border-box;
+@media (prefers-reduced-motion: reduce) {
+  html:has(body.about-page) {
+    scroll-behavior: auto;
+  }
 }
 
-body {
+body.about-page {
+  --about-wine: rgb(89, 5, 43);
+  --about-text: #401d23;
+  --about-muted: #786d70;
+  padding-top: 100px;
+  background: #ffffff;
+  color: var(--about-text);
+  font-weight: 300;
+}
+
+.about-container {
+  width: 100%;
+  max-width: calc(var(--content-max-width) + 2 * var(--page-gutter));
+  margin: 0 auto;
+  padding: 52px var(--page-gutter) 64px;
+}
+
+.about-container h1,
+.about-container h2 {
+  color: var(--about-wine);
+  font-weight: 300;
+}
+
+.about-container h2 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.about-container figure {
   margin: 0;
-  background-color: var(--cream);
-  color: var(--wine);
-  font-family: 'Poppins', sans-serif;
-  font-weight: 200;
-  position: relative;
-  min-height: 100vh;
 }
 
-.story-hero {
-  position: relative;
-  min-height: 70vh;
-  background-color: var(--cream);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 160px 80px 80px;
-  color: #561c1c;
-  z-index: 1;
-}
-
-.story-hero::before {
-  content: none;
-}
-
-.story-hero-content {
-  position: relative;
-  z-index: 1;
-  width: min(520px, 45%);
-  text-shadow: none;
-}
-
-.story-hero-content h2 {
-  margin: 0 0 24px;
-  font-weight: 400;
-  font-size: 2.2rem;
-}
-
-.story-hero-content p {
-  margin: 0 0 1.2em;
-  text-align: left;
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
-.story-hero-content p:last-child {
-  margin-bottom: 0;
-}
-
-.stack {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100vh;
-  overflow: hidden;
+.about-container img {
   display: block;
-  padding-top: 150px;
-  z-index: 2;
+  width: 100%;
+  height: auto;
 }
 
-.stack::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.113);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-  z-index: 1;
+.about-container a {
+  color: inherit;
 }
 
-.stack.has-open::after {
-  opacity: 0;
+.about-container a:focus-visible {
+  outline: 2px solid var(--about-wine);
+  outline-offset: 6px;
 }
 
-.card {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: var(--card-width);
-  background: var(--cream);
-  --swap-left: calc(-1 * (100% - var(--title-width)));
-  transform: translateX(calc(-1 * (100% - var(--closed-offset)) + var(--stack-offset)));
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
-  overflow: hidden;
-  margin-top: 100px;
-  z-index: 2;
-  text-shadow: none;
-
+.about-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 88px);
 }
 
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: var(--title-width);
-  background-image: var(--bg);
-  background-size: cover;
-  background-position: right center;
-  z-index: 0;
+.about-portrait img {
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: cover;
+  object-position: center 42%;
 }
 
-.card:nth-child(1) {
-  --stack-offset: calc(var(--closed-offset) * 2); /* in fondo, più a destra */
-  z-index: 1; /* La mia storia - in fondo */
+.about-eyebrow {
+  margin-bottom: 22px;
+  color: var(--about-muted);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.card:nth-child(2) {
-  --stack-offset: var(--closed-offset); /* in mezzo */
-  z-index: 2; /* Il mio metodo - in mezzo */
+.about-intro h1 {
+  margin-bottom: 24px;
+  font-size: clamp(2rem, 3.6vw, 3.1rem);
+  line-height: 1.22;
+  letter-spacing: -0.035em;
 }
 
-.card:nth-child(3) {
-  --stack-offset: 0vw; /* sopra a tutti, parte da 0 */
-  z-index: 3; /* La mia mission - sopra a tutti */
+.about-lead {
+  max-width: 350px;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
 
-/* Card attiva: ombra. Card 3 va sopra, card 1 rimane sullo sfondo, card 2 rimane in mezzo */
-.card.is-open {
-  box-shadow: 0 30px 70px rgba(86, 28, 28, 0.25);
+.about-intro-description,
+.about-prose {
+  font-size: 0.875rem;
+  line-height: 1.95;
 }
 
-.card:nth-child(3).is-open {
-  z-index: 10 !important;
+.about-intro-description {
+  max-width: 390px;
 }
 
-/* Card 1 aperta rimane sempre sotto le altre */
-.card:nth-child(1).is-open {
-  z-index: 1;
+.about-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 30px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(89, 5, 43, 0.35);
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
 }
 
-/* Card 2 aperta rimane sempre in mezzo */
-.card:nth-child(2).is-open {
-  z-index: 2;
+.about-text-link:hover {
+  border-color: var(--about-wine);
 }
 
-/* -----------------------------------------------
-   Posizioni aperte: ogni card si sposta a destra
-   con leggera sovrapposizione sulla precedente
-   ----------------------------------------------- */
-
-/* Card 1 aperta: depth >= 1 */
-.stack[data-open="1"] .card:nth-child(1),
-.stack[data-open="2"] .card:nth-child(1),
-.stack[data-open="3"] .card:nth-child(1) {
-  transform: translateX(calc(100vw - var(--card-width)));
+.about-text-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 64px;
 }
 
-/* Card 2 aperta: depth >= 2, stessa sovrapposizione delle card chiuse */
-.stack[data-open="2"] .card:nth-child(2),
-.stack[data-open="3"] .card:nth-child(2) {
-  transform: translateX(calc(100vw - var(--card-width) - var(--closed-offset)));
+.about-story {
+  margin: 104px 0 64px;
+  scroll-margin-top: 132px;
 }
 
-/* Card 3 aperta: depth >= 3, stessa sovrapposizione delle card chiuse */
-.stack[data-open="3"] .card:nth-child(3) {
-  transform: translateX(calc(100vw - var(--card-width) - var(--closed-offset) * 2));
+.about-prose p + p {
+  margin-top: 18px;
 }
 
-/* Contenuto visibile solo sulla card attiva */
-.stack.has-open .card:not(.is-open) .card-body {
-  opacity: 0;
-  pointer-events: none;
+.about-project-image a,
+.about-detail-image a {
+  display: block;
 }
 
-.card-title {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: var(--title-width);
-  height: 100%;
-  border: none;
-  background: transparent;
-  color: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
-  letter-spacing: 0.03em;
+.about-project-image img {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: cover;
+}
+
+.about-container figcaption {
   display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 12px;
+  color: var(--about-muted);
+  font-size: 0.65rem;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+}
+
+.about-method {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(40px, 7vw, 104px);
+  margin-top: 96px;
+}
+
+.about-method h2 {
+  margin-bottom: 24px;
+}
+
+.about-section-lead {
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.about-method-copy > .about-section-lead {
+  max-width: 330px;
+  margin-bottom: 24px;
+}
+
+.about-detail-image img {
+  aspect-ratio: 3 / 4;
+  height: auto;
+  object-fit: cover;
+}
+
+.about-values {
+  margin-top: 104px;
+}
+
+.about-prose .about-section-lead {
+  margin-bottom: 24px;
+}
+
+.about-contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  margin-top: 96px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(89, 5, 43, 0.18);
+}
+
+.about-contact h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+
+.about-contact p {
+  margin-top: 10px;
+  color: var(--about-muted);
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+
+.about-contact-button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  z-index: 2;
-  padding: 20px;
-  gap: 18px;
-
-}
-
-.card-title > span:first-child {
-  position: absolute;
-  top: 50%;
-  right: 18px;
-  text-align: center;
-  line-height: 1.3;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: translateY(-50%) rotate(180deg);
-}
-
-.card-toggle {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 26px;
-  height: 26px;
-}
-
-.card-toggle::before,
-.card-toggle::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 22px;
-  height: 2px;
-  background: #ffffff;
-  transform-origin: center;
-  transition: transform 0.25s ease;
-}
-
-.card-toggle::before {
-  transform: translate(-50%, -50%) rotate(0deg);
-}
-
-.card-toggle::after {
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.card.is-open .card-toggle::before {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.card.is-open .card-toggle::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.card-body {
-  position: relative;
-  height: 100%;
-  margin-right: var(--title-width);
-  background: var(--cream);
-  padding: 80px 70px 60px;
-  overflow-y: auto;
-  z-index: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.card-body-inner {
-  width: 460px;
-  max-width: 100%;
-}
-
-.card-body h2 {
-  margin: 0 0 24px;
+  gap: 28px;
+  flex-shrink: 0;
+  padding: 13px 22px;
+  border: 1px solid var(--about-wine);
+  background: transparent;
+  color: var(--about-wine);
+  font-size: 0.75rem;
   font-weight: 400;
-  font-size: 2rem;
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
-.card-body p {
-  margin: 0 0 1.4em;
-  text-align: justify;
-  font-size: 0.95rem;
-  line-height: 1.85;
-  font-weight: 300;
-  color: #401d23;
+.about-contact-button:hover {
+  color: #ffffff;
+  background: var(--about-wine);
 }
 
-.card-body p:first-of-type::first-letter {
-  font-size: 3.8rem;
-  font-weight: 600;
-  font-style: normal;
-  line-height: 0.85;
-  float: left;
-  margin-right: 10px;
-  margin-top: 2px;
-  color: #561c1c;
-  letter-spacing: 0.01em;
-  font-family: 'Poppins', sans-serif;
-}
+@media (max-width: 900px) {
+  .about-intro,
+  .about-method {
+    gap: 40px;
+  }
 
-.card-body p:last-child {
-  margin-bottom: 0;
+  .about-text-section {
+    gap: 40px;
+  }
 }
 
 @media (max-width: 768px) {
-  html,
-  body {
-    height: 100%;
-    overflow: hidden;
-  }
-
-  body {
-    padding-top: var(--header-height);
+  .about-container {
+    padding-top: 28px;
     padding-bottom: 40px;
-    text-align: justify;
   }
 
-  :root {
-    --header-height: 100px;
-    --title-width: 100%;
-    --mobile-card-height: calc((100svh - var(--header-height)) / 3);
-    --mobile-gap: 0px;
-    --mobile-open-height: calc(100svh - var(--header-height));
-    --mobile-hide-offset: 120px;
-    --mobile-reserved: calc(var(--mobile-card-height) * 2 + var(--mobile-gap));
+  .about-intro,
+  .about-method,
+  .about-text-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
   }
 
-  .story-hero {
-    height: 100svh;
-    justify-content: center;
-    padding: 24px 24px calc(var(--mobile-reserved) + 200px);
-    padding-top: var(--header-height);
-    overflow: hidden;
-  }
-  .story-hero-content h2 {
-  margin: 0 0 0px;
-  font-weight: 400;
-  font-size: 2.2rem;
-}
-
-  .story-hero-content {
+  .about-portrait {
     width: 100%;
-    height: calc(100svh - var(--mobile-reserved) - 120px);
-    display: flex;
+    max-width: 440px;
+    justify-self: center;
+  }
+
+  .about-eyebrow {
+    margin-bottom: 14px;
+  }
+
+  .about-intro h1 {
+    margin-bottom: 18px;
+  }
+
+  .about-lead {
+    max-width: 100%;
+    font-size: 1.1rem;
+  }
+
+  .about-intro-description {
+    max-width: 100%;
+  }
+
+  .about-story {
+    margin: 64px 0 36px;
+  }
+
+  .about-method,
+  .about-values {
+    margin-top: 64px;
+  }
+
+  .about-detail-image {
+    width: 100%;
+    max-width: 440px;
+    justify-self: center;
+  }
+
+  .about-section-lead {
+    font-size: 1.2rem;
+  }
+
+  .about-contact {
     flex-direction: column;
-    gap: 16px;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
-    overscroll-behavior: contain;
-  }
-
-  .story-hero-scroll {
-    flex: 1;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
-    padding-bottom: 30px;
-  }
-
-  .story-hero-scroll p {
-    text-align: justify;
-  }
-
-  .stack {
-    position: fixed;
-    top: auto;
-    bottom: 0;
-    height: 100vh;
-    padding-top: 0;
-    pointer-events: none;
-  }
-
-  .card {
-    top: auto;
-    bottom: 0;
-    width: 100%;
-    height: var(--mobile-card-height);
-    transform: translateY(var(--stack-y));
-    transition: transform 0.5s ease, height 0.5s ease, box-shadow 0.5s ease, opacity 0.3s ease;
-    margin-top: 0;
-    pointer-events: auto;
-  }
-
-  .card::before {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: auto;
-    width: 100%;
-    height: var(--mobile-card-height);
-    background-position: center;
-  }
-
-  /* Gradiente scuro nella zona del titolo per leggibilità */
-  .card::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: var(--mobile-card-height);
-    background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 100%);
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .card.is-open::before {
-    height: calc(var(--mobile-card-height) * 0.7);
-  }
-
-  .card.is-open .card-title {
-    height: calc(var(--mobile-card-height) * 0.7);
-    align-items: center;
-  }
-
-  .card:nth-child(1) {
-    --stack-y: calc(-2 * (var(--mobile-card-height) + var(--mobile-gap)));
-  }
-
-  .card:nth-child(2) {
-    --stack-y: calc(-1 * (var(--mobile-card-height) + var(--mobile-gap)));
-  }
-
-  .card:nth-child(3) {
-    --stack-y: 0px;
-  }
-
-  .card.is-open {
-    height: var(--mobile-open-height);
-    transform: translateY(0);
-  }
-
-  /* Override dei translateX desktop per i data-open — su mobile tutto è translateY */
-  .stack[data-open="1"] .card:nth-child(1),
-  .stack[data-open="2"] .card:nth-child(1),
-  .stack[data-open="3"] .card:nth-child(1),
-  .stack[data-open="2"] .card:nth-child(2),
-  .stack[data-open="3"] .card:nth-child(2),
-  .stack[data-open="3"] .card:nth-child(3) {
-    transform: translateY(var(--stack-y));
-  }
-
-  .stack[data-open="1"] .card:nth-child(1).is-open,
-  .stack[data-open="2"] .card:nth-child(2).is-open,
-  .stack[data-open="3"] .card:nth-child(3).is-open {
-    transform: translateY(0);
-  }
-
-  .stack[data-open="1"] .card:nth-child(2),
-  .stack[data-open="1"] .card:nth-child(3),
-  .stack[data-open="2"] .card:nth-child(1),
-  .stack[data-open="2"] .card:nth-child(3),
-  .stack[data-open="3"] .card:nth-child(1),
-  .stack[data-open="3"] .card:nth-child(2) {
-    opacity: 0;
-    transform: translateY(calc(var(--stack-y) + var(--mobile-hide-offset)));
-    pointer-events: none;
-  }
-
-
-  .card-title {
-    position: relative;
-    width: 100%;
-    height: var(--mobile-card-height);
-    padding: 0 20px;
-    justify-content: space-between;
-    font-size: 1.3rem;
-    text-align: left;
-    pointer-events: auto;
-    color: #ffffff;
-    text-shadow: none;
-  }
-
-  .card-title > span:first-child {
-    position: static;
-    writing-mode: horizontal-tb;
-    text-orientation: initial;
-    transform: none;
-    margin-right: auto;
-  }
-
-  .card-toggle {
-    position: relative;
-    margin-left: 10px;
-    top: auto;
-    right: auto;
-  }
-
-  .card-body {
-    margin-right: 0;
-    padding: 24px 22px 28px;
-    height: calc(var(--mobile-open-height) - var(--mobile-card-height));
-    pointer-events: auto;
-  }
-
-  .card-body-inner {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .card-body p {
-    text-align: justify;
+    align-items: flex-start;
+    margin-top: 64px;
+    padding-top: 32px;
+    gap: 24px;
   }
 }

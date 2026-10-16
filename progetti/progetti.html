@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progetti</title>
-    <link rel="stylesheet" href="../progetti/progetti.css">
-    <link rel="stylesheet" href="../home/style.css">
+    <link rel="stylesheet" href="../progetti/progetti.css?v=website-v3-3">
+    <link rel="stylesheet" href="../home/style.css?v=website-v3-2">
 </head>
 <body>
     <div class="griglia-progetti" id="griglia-progetti"></div>
@@ -16,7 +16,7 @@
             const progetti = await response.json();
             const griglia = document.getElementById("griglia-progetti");
 
-            const numTotale = 6;
+            const numTotale = 9;
             let index = 0;
 
             progetti.forEach(progetto => {

@@ -1,14 +1,8 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const slides = document.querySelectorAll(".slide");
-    const slider = document.querySelector(".slider");
-    const introDurationMs = 11000;
-    const sliderStartMs = 9200;
     let currentIndex = 0;
-    let sliderStarted = false;
 
-    if (!slides.length || !slider) {
+    if (!slides.length) {
         return;
     }
 
@@ -18,20 +12,5 @@ document.addEventListener("DOMContentLoaded", function () {
         slides[currentIndex].classList.add("active");
     }
 
-    // Durante il carosello parole sfoca lo sfondo e blocca lo slideshow immagini.
-    slider.classList.add("intro-active");
-
-    setTimeout(() => {
-        if (sliderStarted) {
-            return;
-        }
-        sliderStarted = true;
-        slider.classList.remove("intro-active");
-        setInterval(changeSlide, 3000); // Cambia immagine ogni 3 secondi
-    }, sliderStartMs);
-
-    // Garantisce che la classe intro venga comunque rimossa al termine dell'animazione.
-    setTimeout(() => {
-        slider.classList.remove("intro-active");
-    }, introDurationMs);
+    setInterval(changeSlide, 3000); // Cambia immagine ogni 3 secondi
 });
