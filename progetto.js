@@ -1,7 +1,7 @@
 async function caricaProgetto() {
     const urlParams = new URLSearchParams(window.location.search);
     const slug = urlParams.get("p");
-    const response = await fetch("../data/progetti.json");
+    const response = await fetch("../data/progetti.json?v=website-v3-armonia-1");
     const progetti = await response.json();
     const progetto = progetti.find(proj => proj.slug === slug);
 
@@ -27,6 +27,8 @@ async function caricaProgetto() {
         document.getElementById("foto_crediti").innerText = progetto.foto_crediti;
         document.getElementById("immagine_hero").src = progetto.immagine_hero;
 
+        inizializzaConfronto(progetto);
+
         const griglia = document.getElementById("griglia-immagini");
         if (progetto.slug === "casa-armonia") griglia.classList.add("photo-grid");
         aggiungiImmagini(griglia, progetto.immagini, `Foto del progetto ${progetto.titolo}`);
@@ -34,7 +36,7 @@ async function caricaProgetto() {
         const sezioneRender = document.getElementById("sezione-render");
         const grigliaRender = document.getElementById("griglia-render");
         const toggleRender = document.getElementById("toggle-render");
-        if (Array.isArray(progetto.immagini_render) && progetto.immagini_render.length > 0 && sezioneRender) {
+        if (Array.isArray(progetto.immagini_render) && progetto.immagini_render.length > 0 && sezioneRender && grigliaRender && toggleRender) {
             sezioneRender.hidden = false;
             aggiungiImmagini(grigliaRender, progetto.immagini_render, `Render del progetto ${progetto.titolo}`);
             toggleRender.addEventListener("click", () => {
@@ -46,21 +48,45 @@ async function caricaProgetto() {
             });
         }
 
-        const sliderIframe = document.querySelector(".slider-iframe");
-        if (sliderIframe) {
-            const rawLinePercent = Number(progetto.slider_line_percent);
-            const linePercent = Number.isFinite(rawLinePercent)
-                ? Math.max(20, Math.min(100, Math.round(rawLinePercent)))
-                : 100;
-            sliderIframe.src = `../slider-block/index.html?slug=${encodeURIComponent(progetto.slug)}&line=${linePercent}&v=20260225`;
-        }
-
         // **🔽 INIZIALIZZA LIGHTBOX SOLO DOPO AVER CREATO LE IMMAGINI 🔽**
         inizializzaLightbox();
     } else {
         document.getElementById("titolo").innerText = "Progetto non trovato";
         document.getElementById("descrizione").innerText = "Il progetto richiesto non esiste.";
     }
+}
+
+function inizializzaConfronto(progetto) {
+    const slider = document.getElementById("comparison-slider");
+    const afterImage = document.getElementById("comparison-after");
+    const beforeImage = document.getElementById("comparison-before");
+    const range = document.getElementById("comparison-range");
+    if (!slider || !afterImage || !beforeImage || !range) return;
+
+    const basePath = `../immagini/${encodeURIComponent(progetto.slug)}/`;
+    afterImage.src = `${basePath}d.png`;
+    beforeImage.src = `${basePath}u.png`;
+    slider.hidden = false;
+
+    const rawLinePercent = Number(progetto.slider_line_percent);
+    const linePercent = Number.isFinite(rawLinePercent)
+        ? Math.max(20, Math.min(100, Math.round(rawLinePercent)))
+        : 100;
+    slider.style.setProperty("--comparison-line-height", `${linePercent}%`);
+
+    const update = () => {
+        const value = Number(range.value);
+        beforeImage.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
+        slider.style.setProperty("--comparison-position", `${value}%`);
+        range.setAttribute("aria-valuetext", `${value}% prima`);
+    };
+
+    range.addEventListener("input", update);
+    update();
+
+    [afterImage, beforeImage].forEach((image) => {
+        image.addEventListener("dragstart", (event) => event.preventDefault());
+    });
 }
 
 function aggiungiImmagini(griglia, immagini, descrizione) {
@@ -71,6 +97,9 @@ function aggiungiImmagini(griglia, immagini, descrizione) {
         img.alt = `${descrizione} ${index + 1}`;
         img.loading = "lazy";
         img.decoding = "async";
+        img.tabIndex = 0;
+        img.setAttribute("role", "button");
+        img.setAttribute("aria-label", `Apri ${img.alt}`);
         griglia.appendChild(img);
     });
 }
@@ -91,6 +120,7 @@ function inizializzaLightbox() {
     const btnPrev = document.querySelector(".prev");  // Modificato per corrispondere all'HTML
     const btnNext = document.querySelector(".next");  // Modificato per corrispondere all'HTML
     const dotsContainer = document.querySelector(".lightbox-dots");
+    let immagineDiApertura = null;
 
     const tutteLeImmagini = gallerie.flatMap(griglia => Array.from(griglia.querySelectorAll("img")));
     if (tutteLeImmagini.length === 0) {
@@ -100,7 +130,8 @@ function inizializzaLightbox() {
 
     const updateLightbox = (index) => {
         indiceCorrente = (index + immaginiProgetto.length) % immaginiProgetto.length;
-        lightboxImg.src = immaginiProgetto[indiceCorrente];
+        lightboxImg.src = immaginiProgetto[indiceCorrente].src;
+        lightboxImg.alt = immaginiProgetto[indiceCorrente].alt;
         if (dotsContainer) {
             dotsContainer.querySelectorAll("button").forEach((dot, dotIndex) => {
                 dot.classList.toggle("is-active", dotIndex === indiceCorrente);
@@ -136,24 +167,37 @@ function inizializzaLightbox() {
         window.scrollTo(0, scrollLockY);
     };
 
+    const chiudiGalleria = () => {
+        lightbox.style.display = "none";
+        unlockScroll();
+        immagineDiApertura?.focus({ preventScroll: true });
+    };
+
     gallerie.forEach(griglia => {
         const immagini = Array.from(griglia.querySelectorAll("img"));
         immagini.forEach((img, index) => {
-            img.addEventListener("click", function() {
-                immaginiProgetto = immagini.map(elemento => elemento.src);
+            const apriGalleria = () => {
+                immaginiProgetto = immagini.map(elemento => ({ src: elemento.src, alt: elemento.alt }));
+                immagineDiApertura = img;
                 preparaPuntini();
+                lightbox.setAttribute("aria-label", griglia.id === "griglia-render" ? "Render del progetto" : "Fotografie del progetto");
                 lightbox.style.display = "flex";
                 lockScroll();
                 updateLightbox(index);
+                closeBtn?.focus({ preventScroll: true });
+            };
+            img.addEventListener("click", apriGalleria);
+            img.addEventListener("keydown", event => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    apriGalleria();
+                }
             });
         });
     });
 
     if (closeBtn) {
-        closeBtn.addEventListener("click", function() {
-            lightbox.style.display = "none";
-            unlockScroll();
-        });
+        closeBtn.addEventListener("click", chiudiGalleria);
     }
 
     // Pulsanti avanti/indietro
@@ -172,8 +216,7 @@ function inizializzaLightbox() {
     // Chiudi lightbox cliccando fuori dall'immagine
     lightbox.addEventListener("click", function(event) {
         if (event.target === lightbox) {
-            lightbox.style.display = "none";
-            unlockScroll();
+            chiudiGalleria();
         }
     });
 
@@ -182,14 +225,28 @@ function inizializzaLightbox() {
         // Controlla che la lightbox sia visibile
         if (window.getComputedStyle(lightbox).display !== "none") {
             if (e.key === "ArrowRight") {
+                e.preventDefault();
                 updateLightbox(indiceCorrente + 1);
             }
             if (e.key === "ArrowLeft") {
+                e.preventDefault();
                 updateLightbox(indiceCorrente - 1);
             }
             if (e.key === "Escape") {
-                lightbox.style.display = "none";
-                unlockScroll();
+                e.preventDefault();
+                chiudiGalleria();
+            }
+            if (e.key === "Tab") {
+                const pulsanti = Array.from(lightbox.querySelectorAll("button")).filter(button => button.getClientRects().length > 0);
+                const primo = pulsanti[0];
+                const ultimo = pulsanti[pulsanti.length - 1];
+                if (e.shiftKey && document.activeElement === primo) {
+                    e.preventDefault();
+                    ultimo.focus();
+                } else if (!e.shiftKey && document.activeElement === ultimo) {
+                    e.preventDefault();
+                    primo.focus();
+                }
             }
         }
     });
@@ -254,7 +311,7 @@ function inizializzaLightbox() {
         isDragging = false;
     });
 
-    console.log("✅ Lightbox inizializzata con", immaginiProgetto.length, "immagini.");
+    console.log("✅ Lightbox inizializzata con", tutteLeImmagini.length, "immagini in gallerie separate.");
 }
 
 // Esegui la funzione principale

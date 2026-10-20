@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="titolo-pagina">Dettaglio Progetto</title>
     <link rel="stylesheet" href="../home/style.css?v=website-v3-header-2">
-    <link rel="stylesheet" href="progetto.css?v=website-v3-2">
+    <link rel="stylesheet" href="progetto.css?v=website-v3-native-range-5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"></head>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="hero">
@@ -33,7 +33,14 @@
             </div>
         </div>
         <div class="progetto-immagini">
-            <iframe src="../slider-block/index.html?slug=casa-frejus&line=100&v=20260225" class="slider-iframe" frameborder="0"></iframe>
+            <section class="comparison-slider" id="comparison-slider" aria-label="Confronto prima e dopo" hidden>
+                <img class="comparison-image comparison-image-after" id="comparison-after" alt="Dopo la ristrutturazione" draggable="false">
+                <img class="comparison-image comparison-image-before" id="comparison-before" alt="Prima della ristrutturazione" draggable="false">
+                <div class="comparison-divider" aria-hidden="true"></div>
+                <div class="comparison-handle" aria-hidden="true"></div>
+                <label class="comparison-range-label" for="comparison-range">Trascina per confrontare prima e dopo</label>
+                <input class="comparison-range" id="comparison-range" type="range" min="0" max="100" value="50" aria-label="Confronta prima e dopo" aria-valuetext="50% prima">
+            </section>
 
             <div class="griglia-immagini" id="griglia-immagini"></div>
             <section class="render-section" id="sezione-render" hidden>
@@ -46,16 +53,16 @@
         </div>
     </main>
 
-    <div id="lightbox" class="lightbox">
-        <span class="close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
-        <button class="prev"><span aria-hidden="true"></span></button>
-        <button class="next"><span aria-hidden="true"></span></button>
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Galleria del progetto">
+        <button class="close" type="button" aria-label="Chiudi la galleria"></button>
+        <img class="lightbox-content" id="lightbox-img" alt="" draggable="false">
+        <button class="prev" type="button" aria-label="Immagine precedente"><span aria-hidden="true"></span></button>
+        <button class="next" type="button" aria-label="Immagine successiva"><span aria-hidden="true"></span></button>
         <div class="lightbox-dots" aria-label="Selezione immagine"></div>
     </div>
     
 
-    <script src="../progetto.js"></script>
+    <script src="../progetto.js?v=website-v3-native-range-1"></script>
     <script src="../header.js"></script>
 </body>
 </html>
