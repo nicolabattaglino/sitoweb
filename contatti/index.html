@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contatta Caterina Di Bernardo per parlare del tuo progetto di interior design e ristrutturazione.">
+    <title>Contatti | Caterina Di Bernardo</title>
+    <link rel="canonical" href="https://caterinadibernardo.it/contatti/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contatti | Caterina Di Bernardo">
+    <meta property="og:description" content="Parliamo del tuo progetto di interior design e ristrutturazione.">
+    <meta property="og:url" content="https://caterinadibernardo.it/contatti/">
+    <meta property="og:image" content="https://caterinadibernardo.it/immagini/cate.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="../contatti/contatti.css?v=website-v3-4">
+    <link rel="stylesheet" href="../home/style.css?v=website-v3-header-2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="contact-page">
+
+<main class="contact-container">
+    <section class="contact-left">
+        <div class="contact-image">
+            <img src="../immagini/cate.jpg" alt="Foto di Caterina Di Bernardo">
+        </div>
+        <div class="contact-details">
+            <p>
+                <i class="fas fa-envelope"></i> 
+                <a href="mailto:dibernardocaterina@gmail.com" style="color: inherit; text-decoration: none;">
+                    dibernardocaterina@gmail.com
+                </a>
+            </p>
+            <p>
+                <i class="fab fa-instagram"></i> @cate.dibernardo
+            </p>
+        </div>
+    </section>
+
+    <section class="contact-content" tabindex="0" aria-label="Informazioni e modulo di contatto">
+        <div class="contact-text">
+            <div class="popup-text">
+                <div>
+                    <h2 class="popup-heading">Perché contattarmi?</h2>
+                    <div class="text-body">
+                    <ul style="margin-left: 1rem; padding-left: 1rem;">
+                        <li>Credo che la <strong>qualità degli spazi</strong> in cui viviamo influenzi il nostro benessere.</li>
+                        <li>Ogni progetto nasce dal <strong>desiderio</strong> di creare ambienti funzionali, armoniosi e in sintonia con chi li abita.</li>
+                        <li>Gran parte delle nostre giornate le passiamo a lavoro e a casa. Ti sei mai chiesto <strong>come ti senti</strong> quando rientri a casa?</li>
+                        <li>Stai programmando una <strong>ristrutturazione</strong> e non sai come orientarti?</li>
+                        <li>Hai bisogno di un semplice <strong>consiglio</strong> sulla tua casa o sugli spazi in cui lavori, ma non sai a chi rivolgerti?</li>
+                    </ul>
+                    <p><br>Non esitare a scrivermi: sono qui per ascoltare le tue esigenze e aiutarti a realizzare gli spazi dei tuoi sogni.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form">
+            <form id="contact-form">
+                <div class="form-group">
+                    <div class="field-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+                    </div>
+                    <div class="field-group">
+                        <label for="cognome">Cognome</label>
+                        <input type="text" id="cognome" name="cognome" placeholder="Il tuo cognome" required>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="La tua email" required>
+                </div>
+                <div class="field-group">
+                    <label for="messaggio">Messaggio</label>
+                    <textarea id="messaggio" name="messaggio" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+                </div>
+                <div class="checkbox-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="termini" required>
+                        Accetto i termini e condizioni
+                    </label>
+                </div>
+                <div class="form-bottom">
+                    <div id="terms-and-conditions">
+                        <p>I dati forniti saranno utilizzati esclusivamente per rispondere alla tua richiesta e non saranno condivisi con terze parti. Per ulteriori dettagli, consulta la nostra <a href="../contatti/privacy/privacy.html">Informativa sulla Privacy</a>.</p>
+                    </div>
+                    <button type="submit">Invia</button>
+                </div>
+            </form>
+
+            <!-- Messaggio di conferma -->
+            <div id="form-message" style="display:none; margin-top: 1em; color: green;">
+                Il tuo messaggio è stato inviato con successo!
+            </div>
+
+            
+        </div>
+    </section>
+</main>
+
+<script>
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const message = document.getElementById("form-message");
+
+        fetch("https://formspree.io/f/xnndpkor", {
+            method: "POST",
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                form.reset();
+                message.style.display = "block";
+            } else {
+                alert("Errore durante l'invio. Riprova.");
+            }
+        }).catch(error => {
+            alert("Errore di rete.");
+            console.error(error);
+        });
+    });
+</script>
+
+<script src="../header.js"></script>
+
+</body>
+</html>
