@@ -88,6 +88,35 @@ function inizializzaConfronto(progetto) {
     range.addEventListener("input", update);
     update();
 
+    // Gestisce il trascinamento anche su Safari iOS, dove il range nativo
+    // può non aggiornarsi quando il pollice parte dal cursore grafico.
+    let isDragging = false;
+    const setPositionFromPointer = (clientX) => {
+        const bounds = slider.getBoundingClientRect();
+        if (!bounds.width) return;
+        const percent = Math.min(100, Math.max(0, ((clientX - bounds.left) / bounds.width) * 100));
+        range.value = String(Math.round(percent));
+        range.dispatchEvent(new Event("input", { bubbles: true }));
+    };
+
+    slider.addEventListener("pointerdown", (event) => {
+        if (event.button !== undefined && event.button !== 0) return;
+        isDragging = true;
+        slider.setPointerCapture(event.pointerId);
+        range.focus({ preventScroll: true });
+        setPositionFromPointer(event.clientX);
+    });
+
+    slider.addEventListener("pointermove", (event) => {
+        if (isDragging) setPositionFromPointer(event.clientX);
+    });
+
+    const stopDragging = () => {
+        isDragging = false;
+    };
+    slider.addEventListener("pointerup", stopDragging);
+    slider.addEventListener("pointercancel", stopDragging);
+
     [afterImage, beforeImage].forEach((image) => {
         image.addEventListener("dragstart", (event) => event.preventDefault());
     });

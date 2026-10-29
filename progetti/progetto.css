@@ -32,6 +32,7 @@ body {
     isolation: isolate;
     user-select: none;
     -webkit-user-select: none;
+    touch-action: pan-y;
 }
 
 .comparison-slider[hidden] {
