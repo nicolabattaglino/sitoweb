@@ -580,6 +580,32 @@ body {
     .progetto-container {
         margin-top: -6vh;
         gap: 20px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .progetto-immagini,
+    .comparison-slider {
+        width: 100%;
+    }
+
+    .comparison-handle {
+        width: 52px;
+        height: 52px;
+    }
+
+    .comparison-handle::before {
+        inset: 12px;
+    }
+
+    .comparison-range::-webkit-slider-thumb {
+        width: 52px;
+        height: 52px;
+    }
+
+    .comparison-range::-moz-range-thumb {
+        width: 52px;
+        height: 52px;
     }
 
     #titolo {
