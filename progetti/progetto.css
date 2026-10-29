@@ -587,11 +587,8 @@ body {
     }
 
     .comparison-slider {
-        position: relative;
-        left: 50%;
         width: calc(100vw - 24px);
         max-width: none;
-        transform: translateX(-50%);
     }
 
     .comparison-handle {
