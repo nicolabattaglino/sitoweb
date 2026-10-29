@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     initCustomCursor();
 
-    fetch("../header/header.html")
+    fetch("/header/header.html")
         .then(response => response.text())
         .then(data => {
             // Inserisce l'header all'inizio del body

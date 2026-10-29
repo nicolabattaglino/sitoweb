@@ -1,11 +1,15 @@
 async function caricaProgetto() {
     const urlParams = new URLSearchParams(window.location.search);
-    const slug = urlParams.get("p");
-    const response = await fetch("../data/progetti.json?v=website-v3-armonia-1");
+    const legacySlug = urlParams.get("p");
+    const routeSlug = window.location.pathname.split("/").filter(Boolean).pop();
+    const response = await fetch("/data/progetti.json?v=website-v3-armonia-1");
     const progetti = await response.json();
-    const progetto = progetti.find(proj => proj.slug === slug);
+    const progetto = progetti.find(proj => slugDaTitolo(proj.titolo) === routeSlug || proj.slug === legacySlug);
 
     if (progetto) {
+        if (legacySlug) {
+            window.history.replaceState(null, "", `/progetti/${slugDaTitolo(progetto.titolo)}/`);
+        }
         document.title = progetto.titolo;
         document.getElementById("titolo").innerText = progetto.titolo;
         const sottotitoloEl = document.getElementById("sottotitolo");
@@ -25,7 +29,7 @@ async function caricaProgetto() {
         document.getElementById("tipologia").innerText = progetto.tipologia;
         document.getElementById("superficie").innerText = progetto.superficie;
         document.getElementById("foto_crediti").innerText = progetto.foto_crediti;
-        document.getElementById("immagine_hero").src = progetto.immagine_hero;
+        document.getElementById("immagine_hero").src = percorsoSito(progetto.immagine_hero);
 
         inizializzaConfronto(progetto);
 
@@ -63,7 +67,7 @@ function inizializzaConfronto(progetto) {
     const range = document.getElementById("comparison-range");
     if (!slider || !afterImage || !beforeImage || !range) return;
 
-    const basePath = `../immagini/${encodeURIComponent(progetto.slug)}/`;
+    const basePath = `/immagini/${encodeURIComponent(progetto.slug)}/`;
     afterImage.src = `${basePath}d.png`;
     beforeImage.src = `${basePath}u.png`;
     slider.hidden = false;
@@ -93,7 +97,7 @@ function aggiungiImmagini(griglia, immagini, descrizione) {
     if (!griglia || !Array.isArray(immagini)) return;
     immagini.forEach((imgSrc, index) => {
         const img = document.createElement("img");
-        img.src = imgSrc;
+        img.src = percorsoSito(imgSrc);
         img.alt = `${descrizione} ${index + 1}`;
         img.loading = "lazy";
         img.decoding = "async";
@@ -102,6 +106,16 @@ function aggiungiImmagini(griglia, immagini, descrizione) {
         img.setAttribute("aria-label", `Apri ${img.alt}`);
         griglia.appendChild(img);
     });
+}
+
+function slugDaTitolo(titolo) {
+    return titolo.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+function percorsoSito(percorso) {
+    if (/^(?:https?:|data:|\/)/i.test(percorso)) return percorso;
+    return `/${percorso.replace(/^(?:\.\.\/)+/, "")}`;
 }
 
 // **NUOVA FUNZIONE PER INIZIALIZZARE LA LIGHTBOX**
