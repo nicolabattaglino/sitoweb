@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     initCustomCursor();
 
-    fetch("/header/header.html")
+    fetch("/header/header.html?v=website-v3-nav-2")
         .then(response => response.text())
         .then(data => {
             // Inserisce l'header all'inizio del body
@@ -104,14 +104,11 @@ function initCustomCursor() {
 }
 
 function highlightActiveLink() {
-    let path = window.location.pathname;
-    let navLinks = document.querySelectorAll("nav ul li a");
-
-    navLinks.forEach(link => {
-        let href = link.getAttribute("href").replace("..", "");
-
-        if (path.includes(href)) {
-            link.classList.add("active");
-        }
+    const path = window.location.pathname;
+    document.querySelectorAll("nav ul li a").forEach(link => {
+        const linkPath = new URL(link.href, window.location.origin).pathname;
+        const isHome = linkPath === "/" && path === "/";
+        const isSection = linkPath !== "/" && (path === linkPath || path.startsWith(linkPath));
+        link.classList.toggle("active", isHome || isSection);
     });
 }

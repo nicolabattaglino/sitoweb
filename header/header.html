@@ -18,15 +18,4 @@
             <li><a href="/contatti/">CONTATTI</a></li>
         </ul>
     </nav>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const path = window.location.pathname;
-            document.querySelectorAll("nav ul li a").forEach(link => {
-                const linkPath = new URL(link.href, window.location.origin).pathname;
-                const isHome = linkPath === "/" && path === "/";
-                const isSection = linkPath !== "/" && path.startsWith(linkPath);
-                link.classList.toggle("active", isHome || isSection);
-            });
-        });
-    </script>  
 </header>
